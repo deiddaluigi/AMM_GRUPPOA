@@ -1,13 +1,61 @@
 <!DOCTYPE html>
 <!--
-
+Task 6
+Create un form per l’inserimento di un nuovo oggetto all’interno della pagina venditore.html. Il form
+deve richiedere all’utente le seguenti informazioni, utilizzando le tipologie di input corrette:
+• Nome dell’oggetto
+• URL di una immagine descrittiva dell’oggetto
+• Descrizione dell’oggetto
+• Prezzo
+• Quantità di oggetti disponibili
+Create una sezione di navigazione che permetta di raggiungere la pagina descrizione.html e login.html.
+Inserite le metainformazioni sulla pagina e validatela.
 -->
 <html>
     <head>
         <title> venditore </title>
         <meta charset="UTF-8">
+        <meta name="description" content="inserimento nuove stampanti">
+        <meta name="author" content="Luigi Deidda">
     </head>
     <body>
-        <div> dati del venditore </div>
+        <h1> Inserimento nuove stampanti </h1>
+        <form method="POST">
+            <label for="marca_id"> Marca stampante </label>
+            <select name="marca" id="marca_id">
+                <option value="canon"> Canon </option>
+                <option value="epson"> Epson </option>
+                <option value="hp"> Hp </option>
+                <option value="brother"> Brother </option>
+            </select>
+            <label for="modello_id"> Nome stampante </label>
+            <input type="text" name="modello_name" id="modello_id" value="modello stampante">
+            <label for="url_id"> url immagine stampante </label>
+            <input type="url" name="url_name" id="url_id">
+            <label for="descrizione_id"> caratteristiche della stampante </label>
+            <div>
+                <h2> caratteristiche </h2>
+                <label for="inkjet_id"> inkjet </label>
+                <input type="radio" name="tipo_stampa_name" id="inkjet_id" value="inkjet" >
+                <label for="laser_id"> laser </label>
+                <input type="radio" name="tipo_stampa_name" id="laser_id" value="laser"> 
+                <input type="checkbox" name="altre_caratteristiche" value="multifunzione"> multifunzione <br>   
+                <input type="checkbox" name="altre_caratteristiche" value="wireless"> wireless <br>
+                <input type="checkbox" name="altre_caratteristiche" value="A3"> formato A3 <br>
+                <input type="checkbox" name="altre_caratteristiche" value="fronte_retro"> fronte retro automatico <br>
+                <label for="descrizione_id"> descrizione </label>
+                <textarea  rows="4" cols="30" name="descrizione_name" id="descrizione_id">  </textarea>
+            </div>
+            <label for="prezzo_id"> prezzo unitario € </label>
+            <input type="text" name="prezzo_name" id="prezzo_id" >
+            <label for="quantita_id"> quantit&agrave; di pezzi disponibili </label>
+            <input type="number" name="quantita_name" id="quantita_id"  min="0">
+            <input type="submit" value="Salva">
+            <input type="reset" value="reset">  
+        </form>  
+        <nav>
+            <a href="./descrizione.html"> Descrizione </a>
+            <a href="./login.html"> login </a>
+        </nav>
     </body>
 </html>

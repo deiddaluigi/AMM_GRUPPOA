@@ -1,13 +1,93 @@
 <!DOCTYPE html>
 <!--
-
+Task 5
+Inserite una tabella nella pagina cliente.html che contenga la descrizione di almeno 5 oggetti, che
+includa: nome dell’oggetto, foto descrittiva (piccola), quantità di pezzi disponibili, prezzo e link per
+aggiungere l’oggetto al carrello. Il link deve rimandare alla pagina cliente.html per il momento.
+Create una sezione di navigazione che permetta di raggiungere la pagina descrizione.html e login.html.
+Inserite le metainformazioni sulla pagina e validatela.
 -->
+
 <html>
     <head>
         <title>cliente</title>
         <meta charset="UTF-8">
+        <meta name="description" content="elenco stampanti disponibili per l'acquisto">
+        <meta name="author" content="Luigi Deidda">
     </head>
     <body>
-        <div>dati del cliente</div>
+        <table>
+            <tr>
+                <th> Immagine del prodotto </th>
+                <th> Marca e modello </th>
+                <th> Quantit&agrave; di pezzi disponibili </th>
+                <th> Prezzo unitario </th>
+                <th> Aggiungi al carrello </th>
+            </tr> 
+            <tr>
+                <td> <img   title='Canon iP8750' height="120" 
+                            alt="immagine stampante Canon iP8750"
+                            src="http://www.canon.it/Images/iP8750_Angle4_tcm80-1115696.jpg">
+                </td>
+                <td> CANON iP8750 inkjet </td>
+                <td> 20 </td>
+                <td> € 360,00 </td>
+                <td> <a href="./cliente.html"> aggiungi </a></td>
+            </tr>
+            <tr>
+                <td> <img   title='Canon i-SENSYS MF8550Cdn' height="120" 
+                            alt="immagine stampante Canon i-SENSYS MF8550Cdn"
+                            src="http://www.canon.it/Images/i-Sensys-MF8550Cdn_Default_tcm80-1035436.jpg">
+                </td>
+                <td> CANON i-SENSYS MF8550Cdn laser </td>
+                <td> 4 </td>
+                <td> € 420,00 </td>
+                <td> <a href="./cliente.html"> aggiungi </a></td>
+            </tr>
+            <tr>
+                <td> <img   title='Epson Ecotank et-4550 inkjet' height="70" 
+                            alt="immagine stampante Epson Ecotank et-4550 inkjet"
+                            src="https://www.epson.it/files/assets/converted/510m-310m/e/t/z/4/etz4550_med.png.png">
+                </td>
+                <td> EPSON Ecotank et-4550 inkjet </td>
+                <td> 15 </td>
+                <td> € 500,00 </td>
+                <td> <a href="./cliente.html"> aggiungi </a></td>
+            </tr>
+            <tr>
+                <td> <img   title='Epson workforce AL-MX200DNF laser'  height="80" 
+                            alt="immagine stampante Epson workforce AL-MX200DNF laser"
+                            src="https://www.epson.it/files/assets/converted/510m-310m/a/l/g/m/algmx200dwf_noshadow.png.png">
+                </td>
+                <td> EPSON workforce AL-MX200DNF laser </td>
+                <td> 20 </td>
+                <td> € 382,00 </td>
+                <td> <a href="./cliente.html"> aggiungi </a></td>
+            </tr>
+            <tr>
+                <td> <img   title='Hp Envy 7640 inkjet'  height="80" 
+                            alt="immagine stampante Hp Envy 7640 inkjet"
+                            src="http://www.www8-hp.com/h22175/ItalyStore/Html/Merch/Images/c04385577_500x367.jpg">
+                </td>
+                <td> HP Envy 7640 inkjet </td>
+                <td> 45 </td>
+                <td> € 150,00 </td>
+                <td> <a href="./cliente.html"> aggiungi </a></td>
+            </tr>
+            <tr>
+                <td> <img   title='Brother MFC-J6920DW laser'  height="120" 
+                            alt="immagine stampante Brother MFC-J6920DW laser"
+                            src="http://www.brother.it/~/media/Product%20Images/Devices/Printers/MFCJ/MFCJ6920DW/MFCJ6920DW_main.png">
+                </td>
+                <td> BROTHER MFC-J6920DW laser </td>
+                <td> 14 </td>
+                <td> € 395,00 </td>
+                <td> <a href="./cliente.html"> aggiungi </a></td>
+            </tr>
+        </table>
+        <nav>
+            <a href="./descrizione.html"> Descrizione </a>
+            <a href="./login.html"> login </a>
+        </nav>
     </body>
 </html>

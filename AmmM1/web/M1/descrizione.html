@@ -5,7 +5,7 @@ Inserire all’interno della pagina descrizione.html una breve descrizione del s
 che si vuole implementare: quali oggetti possono essere messi in vendita, le funzionalità a disposizione
 dei venditori e quelle a disposizione dei clienti. Non è molto importante quello che scriverete, dovete
 creare un testo con una gerarchia di sezioni e titoli, che arrivi almeno al livello h3. Inserite un
-sommario con link interni alle sezioni all’inizio della pagina.Create una sezione di navigazione che permetta 
+sommario con link interni alle sezioni all’inizio della pagina. Create una sezione di navigazione che permetta 
 di raggiungere la pagina login.html.
 Inserite le metainformazioni sulla pagina e validatela.
 -->
@@ -13,14 +13,10 @@ Inserite le metainformazioni sulla pagina e validatela.
     <head>
         <title> Home Page </title>
         <meta charset="UTF-8">
+        <meta name="description" content="descrizione stampanti in vendita">
+        <meta name="author" content="Luigi Deidda">
     </head>
     <body>
-        <div>
-            <a href="#descrizione_id"> Descrizione </a>
-            <a href="#vendita_id"> tipologie di stampanti in vendita </a>       
-            <a href="#inkjet_id"> Stampanti a getto d'inchiostro </a>               
-            <a href="#laser_id"> Stampanti laser </a>         
-        </div>
         <div>
             <h1 id="descrizione_id"> Descrizione </h1>
             <h2 id="vendita_id"> Vendita di stampanti digitali </h2>
@@ -46,6 +42,12 @@ Inserite le metainformazioni sulla pagina e validatela.
                 con modelli di formato stampa A4 e A3. Marche: Brother, Canon, Epson.
             </p>
         </div>
+        <nav>
+            <a href="#descrizione_id"> Descrizione </a>
+            <a href="#vendita_id"> Tipologie di stampanti in vendita </a>       
+            <a href="#inkjet_id"> Stampanti a getto d'inchiostro </a>               
+            <a href="#laser_id"> Stampanti laser </a>         
+        </nav>
         <nav>
             <a href='./login.html'> login </a>
         </nav>
