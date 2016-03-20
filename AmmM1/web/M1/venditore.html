@@ -13,52 +13,52 @@ Inserite le metainformazioni sulla pagina e validatela.
 -->
 <html>
     <head>
-        <title> venditore </title>
+        <title>venditore</title>
         <meta charset="UTF-8">
         <meta name="description" content="inserimento nuove stampanti">
         <meta name="author" content="Luigi Deidda">
     </head>
     <body>
-        <h1> Inserimento nuove stampanti </h1>
+        <h1>Inserimento nuove stampanti</h1>
         <form method="POST">
-            <label for="marca_id"> Marca stampante </label>
+            <label for="marca_id">Marca stampante</label>
             <select name="marca" id="marca_id">
-                <option value="canon"> Canon </option>
-                <option value="epson"> Epson </option>
-                <option value="hp"> Hp </option>
-                <option value="brother"> Brother </option>
+                <option value="canon">Canon</option>
+                <option value="epson">Epson</option>
+                <option value="hp">Hp</option>
+                <option value="brother">Brother</option>
             </select>
-            <label for="modello_id"> Nome stampante </label>
+            <label for="modello_id">Nome stampante</label>
             <input type="text" name="modello_name" id="modello_id" value="modello stampante">
-            <label for="url_id"> url immagine stampante </label>
+            <label for="url_id">url immagine stampante</label>
             <input type="url" name="url_name" id="url_id">
             <div>
-                <h2> caratteristiche </h2>
-                <label for="inkjet_id"> inkjet </label>
+                <h2>caratteristiche</h2>
+                <label for="inkjet_id">inkjet</label>
                 <input type="radio" name="tipo_stampa_name" id="inkjet_id" value="inkjet" >
-                <label for="laser_id"> laser </label>
+                <label for="laser_id">laser</label>
                 <input type="radio" name="tipo_stampa_name" id="laser_id" value="laser"> 
-                <label for="colori_id"> a colori </label>
+                <label for="colori_id">a colori</label>
                 <input type="radio" name="gamma_colori_name" id="colori_id" value="colori" >
-                <label for="monocromatica_id"> monocromatica </label>
+                <label for="monocromatica_id">monocromatica</label>
                 <input type="radio" name="gamma_colori_name" id="monocromatica_id" value="monocromatica"> 
-                <input type="checkbox" name="altre_caratteristiche" value="multifunzione"> multifunzione <br>   
-                <input type="checkbox" name="altre_caratteristiche" value="wireless"> wireless <br>
-                <input type="checkbox" name="altre_caratteristiche" value="A3"> formato A3 <br>
-                <input type="checkbox" name="altre_caratteristiche" value="fronte_retro"> fronte retro automatico <br>
-                <label for="descrizione_id"> descrizione </label>
-                <textarea  rows="6" cols="30" name="descrizione_name" id="descrizione_id">  </textarea>
+                <input type="checkbox" name="altre_caratteristiche" value="multifunzione">multifunzione<br>   
+                <input type="checkbox" name="altre_caratteristiche" value="wireless">wireless<br>
+                <input type="checkbox" name="altre_caratteristiche" value="A3">formato A3<br>
+                <input type="checkbox" name="altre_caratteristiche" value="fronte_retro">fronte retro automatico<br>
+                <label for="descrizione_id">descrizione</label>
+                <textarea  rows="6" cols="30" name="descrizione_name" id="descrizione_id"> </textarea>
             </div>
-            <label for="prezzo_id"> prezzo unitario € </label>
+            <label for="prezzo_id">prezzo unitario €</label>
             <input type="text" name="prezzo_name" id="prezzo_id" >
-            <label for="quantita_id"> quantit&agrave; di pezzi disponibili </label>
+            <label for="quantita_id">quantit&agrave; di pezzi disponibili</label>
             <input type="number" name="quantita_name" id="quantita_id"  min="0">
-            <input type="submit" value="Salva">
+            <input type="submit" value="salva">
             <input type="reset" value="reset">  
         </form>  
         <nav>
-            <a href="./descrizione.html"> Descrizione </a>
-            <a href="./login.html"> login </a>
+            <a href="./descrizione.html">Descrizione</a>
+            <a href="./login.html">login</a>
         </nav>
     </body>
 </html>
