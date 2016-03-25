@@ -33,13 +33,18 @@ h1, h2, h3, h4, h5, h6
 {
     color: #1c345a;
 }
-a:link, a:visited
+a
 {
     color: #9e1616;
+    text-decoration: none;
 }
 
 a:hover
 {
     text-decoration: underline;
     font-weight: bold;
+}
+a[href="studente_esami.html"]
+{
+    color: #1c345a;
 }
