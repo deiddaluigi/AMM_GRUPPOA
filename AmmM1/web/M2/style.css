@@ -5,7 +5,7 @@
 body 
 {
     font-size: 16px;/*dimensione font di base equivalente al font paragrafo*/
-    font-family: serif, sans-serif;
+    font-family: Georgia, "Times New Roman", serif, sans-serif;
     background-color: white;
 }
 p
@@ -30,6 +30,12 @@ h3
     font-weight: bold;
     font-style: italic;
 }
+nav
+{
+    margin-left: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
 nav a
 {
     background-color: #042756;
@@ -48,7 +54,6 @@ nav a
         caso di modifica del testo contenuto nel glossario*/
     width: 90%;/*dimensione riquadro rispetto al ridimensionamento della 
         finestra del browser inferiore al valore max-content*/
-    
 }
 a
 {
@@ -62,3 +67,108 @@ nav a:visited
 {
     color: #ffcc75;
 }
+input, .stile_input
+{
+    background-color: #f2f2f2;
+}
+input:focus, .stile_input
+{
+    outline-color: #042756;
+}
+form input[type=submit], form input[type=reset]
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    background-color: #042756;
+    color: white;
+}
+input[type=submit]:focus, input[type=reset]:focus
+{
+    color: #ffcc75;
+}
+.login *
+{
+    display: block;
+    width: 250px;
+    margin: 5px;   
+}
+form
+{
+    width: 350px;
+    margin-left: 20px;
+}
+label, .login
+{
+    font-style: oblique;
+}
+form input, form label, form select, #input_form_id
+{
+    display: block;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+form input[type="radio"], form input[type="checkbox"] 
+{
+    margin-right: 20px;
+    display: inline;
+    width: auto;
+}
+#input_form_id label
+{
+   display: inline;
+}
+.check_box label::before
+{
+    content:'\A';
+    white-space: pre;
+}
+textarea
+{
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+table
+{
+    border-collapse: collapse;
+}
+table th
+{
+    background-color: #042756;
+    border: inset;
+    color: white;
+    height: 40px;
+    text-align: center;
+    padding: 15px;
+}
+img
+{
+    height: 50px;
+}
+table td
+{
+    text-align: center;
+}
+.row_color tr:nth-child(odd)
+{
+    background-color: #f2f2f2;
+}
+table td:first-child
+{
+    background-color: white;
+}
+table td
+{
+    border: inset;
+}
+table a
+{
+    padding: 10px;
+    background-color: #042756;
+    color: white;
+}
+
+
+
