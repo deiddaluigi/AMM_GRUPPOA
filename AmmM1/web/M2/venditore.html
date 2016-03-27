@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!--
+-->
+<html>
+    <head>
+        <title>venditore</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="inserimento nuove stampanti">
+        <meta name="author" content="Luigi Deidda">
+        <link rel="stylesheet" type="text/css" href="./style.css" media="screen">
+    </head>
+    <body>
+        <h1>Inserimento nuove stampanti</h1>
+        <form method="POST">
+            <p>
+                <label for="marca_id">Marca stampante</label>
+                <select name="marca" id="marca_id">
+                    <option value="canon">Canon</option>
+                    <option value="epson">Epson</option>
+                    <option value="hp">Hp</option>
+                    <option value="brother">Brother</option>
+                </select>
+            </p>
+            <p>
+                <label for="modello_id">Nome stampante</label>
+                <input type="text" name="modello_name" id="modello_id" value="modello stampante">
+                <label for="url_id">url immagine stampante</label>
+                <input type="url" name="url_name" id="url_id">
+            </p>
+            <div>
+                <h2>caratteristiche</h2>
+                <p>
+                    <label for="inkjet_id">inkjet</label>
+                    <input type="radio" name="tipo_stampa_name" id="inkjet_id" value="inkjet" >
+                    <label for="laser_id">laser</label>
+                    <input type="radio" name="tipo_stampa_name" id="laser_id" value="laser"> 
+                </p>
+                <p>
+                    <label for="colori_id">a colori</label>
+                    <input type="radio" name="gamma_colori_name" id="colori_id" value="colori" >
+                    <label for="monocromatica_id">monocromatica</label>
+                    <input type="radio" name="gamma_colori_name" id="monocromatica_id" value="monocromatica">
+                </p>
+                <p>
+                    <label for="multifunzione_id">multifunzione</label>
+                    <input type="checkbox" name="altre_caratteristiche_name" value="multifunzione" id="multifunzione_id">  
+                    <label for="wireless_id">wireless</label>
+                    <input type="checkbox" name="altre_caratteristiche_name" value="wireless" id="wireless_id">
+                    <label for="a3_id">formato A3</label>
+                    <input type="checkbox" name="altre_caratteristiche_name" value="a3" id="a3_id">
+                    <label for="fronteRetro_id">fronte-retro automatico</label>
+                    <input type="checkbox" name="altre_caratteristiche_name" value="fronte_retro" id="fronteRetro_id">
+                </p>
+                <label for="descrizione_id">descrizione</label>
+                <textarea  rows="6" cols="30" name="descrizione_name" id="descrizione_id"> </textarea>
+            </div>
+            <label for="prezzo_id">prezzo unitario €</label>
+            <input type="text" name="prezzo_name" id="prezzo_id" >
+            <label for="quantita_id">quantit&agrave; di pezzi disponibili</label>
+            <input type="number" name="quantita_name" id="quantita_id"  min="0">
+            <input type="submit" value="salva">
+            <input type="reset" value="reset">  
+        </form>  
+        <nav>
+            <a href="./descrizione.html">Descrizione</a>
+            <a href="./login.html">login</a>
+        </nav>
+    </body>
+</html>

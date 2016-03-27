@@ -1,0 +1,64 @@
+/* 
+    Created on : 27-mar-2016, 10.26.31
+    Author     : Luigi
+*/
+body 
+{
+    font-size: 16px;/*dimensione font di base equivalente al font paragrafo*/
+    font-family: serif, sans-serif;
+    background-color: white;
+}
+p
+{
+    text-align: justify;
+    font-size: 1em;
+}
+h1
+{
+    color: #042756;
+    font-size: 2em;
+    font-weight: bold;
+}
+h2
+{
+    font-size: 1.2em;
+    font-weight: bold;
+}
+h3
+{
+    font-size: 1em;
+    font-weight: bold;
+    font-style: italic;
+}
+nav a
+{
+    background-color: #042756;
+    color: white;
+    display:inline-block;
+    margin: 1px;
+    padding: 10px;
+    text-align: center;
+}
+#glossario_id a
+{
+    text-align: left;
+    max-width: 250px;/*  max-width: 250px = larghezza del testo max-content
+        impostata a dimensione fissa poiché non vi è piena compatibilità nei 
+        vari browser del valore "max-content". Impostare un valore corretto in 
+        caso di modifica del testo contenuto nel glossario*/
+    width: 90%;/*dimensione riquadro rispetto al ridimensionamento della 
+        finestra del browser inferiore al valore max-content*/
+    
+}
+a
+{
+    text-decoration: none;
+}
+nav a:hover
+{
+    text-decoration: underline;
+}
+nav a:visited
+{
+    color: #ffcc75;
+}
