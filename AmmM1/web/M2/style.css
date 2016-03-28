@@ -10,9 +10,13 @@ body
     font-family: Georgia, "Times New Roman", serif, sans-serif;
     background-color: white;
 }
-h1, h2, h3, p, #sommario_id
+h1, h2, h3, p
 {
-    margin-top: 60px;
+    margin-left: 20px;
+}
+ #sommario_id
+{
+    margin-top: 80px;
     margin-left: 20px;
     margin-right: 20px;
 }
@@ -20,6 +24,7 @@ p
 {
     text-align: justify;
     font-size: 1em;
+    margin-right: 20px;
 }
 h1
 {
@@ -50,7 +55,6 @@ nav a
     color: white;
     padding: 10px;
     text-align: center;
-    
 }
 .barra_navigazione
 {
@@ -71,20 +75,18 @@ nav a
 }
 #sommario_id
 {
-    max-width: 300px;/*  max-width: 250px = larghezza del testo max-content
+    max-width: 300px;/*  max-width: 300px = larghezza del testo max-content
         impostata a dimensione fissa poiché non vi è piena compatibilità nei 
         vari browser del valore "max-content". Impostare un valore corretto in 
         caso di modifica del testo contenuto nel sommario*/
-    width: 90%;/*dimensione riquadro rispetto al ridimensionamento della 
-        finestra del browser inferiore al valore max-content*/
 }
 #sommario_id a
 {
     text-align: left;
     display: inline-block;
     margin: 1px;
-    width: 100%;
-    
+    width: 93%;/*dimensione riquadro rispetto al ridimensionamento della 
+        finestra del browser inferiore al valore max-content*/
 }
 a
 {
@@ -101,10 +103,11 @@ a:visited
 /*Layout sezione form input dati*/
 form
 {
+    margin: auto;/*form a centro pagina*/
     max-width: 500px;
     min-width: 320px;
     width: 90%;
-    margin-top: 20px;
+    margin-top: 60px;
     margin-bottom: 20px;
     padding: 20px;
 }
@@ -119,15 +122,23 @@ label
 input, .stile_input
 {
     background-color: #f2f2f2;
+    padding-right: 5px;
+    padding-left: 5px;
 }
-input:focus, .stile_input
+input:focus, .stile_input:focus
 {
     outline-color: #042756;
 }
-form input, form p label, form select, #input_form_id
+form select
+{
+    width: 79%;
+    display: block;
+
+}
+form input, form p label, #input_form_id
 {
     display: block;
-    width: 80%;/* percentuale ripetto alla dimensione del form in cui è contenuto*/
+    width: 76%;/* percentuale ripetto alla dimensione del form in cui è contenuto*/
     margin-top: 5px;
     margin-bottom: 5px;
 }
@@ -169,14 +180,15 @@ form textarea
     margin-top: 10px;
     margin-bottom: 10px;
     margin-left: 0;
-    width: 50%;
+    width: 45%;
+    text-align: right;
 }
 #pr_q label/*layout campi prezzo e quantità*/
 {
     display: inline-block;
     margin-top: 10px;
     margin-bottom: 10px;
-    margin-left: 10%;
+    margin-left: 12%;
     width: 30%;
 }
 form input[type=submit], form input[type=reset]
@@ -212,6 +224,7 @@ input[type=submit]:focus, input[type=reset]:focus
 /*Layout tabelle dei prodotti*/
 table
 {
+    margin: auto;/*tabella a centro pagina*/
     margin-top: 60px;
     border-collapse: collapse;
 }
@@ -224,13 +237,15 @@ table th
     text-align: center;
     padding: 15px;
 }
-img
+table img
 {
-    height: 50px;
+    max-height: 70px;
 }
 table td
 {
+    height: 70px;
     text-align: center;
+    border: inset;
 }
 .row_color tr:nth-child(odd)
 {
@@ -239,17 +254,23 @@ table td
 table td:first-child
 {
     background-color: white;
+    width: 30px;
 }
-table td
+/*table td:nth-of-type(3)
 {
-    border: inset;
+    width: 20px;
 }
+table td:nth-of-type(4)
+{
+    width: 70px;
+}
+table td:nth-of-type(5)
+{
+    width: 30px;
+}*/
 table a
 {
     padding: 10px;
     background-color: #042756;
     color: white;
 }
-
-
-
