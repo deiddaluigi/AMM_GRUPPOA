@@ -60,12 +60,11 @@ nav a
 {
     background-color: #042756;
     width: 100%;
+    min-width: 320px;
     padding: 10px;
     position: fixed;
-    overflow: hidden;
     top: 0;
     left: 0;
-    float: left;
     box-shadow: 0px 0px 10px #042756;
 }
 .barra_navigazione a
@@ -173,6 +172,8 @@ form textarea
     width: 100%;/* percentuale ripetto alla dimensione del div in cui è contenuto*/
     margin-top: 5px;
     margin-bottom: 5px;
+    padding-bottom: 5px;
+    padding-top: 5px;
 }
 #pr_q input/*layout campi prezzo e quantità*/
 {
