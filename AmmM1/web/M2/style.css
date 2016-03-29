@@ -51,7 +51,7 @@ nav
 nav a
 {
     background-color: #042756;
-    display: inline-block;
+    display: inline;
     color: white;
     padding: 10px;
     text-align: center;
@@ -61,7 +61,6 @@ nav a
     background-color: #042756;
     width: 100%;
     min-width: 320px;
-    padding: 10px;
     position: fixed;
     top: 0;
     left: 0;
@@ -69,8 +68,10 @@ nav a
 }
 .barra_navigazione a
 {
-    display: inline;
+    padding: 10px;
+    display: inline-block;
     border-right:1px solid white;
+
 }
 #sommario_id
 {
