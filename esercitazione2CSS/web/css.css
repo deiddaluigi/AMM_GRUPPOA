@@ -1,0 +1,52 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 30-mar-2016, 17.08.36
+    Author     : studente
+*/
+#div1
+{
+    margin-top: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-color: beige;
+}
+#div2
+{
+    margin-top: 10px;
+    position: absolute;
+    top: 110px;
+    left: 5%;
+    width: 90%;
+    height: 150px;
+    background-color: #fcd104;
+}
+#div3
+{
+    margin-top: 10px;
+    margin-left: 2%;
+    position: absolute;
+    top: 270px;
+    left: 0;
+    width: 47%;
+    height: 100px;
+    background-color: grey;
+}
+#div4
+{
+    margin-top: 10px;
+    margin-right: 2%;
+    position: absolute;
+    top: 270px;
+    right: 0;
+    width: 47%;
+    height: 100px;
+    background-color: yellowgreen;
+}
+
