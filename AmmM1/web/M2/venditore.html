@@ -29,7 +29,7 @@
                     <input type="url" name="url_name" id="url_id">
                 </p>
             </div>
-            <div id="input_form_id">
+            <div id="input_caratteristiche_id">
                 <h2>caratteristiche</h2>
                 <p>
                     <label for="inkjet_id">inkjet</label>
@@ -43,16 +43,20 @@
                     <label for="monocromatica_id">monocromatica</label>
                     <input type="radio" name="gamma_colori_name" id="monocromatica_id" value="monocromatica">
                 </p>
-                <p class="check_box">
-                    <label for="multifunzione_id">multifunzione</label>
-                    <input type="checkbox" name="altre_caratteristiche_name" value="multifunzione" id="multifunzione_id">  
-                    <label for="wireless_id">wireless</label>
-                    <input type="checkbox" name="altre_caratteristiche_name" value="wireless" id="wireless_id">
-                    <label for="a3_id">formato A3</label>
-                    <input type="checkbox" name="altre_caratteristiche_name" value="a3" id="a3_id">
-                    <label for="fronteRetro_id">fronte-retro automatico</label>
-                    <input type="checkbox" name="altre_caratteristiche_name" value="fronte_retro" id="fronteRetro_id">
-                </p>
+                <div class="checkbox">
+                    <p>
+                        <label for="multifunzione_id">multifunzione</label>
+                        <input type="checkbox" name="altre_caratteristiche_name" id="multifunzione_id" value="multifunzione">  
+                        <label for="wireless_id">wireless</label>
+                        <input type="checkbox" name="altre_caratteristiche_name"  id="wireless_id" value="wireless">
+                    </p>
+                    <p>
+                        <label for="a3_id">formato A3</label>
+                        <input type="checkbox" name="altre_caratteristiche_name" id="a3_id" value="a3">
+                        <label for="fronteRetro_id">fronte-retro automatico</label>
+                        <input type="checkbox" name="altre_caratteristiche_name" id="fronteRetro_id" value="fronte_retro">
+                    </p>
+                </div>
                 <label for="descrizione_id">descrizione</label>
                 <textarea class="stile_input" rows="6" cols="30" name="descrizione_name" id="descrizione_id"> </textarea>
             </div>
