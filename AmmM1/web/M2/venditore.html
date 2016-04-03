@@ -9,71 +9,85 @@
         <meta name="author" content="Luigi Deidda">
         <link rel="stylesheet" type="text/css" href="./style.css" media="screen">
     </head>
-    <body>       
-        <form method="POST">
-            <div>
-            <h1>Inserimento nuove stampanti</h1>
-                <p>
-                    <label for="marca_id">Marca stampante</label>
-                    <select class="stile_input" name="marca" id="marca_id">
-                        <option value="canon">Canon</option>
-                        <option value="epson">Epson</option>
-                        <option value="hp">Hp</option>
-                        <option value="brother">Brother</option>
-                    </select>
-                </p>
-                <p>
-                    <label for="modello_id">Nome stampante</label>
-                    <input type="text" name="modello_name" id="modello_id" value="modello stampante">
-                    <label for="url_id">URL immagine stampante</label>
-                    <input type="url" name="url_name" id="url_id">
-                </p>
+    <body>
+        <div id="page">
+            <div id="header">
             </div>
-            <div id="input_caratteristiche_id">
-                <h2>caratteristiche</h2>
-                <p>
-                    <label for="inkjet_id">inkjet</label>
-                    <input type="radio" name="tipo_stampa_name" id="inkjet_id" value="inkjet" >
-                    <label for="laser_id">laser</label>
-                    <input type="radio" name="tipo_stampa_name" id="laser_id" value="laser"> 
-                </p>
-                <p>
-                    <label for="colori_id">a colori</label>
-                    <input type="radio" name="gamma_colori_name" id="colori_id" value="colori" >
-                    <label for="monocromatica_id">monocromatica</label>
-                    <input type="radio" name="gamma_colori_name" id="monocromatica_id" value="monocromatica">
-                </p>
-                <div class="checkbox">
-                    <p>
-                        <label for="multifunzione_id">multifunzione</label>
-                        <input type="checkbox" name="altre_caratteristiche_name" id="multifunzione_id" value="multifunzione">  
-                        <label for="wireless_id">wireless</label>
-                        <input type="checkbox" name="altre_caratteristiche_name"  id="wireless_id" value="wireless">
-                    </p>
-                    <p>
-                        <label for="a3_id">formato A3</label>
-                        <input type="checkbox" name="altre_caratteristiche_name" id="a3_id" value="a3">
-                        <label for="fronteRetro_id">fronte-retro automatico</label>
-                        <input type="checkbox" name="altre_caratteristiche_name" id="fronteRetro_id" value="fronte_retro">
-                    </p>
-                </div>
-                <label for="descrizione_id">descrizione</label>
-                <textarea class="stile_input" rows="6" cols="30" name="descrizione_name" id="descrizione_id"> </textarea>
+            <div id="content">
+                <form method="POST">
+                    <div>
+                    <h1>Inserimento nuove stampanti</h1>
+                        <p>
+                            <label for="marca_id">Marca stampante</label>
+                            <select class="stile_input" name="marca" id="marca_id">
+                                <option value="canon">Canon</option>
+                                <option value="epson">Epson</option>
+                                <option value="hp">Hp</option>
+                                <option value="brother">Brother</option>
+                            </select>
+                        </p>
+                        <p>
+                            <label for="modello_id">Nome stampante</label>
+                            <input type="text" name="modello_name" id="modello_id" value="modello stampante">
+                            <label for="url_id">URL immagine stampante</label>
+                            <input type="url" name="url_name" id="url_id">
+                        </p>
+                    </div>
+                    <div id="input_caratteristiche_id">
+                        <h2>caratteristiche</h2>
+                        <p>
+                            <label for="inkjet_id">inkjet</label>
+                            <input type="radio" name="tipo_stampa_name" id="inkjet_id" value="inkjet" >
+                            <label for="laser_id">laser</label>
+                            <input type="radio" name="tipo_stampa_name" id="laser_id" value="laser"> 
+                        </p>
+                        <p>
+                            <label for="colori_id">a colori</label>
+                            <input type="radio" name="gamma_colori_name" id="colori_id" value="colori" >
+                            <label for="monocromatica_id">monocromatica</label>
+                            <input type="radio" name="gamma_colori_name" id="monocromatica_id" value="monocromatica">
+                        </p>
+                        <div class="checkbox">
+                            <p>
+                                <label for="multifunzione_id">multifunzione</label>
+                                <input type="checkbox" name="altre_caratteristiche_name" id="multifunzione_id" value="multifunzione">  
+                                <label for="wireless_id">wireless</label>
+                                <input type="checkbox" name="altre_caratteristiche_name"  id="wireless_id" value="wireless">
+                            </p>
+                            <p>
+                                <label for="a3_id">formato A3</label>
+                                <input type="checkbox" name="altre_caratteristiche_name" id="a3_id" value="a3">
+                                <label for="fronteRetro_id">fronte-retro automatico</label>
+                                <input type="checkbox" name="altre_caratteristiche_name" id="fronteRetro_id" value="fronte_retro">
+                            </p>
+                        </div>
+                        <label for="descrizione_id">descrizione</label>
+                        <textarea class="stile_input" rows="6" cols="30" name="descrizione_name" id="descrizione_id"> </textarea>
+                    </div>
+                    <div id="pr_q">
+                        <label for="prezzo_id">prezzo unitario €</label>
+                        <input type="text" name="prezzo_name" id="prezzo_id" >
+                        <label for="quantita_id">quantit&agrave; di pezzi disponibili</label>
+                        <input type="number" name="quantita_name" id="quantita_id"  min="0">
+                    </div>
+                    <div>
+                        <input type="submit" value="salva">
+                        <input type="reset" value="reset">  
+                    </div>
+                </form> 
             </div>
-            <div id="pr_q">
-                <label for="prezzo_id">prezzo unitario €</label>
-                <input type="text" name="prezzo_name" id="prezzo_id" >
-                <label for="quantita_id">quantit&agrave; di pezzi disponibili</label>
-                <input type="number" name="quantita_name" id="quantita_id"  min="0">
+            <div id="blank">
             </div>
-            <div>
-                <input type="submit" value="salva">
-                <input type="reset" value="reset">  
+            <div id="footer">
+                Stampanti srl - Cagliari - P. IVA 01234567890
             </div>
-        </form>  
-        <nav class="barra_navigazione">
-            <a href="./descrizione.html">Descrizione</a>
-            <a href="./login.html">login</a>
-        </nav>
+            <nav class="barra_navigazione">
+                <a href="./descrizione.html">Descrizione</a>
+                <a href="./login.html">login</a>
+            </nav>
+            <a href="./cliente.html" class="icone_nav"><img title="carrello" 
+                                    alt="Vai al carrello"
+                                    src="./icone/icona_carrello.png"></a>
+        </div>
     </body>
 </html>

@@ -10,17 +10,31 @@
         <link rel="stylesheet" type="text/css" href="./style.css" media="screen">
     </head>
     <body>
-        <form class="login" method="POST">
-            <h2>Login</h2>
-            <label for="username_id">Username</label>
-            <input type="text" name="username_name" id="username_id" value="inserisci username">
-            <label for="pswd_id">Password</label>
-            <input type="password" name="pswd_name" id="pswd_id" value="non visibile">
-        </form>  
-        <nav class="barra_navigazione">
-            <a href="./descrizione.html">Descrizione</a>
-            <a href="./cliente.html">Cliente</a>
-            <a href="./venditore.html">Venditore</a>
-        </nav>
+        <div id="page">
+            <div id="header">
+            </div>
+            <div id="content">
+                <form class="login" method="POST">
+                    <h2>Login</h2>
+                    <label for="username_id">Username</label>
+                    <input type="text" name="username_name" id="username_id" value="inserisci username">
+                    <label for="pswd_id">Password</label>
+                    <input type="password" name="pswd_name" id="pswd_id" value="non visibile">
+                </form>  
+            </div>
+            <div id="blank">
+            </div>
+            <div id="footer">
+                Stampanti srl - Cagliari - P. IVA 01234567890
+            </div>
+            <nav class="barra_navigazione">
+                <a href="./descrizione.html">Descrizione</a>
+                <a href="./cliente.html">Cliente</a>
+                <a href="./venditore.html">Venditore</a>
+            </nav>
+            <a href="./cliente.html" class="icone_nav"><img title="carrello" 
+                                    alt="Vai al carrello"
+                                    src="./icone/icona_carrello.png"></a>
+        </div>
     </body>
 </html>
