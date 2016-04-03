@@ -16,7 +16,6 @@ body
     margin: auto;
     position: relative;
     top: 80px;
-
 }
 #header
 {
@@ -26,18 +25,19 @@ body
     width: 100%;
     height: 20px;
     position: fixed;
-    top: 0px;
-    left: 0;
+    top: 0;
 }
 #sidebar1
 {
     float: left;
-    width: 200px;
+    width: 210px;
 }
 #sidebar2
 {
     float: right;
-    width: 200px; 
+    width: 210px;
+    text-align: left;
+    margin-right: 20px;
 }
 #sidebar2 a:link
 {
@@ -45,8 +45,6 @@ body
 }
 #content
 {
-    margin: auto;
-    width: 60%;
     min-width: 280px;
 }
 #blank
@@ -67,7 +65,7 @@ h1, h2, h3, p
 {
     margin-left: 20px;
 }
- #sommario_id, #sidebar_sommario_id
+#sidebar_sommario_id
 {
     margin-left: 20px;
     margin-right: 20px;
@@ -123,7 +121,6 @@ nav a
 {
     padding: 10px;
     display: inline-block;
-
 }
 .barra_navigazione a:hover
 {
@@ -146,14 +143,14 @@ nav a
     padding-right: 20px;
     height: 30px;
 }
-#sommario_id, #sidebar_sommario_id
+#sidebar_sommario_id
 {
     max-width: 300px;/*  max-width: 300px = larghezza del testo max-content
         impostata a dimensione fissa poiché non vi è piena compatibilità nei 
         vari browser del valore "max-content". Impostare un valore corretto in 
         caso di modifica del testo contenuto nel sommario*/
 }
-#sommario_id a, #sidebar_sommario_id a
+#sidebar_sommario_id a
 {
     text-align: left;
     display: inline-block;
@@ -183,7 +180,7 @@ form
 }
 form *
 {
-    margin: auto;/*posizionamento di ogni blocco del form al centro del form stesso*/
+    margin: auto;/*posizionamento di ogni blocco del form al centro*/
 }
 label
 {
@@ -201,7 +198,6 @@ form select
 {  
     width: 100%;
     display: block;
-
 }
 form input, form p label, #input_caratteristiche_id
 {
@@ -230,7 +226,6 @@ form input, form p label, #input_caratteristiche_id
     text-align: right;
     display: inline-block;
     width: 38%;
-
 }
 #input_caratteristiche_id
 {
@@ -285,7 +280,7 @@ input[type=submit]:hover, input[type=reset]:hover
     margin-top: 40px;
     margin-bottom: 30px;
     background-color: #042756;
-    border-color: #042756;
+    border: none;
     color: white;
 }
 .login input[type=submit]:hover
@@ -298,8 +293,7 @@ input[type=submit]:hover, input[type=reset]:hover
 {
     width: 60%;
     display: block;
-    margin: auto; 
-    
+    margin: auto;  
 }
 .login input
 {
@@ -378,51 +372,49 @@ table a
 /*sezione Layout responsive*/
 @media only screen  and (min-width: 1024px)
 {
-    #content #sommario_id
-    {
-        display: none;
-    }
     #sidebar_sommario_id
     {
-        margin-left: 0;
+        margin-left: 5px;
         width: 210px;
     }
-    
+    #content
+    {
+        margin-left: 220px;
+        margin-right: 220px;
+    }
 }
 @media only screen  and (min-width: 480px)
                     and (max-width: 1024px)
 {
-    #content #sommario_id
+    #sidebar_sommario_id
     {
-        display: none;
+        margin-left: 5px;
+        width: 210px;
     }
     #sidebar2
     {
         display: none;
     }
-    #sidebar_sommario_id
-    {
-        margin-left: 0;
-        width: 190px;    
-    }
     #content
     {
-        width: 60%;
-        min-width: 280px;
-        margin-left: 200px;
+        margin-left: 220px;
         margin-right: 10px;
     }
 }
 @media only screen  and (max-width: 480px)
 {
-    #sidebar1, #sidebar2, .icone_nav 
+    #sidebar1
+    {
+        margin-left: 5px;  
+        min-width: 280px;
+    }
+    #sidebar2, .icone_nav 
     {
         display: none;
     }
-    #content
+    #content, #sidebar1
     {
         width: 98%;
-        min-width: 280px;
         margin-left: 5px;
         margin-right: 5px;
     }
