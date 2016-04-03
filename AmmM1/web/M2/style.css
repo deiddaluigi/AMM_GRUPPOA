@@ -39,6 +39,10 @@ body
     float: right;
     width: 200px; 
 }
+#sidebar2 a:link
+{
+   color: #042756; 
+}
 #content
 {
     margin: auto;
