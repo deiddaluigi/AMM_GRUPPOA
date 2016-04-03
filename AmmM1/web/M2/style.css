@@ -20,6 +20,7 @@ body
 }
 #header
 {
+    z-index: 2;
     text-align: center;
     background-color: #f2f2f2;
     width: 100%;
@@ -54,7 +55,7 @@ body
     background-color: #042756;
     color: white;
     text-align: center;
-    padding: 10px;
+    padding: 5px;
     letter-spacing: 2px;
     margin-top: 30px;
 }
@@ -105,6 +106,7 @@ nav a
 }
 .barra_navigazione
 {
+    z-index: 1;
     background-color: #042756;
     width: 100%;
     min-width: 320px;
@@ -117,10 +119,13 @@ nav a
 {
     padding: 10px;
     display: inline-block;
-    border-right-style: solid;
-    border-right-color: white;
-    border-right-width: 1px;
 
+}
+.barra_navigazione a:hover
+{
+    text-decoration: none;
+    background-color: white;
+    color: #042756; 
 }
 .icone_nav 
 {
@@ -128,6 +133,7 @@ nav a
     top: 20px;
     right: 0px;
     float: right;
+    z-index: 2;
 }
 .icone_nav img
 {
@@ -153,7 +159,7 @@ nav a
 }
 a
 {
-    text-decoration: none;
+    text-decoration: none;   
 }
 a:hover
 {
@@ -173,7 +179,7 @@ form
 }
 form *
 {
-    margin: auto;/*posizionamento di ogni elemento del form al centro del form stesso*/
+    margin: auto;/*posizionamento di ogni blocco del form al centro del form stesso*/
 }
 label
 {
@@ -365,6 +371,7 @@ table a
     background-color: #042756;
     color: white;
 }
+/*sezione Layout responsive*/
 @media only screen  and (min-width: 1024px)
 {
     #content #sommario_id
