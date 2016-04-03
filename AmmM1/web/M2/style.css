@@ -269,6 +269,7 @@ form textarea
     width: 35%;
     background-color: #042756;
     color: white;
+    border: none;
 }
 input[type=submit]:hover, input[type=reset]:hover
 {
