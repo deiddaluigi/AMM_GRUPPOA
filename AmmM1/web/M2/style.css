@@ -35,6 +35,10 @@ a:hover
 {
     text-decoration: underline;
 }
+a:link
+{
+    color: white;
+}
 a:visited
 {
     color: #ffcc75;
@@ -61,13 +65,13 @@ a:visited
     margin-right: 20px;
     color: #042d86;
 }
-#sidebar1 li a:visited
-{
-    color: #042d86;
-}
-#sidebar1 li a:link
+#sidebar1 li a:link, #link_registrazione a:link
 {
    color: #042756; 
+}
+#sidebar1 li a:visited, #link_registrazione a:visited
+{
+    color: #042d86;
 }
 #content
 {
