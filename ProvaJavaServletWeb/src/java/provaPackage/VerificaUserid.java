@@ -40,7 +40,8 @@ public class VerificaUserid extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Hai inserito il seguente user id:</h1>");
-            String nome = request.getParameter("userid");
+            String nome;
+            nome = request.getParameter("userid");
             if ( nome != null)
                 out.println("<p> " + nome + " </p>");
             else 
