@@ -40,7 +40,7 @@ public class ModuloUserId extends HttpServlet {
             out.println("</head>");
             out.println("<body>");         
             out.println("<p>Inserire un nome:</p>");
-            out.println("<form action=\"VerificaUserid\" method=\"post\">");
+            out.println("<form action=\"testAnnotazioni\" method=\"post\">");
             out.println("<input type=\"text\" name=\"userid\" >");
             out.println("<input type=\"submit\" name=\"invia\">");
             out.println("</form>");

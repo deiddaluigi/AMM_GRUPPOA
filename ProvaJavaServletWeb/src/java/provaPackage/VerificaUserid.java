@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Luigi
  */
-@WebServlet(name = "VerificaUserid", urlPatterns = {"/VerificaUserid"})
+@WebServlet(name = "VerificaUserid", urlPatterns = {"/testAnnotazioni"})
 public class VerificaUserid extends HttpServlet {
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
