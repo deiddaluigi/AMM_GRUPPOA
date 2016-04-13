@@ -82,7 +82,7 @@
                         ${studente.id}
                     </div>
                     <c:forEach var="materia" items="${studente.esamiSuperati}">
-                               <li>${esame.nome} - ${esame.voto}</li>
+                               <li>${esame.materia.nome} - ${esame.voto}</li>
                     </c:forEach>
                 </div>
             </div>

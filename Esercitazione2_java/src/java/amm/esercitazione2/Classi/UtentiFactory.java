@@ -80,7 +80,7 @@ public class UtentiFactory {
         arrayEsamiStudente_1.add(esame_1);
         arrayEsamiStudente_1.add(esame_2);
         studente_1.setEsamiSuperati(arrayEsamiStudente_1);
-
+        listaUtenti.add(studente_1);
         // Studente 2
         Studente studente_2 = new Studente();
         studente_2.setUsername("CherchiGianmarco");

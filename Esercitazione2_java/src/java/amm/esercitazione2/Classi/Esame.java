@@ -19,14 +19,14 @@ public class Esame {
     /**
      * @return the materiaId
      */
-    public Materia getMateriaId() {
+    public Materia getMateria() {
         return materia;
     }
 
     /**
      * @param materiaId the materiaId to set
      */
-    public void setMateriaId(Materia materia) {
+    public void setMateria(Materia materia) {
         this.materia = materia;
     }
 

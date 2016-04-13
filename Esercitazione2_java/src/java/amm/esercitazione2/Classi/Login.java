@@ -3,9 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package amm.esercitazione2.Classi;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author studente
  */
-@WebServlet(urlPatterns = {"/Login"})
+@WebServlet(name = "Login", urlPatterns = {"/Login"})
 public class Login extends HttpServlet {
 
     /**
@@ -31,18 +33,34 @@ public class Login extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Login</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet Login at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+        if(request.getParameter("Submit")!=null)
+        {  
+            String username = request.getParameter("Username");
+            String password = request.getParameter("Password");
+            
+            ArrayList<Utente> listaUtenti = UtentiFactory.getInstance().getUserList();
+            for(Utente u : listaUtenti) 
+            {
+                if(u.getUsername().equals(username) &&
+                   u.getPassword().equals(password))
+                {
+                    if (u instanceof Professore)
+                    {
+                        request.setAttribute("professore", u);
+                        request.getRequestDispatcher("pag_professore.jsp").forward(request,response);
+                    }
+                    else
+                    {
+                        request.setAttribute("studente", u);
+                        request.getRequestDispatcher("pag_studente.jsp").forward(request,response);
+                    }
+                }
+            }
+        }  
+
+        else
+            request.getRequestDispatcher("form1.jsp").forward(request,response);
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
