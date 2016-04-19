@@ -6,11 +6,13 @@
 package amm.esercitazione2.Classi;
 
 import java.util.ArrayList;
+import javax.servlet.annotation.WebServlet;
 
 /**
  *
  * @author Alessandro
  */
+@WebServlet(name = "Professore", urlPatterns = {"/Professore"})
 public class Professore extends Utente {
     /* Attributi */
     private ArrayList<Materia> corsiAssegnati = new ArrayList<Materia>(); 

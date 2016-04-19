@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "Login", urlPatterns = {"/Login"})
 public class Login extends HttpServlet {
-
+boolean flagErrori = false;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -33,18 +33,18 @@ public class Login extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        if(request.getParameter("Submit")!=null)
+        if(request.getParameter("submit_name")!= null)
         {  
-            String username = request.getParameter("Username");
-            String password = request.getParameter("Password");
+            String username = request.getParameter("user");
+            String password = request.getParameter("password");
             
             ArrayList<Utente> listaUtenti = UtentiFactory.getInstance().getUserList();
             for(Utente u : listaUtenti) 
             {
-                if(u.getUsername().equals(username) &&
-                   u.getPassword().equals(password))
+                if((u.getUsername().equals(username) &&
+                   u.getPassword().equals(password)))
                 {
-                    if (u instanceof Professore)
+                    if ((u instanceof Professore))
                     {
                         request.setAttribute("professore", u);
                         request.getRequestDispatcher("pag_professore.jsp").forward(request,response);
@@ -54,12 +54,21 @@ public class Login extends HttpServlet {
                         request.setAttribute("studente", u);
                         request.getRequestDispatcher("pag_studente.jsp").forward(request,response);
                     }
-                }
+                }               
             }
-        }  
-
-        else
+            
+                {
+                    flagErrori = true;
+                    request.setAttribute("flagErrori_attributo", flagErrori);
+                    request.getRequestDispatcher("form1.jsp").forward(request,response);
+                }    
+        }
+        else 
+        {
             request.getRequestDispatcher("form1.jsp").forward(request,response);
+        }
+
+        
         
     }
 

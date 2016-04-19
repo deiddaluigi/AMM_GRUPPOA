@@ -76,7 +76,7 @@
             <div id="content">
                 <div class="input-form">
                     <h3>Bentornato, 
-                        $[studente.nome} ${studente.cognome}
+                        ${studente.nome} ${studente.cognome}
                     </h3>
                     <div>
                         ${studente.id}

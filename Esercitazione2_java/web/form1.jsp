@@ -3,7 +3,7 @@
     Created on : 13-apr-2016, 15.50.09
     Author     : studente
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
@@ -87,9 +87,12 @@
                             <input type="password" name="password" id="password"> 
                         </p>
                         <p>
-                            <input type="submit" value="Login">?
+                            <input type="submit" value="Login" name="submit_name">?
                         </p>
                     </form>
+                    <c:if test = "${flagErrori_attributo}">
+                        <p>username e password errati</p>
+                    </c:if>
                 </div>
             </div>
 
