@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--
+Task 4:
+Inserire all’interno della pagina di login.html un form per richiedere username e 
+password all’utente, utilizzando i campi di input corretti.
+Create una sezione di navigazione che permetta di raggiungere la pagina 
+descrizione.html, cliente.html e venditore.html.
+Inserite le metainformazioni sulla pagina e validatela. 
+-->
+<html>
+    <head>
+        <title>login</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="inserimento credenziali cliente">
+        <meta name="author" content="Luigi Deidda">
+    </head>
+    <body>
+        <form method="POST">
+            <label for="username_id">Username</label>
+            <input type="text" name="username_name" id="username_id" value="scegli username">
+            <label for="pswd_id">Password</label>
+            <input type="password" name="pswd_name" id="pswd_id" value="non visibile">
+        </form>  
+        <nav>
+            <a href="./descrizione.html">Descrizione</a>
+            <a href="./cliente.html">Cliente</a>
+            <a href="./venditore.html">Venditore</a>
+        </nav>
+    </body>
+</html>
