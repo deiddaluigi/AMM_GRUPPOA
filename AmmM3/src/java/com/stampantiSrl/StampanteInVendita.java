@@ -14,16 +14,17 @@ public class StampanteInVendita {
     private static int progressivo_id = 0;
     private String marca, modello;
     private String urlImmagine;
-    private String tipoStampa, gammaColori, altreCaratteristiche;
+    private String tipoStampa, gammaColori;
+    private boolean multifunzione, wireless, a3, fronteRetro;
     private String descrizione;
     private double prezzoUnitario; // espresso in Euro
     private int quantita; //quantita' di pezzi disponibili
-
+    
     public StampanteInVendita (String marca, String modello){
         progressivo_id++;
         id = progressivo_id;
         this.marca = marca;
-        this.modello = modello;   
+        this.modello = modello; 
     }
     
     /**
@@ -104,19 +105,61 @@ public class StampanteInVendita {
     }
 
     /**
-     * @return the altreCaratteristiche
+     * @return the multifunzione
      */
-    public String getAltreCaratteristiche() {
-        return altreCaratteristiche;
+    public boolean isMultifunzione() {
+        return multifunzione;
     }
 
     /**
-     * @param altreCaratteristiche the altreCaratteristiche to set
+     * @param multifunzione the multifunzione to set
      */
-    public void setAltreCaratteristiche(String altreCaratteristiche) {
-        this.altreCaratteristiche = altreCaratteristiche;
+    public void setMultifunzione(boolean multifunzione) {
+        this.multifunzione = multifunzione;
     }
 
+    /**
+     * @return the wireless
+     */
+    public boolean isWireless() {
+        return wireless;
+    }
+
+    /**
+     * @param wireless the wireless to set
+     */
+    public void setWireless(boolean wireless) {
+        this.wireless = wireless;
+    }
+
+    /**
+     * @return the a3
+     */
+    public boolean isA3() {
+        return a3;
+    }
+
+    /**
+     * @param a3 the a3 to set
+     */
+    public void setA3(boolean a3) {
+        this.a3 = a3;
+    }
+
+    /**
+     * @return the fronteRetro
+     */
+    public boolean isFronteRetro() {
+        return fronteRetro;
+    }
+
+    /**
+     * @param fronteRetro the fronteRetro to set
+     */
+    public void setFronteRetro(boolean fronteRetro) {
+        this.fronteRetro = fronteRetro;
+    }
+    
     /**
      * @return the descrizione
      */

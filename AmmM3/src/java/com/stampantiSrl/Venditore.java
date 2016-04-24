@@ -12,7 +12,7 @@ package com.stampantiSrl;
  */
 public class Venditore extends Account{
     private String ragioneSociale;
-    private int p_iva;
+    private String p_iva;
     private TipoAccount account;
     
     public Venditore(String ragioneSociale){
@@ -20,13 +20,13 @@ public class Venditore extends Account{
         account = TipoAccount.VENDITORE;
         this.ragioneSociale = ragioneSociale;
     }
-    public void setP_iva(int p_iva){
+    public void setP_iva(String p_iva){
         this.p_iva = p_iva;
     }
     public String getRagioneSociale(){
         return ragioneSociale;
     }
-    public int getP_iva(){
+    public String getP_iva(){
         return p_iva;
     }
     @Override
