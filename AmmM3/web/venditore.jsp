@@ -1,6 +1,11 @@
+<%-- 
+    Document   : venditore
+    Created on : 24-apr-2016, 18.44.54
+    Author     : Luigi
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--
--->
 <html>
     <head>
         <title>venditore</title>
@@ -78,9 +83,7 @@
             </div>
             <div id="blank">
             </div>
-            <div id="footer-1">
-                Stampanti srl - Cagliari - P. IVA 01234567890
-            </div>
+            <jsp:include page="footer-1.jsp"/>
             <nav class="barra_navigazione">
                 <a href="./descrizione.html">Descrizione</a>
                 <a href="./login.html">login</a>

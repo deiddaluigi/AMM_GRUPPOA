@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.stampantiSrl;
+package com.stampantiSrl.classi;
 
 /**
  *
@@ -31,7 +31,7 @@ public class ContoCorrente {
     public void versamento(double importoVersamento){
         if (importoVersamento >= 0) {
             saldo += importoVersamento;
-        } else throw new RuntimeException("Errore. L'importo della ricarica deve essere maggiore o uguale a zero.");
+        } else throw new RuntimeException("Errore. L'importo del versamento deve essere maggiore o uguale a zero.");
     }
     public void prelevaDaConto(int codiceAccesso, double importoPrelevamento){
         if (this.codiceAccessoConto == codiceAccesso) {

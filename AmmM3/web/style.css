@@ -1,0 +1,464 @@
+/* 
+    Created on : 27-mar-2016, 10.26.31
+    Author     : Luigi
+*/
+
+/*Layout testo e sezioni pagina generali*/
+body 
+{
+    font-size: 16px;/*dimensione font di base equivalente al font paragrafo*/
+    font-family: Georgia, "Times New Roman", serif, sans-serif;
+    background-color: white;
+    margin: auto; /*centro pagina*/
+}
+#page
+{
+    margin: auto;
+    position: relative;
+    top: 80px;
+}
+#header
+{
+    z-index: 2;
+    text-align: center;
+    background-color: #f2f2f2;
+    width: 100%;
+    height: 20px;
+    position: fixed;
+    top: 0;
+}
+a
+{
+    text-decoration: none;   
+}
+a:hover
+{
+    text-decoration: underline;
+}
+a:link
+{
+    color: white;
+}
+a:visited
+{
+    color: #ffcc75;
+}
+#sidebar1
+{
+    margin-bottom: 20px;
+}
+#sidebar1 li
+{
+    display: inline-block;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 35px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: white;
+    box-shadow: 6px 6px 15px gray;
+    text-align: center;
+    color: #042d86;
+}
+#sidebar1 li a:link, #link_registrazione a:link
+{
+   color: #042756; 
+}
+#sidebar1 li a:visited, #link_registrazione a:visited
+{
+    color: #042d86;
+}
+#content
+{
+    min-width: 280px;
+}
+#blank
+{
+    clear: both;
+}
+#footer, #footer-1
+{
+    font-size: 0.9em;
+    background-color: #042756;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    letter-spacing: 2px;
+    margin-top: 30px;
+}
+h1, h2, h3, p
+{
+    margin-left: 20px;
+}
+p
+{
+    text-align: justify;
+    font-size: 1em;
+    margin-right: 20px;
+}
+h1
+{
+    color: #042756;
+    font-size: 2em;
+    font-weight: bold;
+}
+h2
+{
+    font-size: 1.2em;
+    font-weight: bold;
+}
+h3
+{
+    font-size: 1em;
+    font-weight: bold;
+    font-style: italic;
+}
+/*Layout menu di navigazione*/
+nav
+{
+    margin-bottom: 50px;
+}
+.barra_navigazione
+{
+    z-index: 1;
+    background-color: #042756;
+    width: 100%;
+    min-width: 320px;
+    position: fixed;
+    top: 20px;
+    left: 0;
+    box-shadow: 0px 0px 10px #042756;
+}
+.barra_navigazione a
+{
+    padding: 10px;
+    display: inline-block;
+}
+.barra_navigazione a:hover
+{
+    text-decoration: none;
+    background-color: white;
+    color: #042756; 
+}
+.icone_nav, .icone_nav_cliente
+{
+    position: fixed;
+    top: 20px;
+    right: 0px;
+    float: right;
+    z-index: 2;
+}
+.icone_nav img, .icone_nav_cliente img
+{
+    padding-top: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 30px;
+}
+/*Layout sezione form input dati*/
+form
+{
+    margin: auto;
+    max-width: 600px;
+    min-width: 240px;
+    width: 100%;
+}
+form *
+{
+    margin: auto;/*posizionamento di ogni blocco del form al centro*/
+}
+label
+{
+    font-style: oblique;
+}
+input, .stile_input
+{
+    background-color: #f2f2f2;
+}
+input:focus, .stile_input:focus
+{
+    outline-color: #042d86;
+}
+form select
+{  
+    width: 100%;
+    display: block;
+}
+form input, form p label, #input_caratteristiche_id
+{
+    display: block;
+    width: 98%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+#input_caratteristiche_id > p, #input_caratteristiche_id .checkbox
+{
+    background-color: #f2f2f2;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+#input_caratteristiche_id input[type="radio"], #input_caratteristiche_id input[type="checkbox"] 
+{
+    display: inline-block;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-right: 1%;
+    margin-left: 1%;
+    width: 20px;  
+}
+#input_caratteristiche_id p label
+{
+    text-align: right;
+    display: inline-block;
+    width: 38%;
+}
+#input_caratteristiche_id
+{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    min-width: 240px;
+}
+form textarea
+{
+    width: 98%;/* percentuale ripetto alla dimensione del div caratteristiche*/
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+#pr_q input/*layout campi prezzo e quantità*/
+{
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 40%;
+    text-align: right;
+}
+#pr_q label/*layout campi prezzo e quantità*/
+{
+    text-align: right;
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px; 
+    margin-left: 8%;
+    width: 40%;
+}
+.input_dati input[type=submit], .input_dati input[type=reset]
+{
+    display: inline;
+    padding: 5px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    margin-left: 10%;/*  (100% - 2*35%)/3   margini equispaziati */
+    width: 35%;
+    background-color: #042756;
+    color: white;
+    border: none;
+}
+input[type=submit]:hover, input[type=reset]:hover
+{
+    background-color: #042d86;
+}
+.login h2
+{
+    display: none;
+}
+.login input[type=submit]
+{ 
+    width: 64%;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    background-color: #042756;
+    border: none;
+    color: white;
+}
+.login input[type=submit]:hover
+{
+    background-color: #042d86;
+    border-color: #042756;
+    color: white;
+}
+.login input, .login label
+{
+    width: 60%;
+    display: block;
+
+}
+.login input
+{
+    padding: 10px;
+}
+.login label
+{
+    padding: 10px;
+    margin-top: 15px;
+}
+#link_registrazione
+{
+    text-align: center;
+    display: block;
+}
+#link_registrazione a
+{
+    margin-left: 5px;
+    display: inline;
+}
+#link_registrazione p
+{
+    display: inline;
+}
+/*Layout tabelle dei prodotti*/
+table
+{
+    margin: auto;
+    border-collapse: collapse;
+}
+#abbreviazioni_tab
+{
+    display: none;
+}
+table th
+{
+    background-color: #042756;
+    border: inset;
+    color: white;
+    height: 40px;
+    text-align: center;
+    padding: 15px;
+}
+table img
+{
+    max-height: 70px;
+}
+table td
+{
+    height: 70px;
+    text-align: center;
+    border: inset;
+}
+.row_color tr:nth-child(odd)
+{
+    background-color: #f2f2f2;
+}
+table td:first-child
+{
+    background-color: white;
+    width: 30px;
+}
+table td:nth-of-type(3)
+{
+    width: 20px;
+}
+table td:nth-of-type(4)
+{
+    width: 70px;
+}
+table td:nth-of-type(5)
+{
+    width: 30px;
+}
+/*sezione Layout responsive*/
+@media only screen  and (min-width: 1024px)
+{
+    #sidebar_sommario_id
+    {
+        margin: auto;
+        width: 935px;
+    }
+    #sidebar_login
+    {
+        margin: auto;
+        width: 630px;
+    }
+    #content
+    {
+        margin-left: 20px;
+        margin-right: 20px;  
+    }
+}
+@media only screen  and (min-width: 480px)
+                    and (max-width: 1023px)
+{
+    #sidebar1
+    {
+        position: fixed;
+        top: 100px;
+        left: 0;
+        float: left;
+    }
+    #sidebar1 ul
+    {
+        margin-left:0px;
+        width: 200px;
+    }
+    #sidebar1 li
+    {
+        display: block;
+        margin-left:0px;
+        margin-right: 20px;
+        width: 70%;
+    }
+    #content
+    {
+        margin-left: 220px;
+        margin-right: 10px; 
+    }
+    #footer
+    {
+        margin-left: 240px;
+        margin-right: 20px;
+    }
+    table
+    {
+        margin: 30px;
+    }
+}
+@media only screen  and (max-width: 479px)
+{
+    #sidebar1
+    {
+        margin-left: 0px;  
+        min-width: 280px;
+    } 
+    #sidebar1 ul
+    {
+        margin-left:0;
+        margin-right: 25px;
+        width: auto;
+    }
+    #sidebar1 li
+    {
+        margin-left: 0;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        display: block;
+        width: 85%;
+    }
+    .icone_nav 
+    {
+        display: none;
+    }
+    #content
+    {
+        width: 93%;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    table
+    {
+        width: 90%;
+    }
+    #abbreviazioni_tab
+    {
+        display:table-row;
+    }
+    #intestazione_tab
+    {
+        display: none;
+    }
+    table td:first-child, table th:first-child
+    {
+        display: none;
+    }   
+}

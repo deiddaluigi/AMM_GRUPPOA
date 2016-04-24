@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.stampantiSrl;
+package com.stampantiSrl.classi;
 
 import java.util.ArrayList;
 
@@ -52,27 +52,21 @@ public class UtentiFactory {
         return singleton;
     }
 
-    public ArrayList<Cliente> getClientiList()
-    {
+    public ArrayList<Cliente> getClientiList(){
         return listaClienti;
     }
-    public Cliente getCliente(int id)
-    {
-        for(Cliente c : listaClienti)
-        {
+    public Cliente getCliente(int id){
+        for(Cliente c : listaClienti){
             if(c.getId() == id)
                 return c;
         }
         return null;
     }
-    public ArrayList<Venditore> getVenditoriList()
-    {
+    public ArrayList<Venditore> getVenditoriList(){
         return listaVenditori;
     }
-    public Venditore getVenditore(int id)
-    {
-        for(Venditore v : listaVenditori)
-        {
+    public Venditore getVenditore(int id){
+        for(Venditore v : listaVenditori){
             if(v.getId() == id)
                 return v;
         }
