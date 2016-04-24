@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Luigi
+ * @author Luigi Deidda
  */
 @WebServlet(name = "ClienteServlet", urlPatterns = {"/cliente.html"})
 public class ClienteServlet extends HttpServlet {
