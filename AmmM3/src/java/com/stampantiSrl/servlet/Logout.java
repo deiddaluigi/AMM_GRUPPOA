@@ -5,14 +5,9 @@
  */
 package com.stampantiSrl.servlet;
 
-import com.stampantiSrl.classi.Account;
-import com.stampantiSrl.classi.Cliente;
-import com.stampantiSrl.classi.UtentiFactory;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,10 +15,9 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Luigi Deidda
+ * @author Luigi
  */
-@WebServlet(name = "LoginServlet", urlPatterns = {"/login.html"})
-public class LoginServlet extends HttpServlet {
+public class Logout extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,41 +28,23 @@ public class LoginServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
-    private boolean flagAccessoNegato = false;
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession sessione = request.getSession(false);
+        sessione.invalidate();
         response.setContentType("text/html;charset=UTF-8");
-       
-        if(request.getParameter("submit_name")!= null){ 
-            HttpSession sessione = request.getSession(true);
-            String username = request.getParameter("username_name");
-            String password = request.getParameter("pswd_name");
-            ArrayList<Account> listaAccount = 
-                    UtentiFactory.getInstance().getAccountList();
-           request.setAttribute("listaAccount", listaAccount);
-            for(Account a : listaAccount) {
-                if((a.getUsername().equals(username) &&
-                   a.getPassword().equals(password))){
-                    sessione.setAttribute("loggedIn", true);
-                    if ((a instanceof Cliente)){
-                        request.setAttribute("cliente", a);
-                        request.getRequestDispatcher("cliente.html").forward(request,response);
-                    }
-                    else{
-                        request.setAttribute("venditore", a);
-                        request.getRequestDispatcher("venditore.html").forward(request,response);
-                    }
-                }               
-            }
-            
-                {
-                    flagAccessoNegato = true;
-                    request.setAttribute("flagAccessoNegato", flagAccessoNegato);
-                    request.getRequestDispatcher("login.jsp").forward(request,response);
-                }    
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet Logout</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Logout effettuato correttamente</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
-        request.getRequestDispatcher("login.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
