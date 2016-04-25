@@ -3,7 +3,7 @@
     Created on : 24-apr-2016, 18.44.54
     Author     : Luigi
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,6 +15,15 @@
         <link rel="stylesheet" type="text/css" href="./style.css" media="screen">
     </head>
     <body>
+    <%--
+    Se si vuole utilizzare la mappatura nella servlet corrispondente 
+    a venditore.html senza utilizzare direttamente venditore.jsp,
+    l'istruzione test su tutto il blocco impedisce l'accesso 
+    non autorizzato al contenuto statico della pagina nel caso si 
+    digitasse direttamente dalla barra degli indirizzi  .../venditore.jsp
+    o tramite altre modalita' non previste di tentativi di accesso 
+    diretto alla jsp --%>
+    <c:if test = "${venditoreLoggedIn}">
         <div id="page">
             <div id="header">
             </div>
@@ -89,5 +98,6 @@
                 <a href="./logout.html">logout</a>
             </nav>
         </div>
+    </c:if>
     </body>
 </html>

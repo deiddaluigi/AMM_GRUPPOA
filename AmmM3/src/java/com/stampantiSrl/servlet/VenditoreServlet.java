@@ -39,6 +39,13 @@ public class VenditoreServlet extends HttpServlet {
             (boolean) sessione.getAttribute("venditoreLoggedIn")) {
                request.getRequestDispatcher("venditore.jsp").forward(request,response);          
             }else {
+                /*
+                Nel caso si tentasse l'accesso non autorizzato tramite modalita'
+                non previste, verra' visualizzato l'errore 401. In caso di normale
+                navigazione, la pagina venditore.html sarà accessibile direttamente
+                tramite login, o tramite link nel menu' di navigazione della homepage 
+                per l'utente autenticato.
+                */
                 response.sendError(401);
             }
         }
