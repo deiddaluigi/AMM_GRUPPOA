@@ -45,9 +45,9 @@ public class ClienteServlet extends HttpServlet {
                 request.getRequestDispatcher("cliente.jsp").forward(request,response);          
             } else {
                 /*
-                Nel caso si tentasse l'accesso non autorizzato tramite modalita'
-                non previste, verra' visualizzato l'errore 401. In caso di normale
-                navigazione, la pagina venditore.html sarà accessibile direttamente
+                L'errore 401 verra' visualizzato nel caso si tentasse l'accesso 
+                non autenticato tramite modalita' non previste. In caso di normale
+                navigazione, la pagina cliente.html sarà accessibile direttamente
                 tramite login, o tramite link nel menu' di navigazione della homepage 
                 per l'utente autenticato.
                 */
