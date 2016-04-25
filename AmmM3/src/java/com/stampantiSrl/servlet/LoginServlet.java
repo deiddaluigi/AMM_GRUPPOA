@@ -24,7 +24,6 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(name = "LoginServlet", urlPatterns = {"/login.html"})
 public class LoginServlet extends HttpServlet {
-
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -39,36 +38,34 @@ public class LoginServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-       
-        if(request.getParameter("submit_name")!= null){ 
-            HttpSession sessione = request.getSession(true);
-            String username = request.getParameter("username_name");
-            String password = request.getParameter("pswd_name");
-            ArrayList<Account> listaAccount = 
-                    UtentiFactory.getInstance().getAccountList();
-           request.setAttribute("listaAccount", listaAccount);
-            for(Account a : listaAccount) {
-                if((a.getUsername().equals(username) &&
-                   a.getPassword().equals(password))){
-                    sessione.setAttribute("loggedIn", true);
-                    if ((a instanceof Cliente)){
-                        request.setAttribute("cliente", a);
-                        request.getRequestDispatcher("cliente.html").forward(request,response);
-                    }
-                    else{
-                        request.setAttribute("venditore", a);
-                        request.getRequestDispatcher("venditore.html").forward(request,response);
-                    }
-                }               
+        HttpSession sessione = request.getSession(true);
+            if(request.getParameter("submit_name")!= null){ 
+                String username = request.getParameter("username_name");
+                String password = request.getParameter("pswd_name");
+                ArrayList<Account> listaAccount = 
+                        UtentiFactory.getInstance().getAccountList();
+               request.setAttribute("listaAccount", listaAccount);
+                for(Account a : listaAccount) {
+                    if((a.getUsername().equals(username) &&
+                       a.getPassword().equals(password))){
+                        sessione.setAttribute("loggedIn", true);
+                        if ((a instanceof Cliente)){
+                            sessione.setAttribute("clienteLoggedIn", true);
+                            request.setAttribute("cliente", a);
+                            request.getRequestDispatcher("cliente.html").forward(request,response);
+                        }
+                        else{
+                            sessione.setAttribute("venditoreLoggedIn", true);
+                            request.setAttribute("venditore", a);
+                            request.getRequestDispatcher("venditore.html").forward(request,response);
+                        }
+                    }               
+                }
+                flagAccessoNegato = true;
+                request.setAttribute("flagAccessoNegato", flagAccessoNegato);
+                request.getRequestDispatcher("login.jsp").forward(request,response);  
             }
-            
-                {
-                    flagAccessoNegato = true;
-                    request.setAttribute("flagAccessoNegato", flagAccessoNegato);
-                    request.getRequestDispatcher("login.jsp").forward(request,response);
-                }    
-        }
-        request.getRequestDispatcher("login.jsp").forward(request, response);
+            request.getRequestDispatcher("login.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

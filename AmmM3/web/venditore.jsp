@@ -85,8 +85,8 @@
             </div>
             <jsp:include page="footer-1.jsp"/>
             <nav class="barra_navigazione">
-                <a href="./descrizione.html">Descrizione</a>
-                <a href="./login.html">login</a>
+                <a href="./">Home</a>
+                <a href="./logout.html">logout</a>
             </nav>
         </div>
     </body>

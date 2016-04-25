@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Luigi
+ * @author Luigi Deidda
  */
 @WebServlet(name = "VenditoreServlet", urlPatterns = {"/venditore.html"})
 public class VenditoreServlet extends HttpServlet {
@@ -33,11 +33,13 @@ public class VenditoreServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        HttpSession sessione = request.getSession(false);
-        if(sessione.getAttribute("loggedIn").equals(true)){
-            try (PrintWriter out = response.getWriter()) {
-                /* TODO output your page here. You may use following sample code. */
+        try (PrintWriter out = response.getWriter()) {
+            HttpSession sessione = request.getSession(false);
+            if (sessione.getAttribute("venditoreLoggedIn") != null &&
+            (boolean) sessione.getAttribute("venditoreLoggedIn")) {
                request.getRequestDispatcher("venditore.jsp").forward(request,response);          
+            }else {
+                response.sendError(401);
             }
         }
     }

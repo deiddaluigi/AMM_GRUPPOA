@@ -294,6 +294,12 @@ input[type=submit]:hover, input[type=reset]:hover
     padding: 10px;
     margin-top: 15px;
 }
+.messaggi_errore
+{
+    color: red;
+    text-align: center;
+    margin-bottom: 20px;
+}
 #link_registrazione
 {
     text-align: center;

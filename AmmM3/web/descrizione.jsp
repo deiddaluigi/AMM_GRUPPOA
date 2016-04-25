@@ -3,7 +3,7 @@
     Created on : 24-apr-2016, 18.41.46
     Author     : Luigi
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!--
@@ -59,9 +59,22 @@
             </div>
             <jsp:include page="footer.jsp"/>
             <nav class="barra_navigazione">
-                <a href='./login.html'>login</a>
+                <c:if test = "${!loggedIn}">
+                    <a href='./login.html'>login</a>
+                </c:if>
+                <c:if test = "${venditoreLoggedIn}">
+                    <a href='./venditore.html'>venditore</a>
+                    <a href='./logout.html'>logout</a>
+                </c:if>
+                <c:if test = "${clienteLoggedIn}">
+                    <a href='./cliente.html'>cliente</a>
+                    <a href='./logout.html'>logout</a>
+                </c:if>    
             </nav>
-            <jsp:include page="vaiAlCarrello.jsp"/>
+            <c:if test = "${clienteLoggedIn}">
+                <jsp:include page="vaiAlCarrello.jsp"/>
+            </c:if>  
+            
         </div>
     </body>
 </html>

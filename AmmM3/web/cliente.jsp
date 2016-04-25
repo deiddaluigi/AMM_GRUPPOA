@@ -56,8 +56,8 @@
             </div>
             <jsp:include page="footer-1.jsp"/>
             <nav class="barra_navigazione">
-                <a href="./descrizione.html">Descrizione</a>
-                <a href="./Logout">logout</a>
+                <a href="./">Home</a>
+                <a href="./logout.html">logout</a>
             </nav>
             <jsp:include page="vaiAlCarrello.jsp"/>
         </div>

@@ -36,7 +36,7 @@
                     <input type="password" name="pswd_name" id="pswd_id" value="non visibile">
                     <input type="submit" value="Accedi" name="submit_name">
                     <c:if test = "${flagAccessoNegato}">
-                        <p>username e password errati</p>
+                        <p class="messaggi_errore">username e/o password errati</p>
                     </c:if>
                     <div id="link_registrazione">
                         <p >Non sei ancora registrato?</p>
@@ -49,11 +49,8 @@
             </div>
             <jsp:include page="footer.jsp"/>
             <nav class="barra_navigazione">
-                <a href="./descrizione.html">Descrizione</a>
-                <a href="./cliente.html">Cliente</a>
-                <a href="./venditore.html">Venditore</a>
+                <a href="./">Home</a>
             </nav>
-            <jsp:include page="vaiAlCarrello.jsp"/>
         </div>
     </body>
 </html>

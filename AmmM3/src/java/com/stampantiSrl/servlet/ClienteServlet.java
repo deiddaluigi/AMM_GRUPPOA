@@ -35,16 +35,18 @@ public class ClienteServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        HttpSession sessione = request.getSession(false);
-        if(sessione.getAttribute("loggedIn").equals(true)){
-            try (PrintWriter out = response.getWriter()) {
-                /* TODO output your page here. You may use following sample code. */
+        try (PrintWriter out = response.getWriter()) {
+            HttpSession sessione = request.getSession(false);
+            if (sessione.getAttribute("clienteLoggedIn") != null &&
+            (boolean) sessione.getAttribute("clienteLoggedIn")) {
                 ArrayList<StampanteInVendita> listaStampantiInVendita = 
-                        StampantiInVenditaFactory.getInstance().getStampantiInVenditaList();
-               request.setAttribute("listaStampantiInVendita", listaStampantiInVendita);
-               request.getRequestDispatcher("cliente.jsp").forward(request,response);          
+                StampantiInVenditaFactory.getInstance().getStampantiInVenditaList();
+                request.setAttribute("listaStampantiInVendita", listaStampantiInVendita);
+                request.getRequestDispatcher("cliente.jsp").forward(request,response);          
+            } else {
+                response.sendError(401);
             }
-        }
+        } 
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
