@@ -3,14 +3,14 @@
     Created on : 24-apr-2016, 18.46.58
     Author     : Luigi
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <title>login</title>
         <meta charset="UTF-8">
-        <meta name="description" content="inserimento credenziali cliente">
+        <meta name="description" content="inserimento credenziali">
         <meta name="author" content="Luigi Deidda">
         <link rel="stylesheet" type="text/css" href="./style.css" media="screen">
     </head>
@@ -28,13 +28,16 @@
                 </nav>          
             </div>
             <div id="content">
-                <form class="login" method="POST">
+                <form class="login" action="login.html" method="POST">
                     <h2>Login</h2>
                     <label for="username_id">Username</label>
                     <input type="text" name="username_name" id="username_id" value="inserisci username">
                     <label for="pswd_id">Password</label>
                     <input type="password" name="pswd_name" id="pswd_id" value="non visibile">
-                    <input type="submit" value="Accedi"> 
+                    <input type="submit" value="Accedi" name="submit_name">
+                    <c:if test = "${flagAccessoNegato}">
+                        <p>username e password errati</p>
+                    </c:if>
                     <div id="link_registrazione">
                         <p >Non sei ancora registrato?</p>
                         <a href="./login.html">Registrati</a>

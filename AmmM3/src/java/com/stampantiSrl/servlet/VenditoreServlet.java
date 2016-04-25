@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package servlet;
+package com.stampantiSrl.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,15 +12,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.stampantiSrl.classi.*;
-import java.util.ArrayList;
 
 /**
  *
- * @author Luigi Deidda
+ * @author Luigi
  */
-@WebServlet(name = "ClienteServlet", urlPatterns = {"/cliente.html"})
-public class ClienteServlet extends HttpServlet {
+@WebServlet(name = "VenditoreServlet", urlPatterns = {"/venditore.html"})
+public class VenditoreServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,12 +32,9 @@ public class ClienteServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-       try (PrintWriter out = response.getWriter()) {
+        try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            ArrayList<StampanteInVendita> listaStampantiInVendita = 
-                    StampantiInVenditaFactory.getInstance().getStampantiInVenditaList();
-           request.setAttribute("listaStampantiInVendita", listaStampantiInVendita);
-           request.getRequestDispatcher("cliente.jsp").forward(request,response);          
+           request.getRequestDispatcher("venditore.jsp").forward(request,response);          
        }
     }
 
