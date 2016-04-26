@@ -72,6 +72,9 @@ public class LoginServlet extends HttpServlet {
                             }
                         }               
                     }
+                    /*flag utilizzato per la visualizzazione del messaggio di errore nel
+                     caso di username e/o password errati
+                    */
                     flagAccessoNegato = true;
                     request.setAttribute("flagAccessoNegato", flagAccessoNegato);
                     request.getRequestDispatcher("login.jsp").forward(request,response);  

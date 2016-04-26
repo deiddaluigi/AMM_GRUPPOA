@@ -15,15 +15,6 @@
         <link rel="stylesheet" type="text/css" href="./style.css" media="screen">
     </head>
     <body>
-    <%--
-    Se si vuole utilizzare la mappatura nella servlet corrispondente 
-    a venditore.html senza utilizzare direttamente venditore.jsp,
-    l'istruzione test su tutto il blocco impedisce l'accesso 
-    non autorizzato al contenuto statico della pagina nel caso si 
-    digitasse direttamente dalla barra degli indirizzi  .../venditore.jsp
-    o tramite altre modalita' non previste di tentativi di accesso 
-    diretto alla jsp --%>
-    <c:if test = "${venditoreLoggedIn}">
         <div id="page">
             <div id="header">
             </div>
@@ -98,6 +89,5 @@
                 <a href="./logout.html">logout</a>
             </nav>
         </div>
-    </c:if>
     </body>
 </html>
