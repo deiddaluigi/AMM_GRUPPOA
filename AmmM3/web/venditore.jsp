@@ -18,7 +18,7 @@
         <div id="page">
             <jsp:include page="header.jsp"/>
             <div>
-                <form method="POST" action="NuovaStampanteServlet">
+                <form method="POST" action="nuovaStampante.html">
                     <div>
                     <h1>Inserimento nuove stampanti</h1>
                     <jsp:include page="messaggiErrore.jsp"/>

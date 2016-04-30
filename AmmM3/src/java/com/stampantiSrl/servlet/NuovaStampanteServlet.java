@@ -9,18 +9,18 @@ import com.stampantiSrl.classi.StampanteInVendita;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Luigi
  */
-@WebServlet(name = "NuovaStampanteServlet", urlPatterns = {"/NuovaStampanteServlet"})
+@WebServlet(name = "NuovaStampanteServlet", urlPatterns = {"/nuovaStampante.html"})
 public class NuovaStampanteServlet extends HttpServlet {
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,11 +35,13 @@ public class NuovaStampanteServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            if(request.getParameter("submit_name_stampante")!= null){ 
+            HttpSession sessione = request.getSession(false);
+            if (sessione.getAttribute("venditoreLoggedIn") != null &&
+            (boolean) sessione.getAttribute("venditoreLoggedIn")) {
+               if(request.getParameter("submit_name_stampante")!= null){ 
                 StampanteInVendita stampante = new StampanteInVendita(
                     request.getParameter("marca_name"),
                     request.getParameter("modello_name"));
-                
                     stampante.setUrlImmagine(request.getParameter("url_name"));
                     String tipoStampa;
                     if (request.getParameter("tipo_stampa_name") == null) tipoStampa = "non selezionato";
@@ -72,6 +74,9 @@ public class NuovaStampanteServlet extends HttpServlet {
                     }
                     request.setAttribute("stampante", stampante);
                     request.getRequestDispatcher("finestraRiepilogoDatiStampante.jsp").forward(request, response);
+            }          
+            }else {
+                response.sendError(401);
             }
         }
     }
