@@ -16,8 +16,7 @@
     </head>
     <body>
         <div id="page">
-            <div id="header">
-            </div>
+            <jsp:include page="header.jsp"/>
             <div id="sidebar1">
                 <nav>
                     <ul id="sidebar_login">

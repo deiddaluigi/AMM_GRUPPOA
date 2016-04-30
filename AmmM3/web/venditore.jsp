@@ -16,19 +16,19 @@
     </head>
     <body>
         <div id="page">
-            <div id="header">
-            </div>
+            <jsp:include page="header.jsp"/>
             <div>
-                <form method="POST">
+                <form method="POST" action="NuovaStampanteServlet">
                     <div>
                     <h1>Inserimento nuove stampanti</h1>
+                    <jsp:include page="messaggiErrore.jsp"/>
                         <p>
                             <label for="marca_id">Marca stampante</label>
-                            <select class="stile_input" name="marca" id="marca_id">
-                                <option value="canon">Canon</option>
-                                <option value="epson">Epson</option>
-                                <option value="hp">Hp</option>
-                                <option value="brother">Brother</option>
+                            <select class="stile_input" name="marca_name" id="marca_id">
+                                <option value="Canon">Canon</option>
+                                <option value="Epson">Epson</option>
+                                <option value="Hp">Hp</option>
+                                <option value="Brother">Brother</option>
                             </select>
                         </p>
                         <p>
@@ -63,7 +63,7 @@
                                 <label for="a3_id">formato A3</label>
                                 <input type="checkbox" name="altre_caratteristiche_name" id="a3_id" value="a3">
                                 <label for="fronteRetro_id">fronte-retro automatico</label>
-                                <input type="checkbox" name="altre_caratteristiche_name" id="fronteRetro_id" value="fronte_retro">
+                                <input type="checkbox" name="altre_caratteristiche_name" id="fronteRetro_id" value="fronte retro automatico">
                             </p>
                         </div>
                         <label for="descrizione_id">descrizione</label>
@@ -73,10 +73,11 @@
                         <label for="prezzo_id">prezzo unitario €</label>
                         <input type="text" name="prezzo_name" id="prezzo_id" >
                         <label for="quantita_id">quantit&agrave; di pezzi disponibili</label>
-                        <input type="number" name="quantita_name" id="quantita_id"  min="0">
+                        <input  <c:if test = "${erroreInput}"> class="errori_input"</c:if>
+                            type="number" name="quantita_name" id="quantita_id"  min="0">
                     </div>
                     <div class="input_dati">
-                        <input type="submit" value="salva">
+                        <input type="submit" value="salva" name="submit_name_stampante">
                         <input type="reset" value="reset">  
                     </div>
                 </form> 

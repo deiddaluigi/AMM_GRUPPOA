@@ -300,6 +300,14 @@ input[type=submit]:hover, input[type=reset]:hover
     text-align: center;
     margin-bottom: 20px;
 }
+.messaggi_errore a
+{
+    color: red;
+}
+.errori_input
+{
+    outline-color: red;
+}
 #link_registrazione
 {
     text-align: center;
@@ -312,6 +320,24 @@ input[type=submit]:hover, input[type=reset]:hover
 }
 #link_registrazione p
 {
+    display: inline;
+}
+.datiRiepilogo
+{
+    color: #042756;
+    position: relative;
+    top: 20px;
+    width: 80%;
+    border-color: #042d86;
+    border-style: solid;
+    border-width: 1px;
+    margin: auto;  
+    margin-bottom: 20px;
+    padding: 10px;
+}
+.datiRiepilogo h4
+{
+    color: black;
     display: inline;
 }
 /*Layout tabelle dei prodotti*/

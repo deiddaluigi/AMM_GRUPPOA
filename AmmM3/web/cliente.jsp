@@ -17,8 +17,7 @@
     </head>
     <body>
         <div id="page">
-            <div id="header">
-            </div>
+            <jsp:include page="header.jsp"/>
             <div>
                 <table class="row_color">
                     <tr id="intestazione_tab">

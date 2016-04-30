@@ -15,16 +15,15 @@ public class StampantiInVenditaFactory {
     
     // Lista Stampanti in Vendita
     private ArrayList<StampanteInVendita> listaStampantiInVendita = new ArrayList<>();
-    
+    private ArrayList<String> altreCaratteristiche = new ArrayList<>();
     public StampantiInVenditaFactory(){
         StampanteInVendita stampante = new StampanteInVendita("Canon","iP8750");
         stampante.setUrlImmagine("http://www.canon.it/Images/iP8750_Angle4_tcm80-1115696.jpg");
         stampante.setTipoStampa("inkjet");
         stampante.setGammaColori("colori");
-        stampante.setMultifunzione(false);
-        stampante.setWireless(true);
-        stampante.setA3(true);
-        stampante.setFronteRetro(false);
+        altreCaratteristiche.add("wireless");
+        altreCaratteristiche.add("a3");
+        stampante.setAltreCaratteristiche(altreCaratteristiche);
         stampante.setDescrizione("Risoluzione di stampa:\n" +
         "Fino a 9600 x 2400 dpi\n" +
         "Tecnologia di stampa:\n" +
@@ -38,10 +37,11 @@ public class StampantiInVenditaFactory {
         stampante.setUrlImmagine("http://www.canon.it/Images/i-Sensys-MF8550Cdn_Default_tcm80-1035436.jpg");
         stampante.setTipoStampa("laser");
         stampante.setGammaColori("colori");
-        stampante.setMultifunzione(true);
-        stampante.setWireless(true);
-        stampante.setA3(false);
-        stampante.setFronteRetro(true);
+        altreCaratteristiche.add("multifunzione");
+        altreCaratteristiche.add("wireless");
+        altreCaratteristiche.add("fronte retro automatico");
+        altreCaratteristiche = new ArrayList<>();
+        stampante.setAltreCaratteristiche(altreCaratteristiche);
         stampante.setDescrizione("Risoluzione di stampa:\n" +
         "600 x 600 dpi\n");
         stampante.setPrezzoUnitario(420);
