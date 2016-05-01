@@ -10,7 +10,7 @@ package com.stampantiSrl.classi;
  * @author Luigi Deidda
  */
 public abstract class Account {
-    private int id;
+    private final int id;
     private static int progressive_id = 0;
     private String username;
     private String password;

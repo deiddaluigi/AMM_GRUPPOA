@@ -13,8 +13,8 @@ package com.stampantiSrl.classi;
  */
 public class Cliente extends Account {
     private String nome, cognome;
-    private String codiceFiscale;
-    private TipoAccount account;
+    private final String codiceFiscale;
+    private final TipoAccount account;
     
     /**
      *

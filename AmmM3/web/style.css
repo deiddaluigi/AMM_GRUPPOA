@@ -155,17 +155,17 @@ nav
     padding-right: 20px;
     height: 30px;
 }
-/*Layout sezione form input dati*/
-form
+/*Layout sezione .form_venditore, .login input dati*/
+.form_venditore, .login
 {
     margin: auto;
     max-width: 600px;
     min-width: 240px;
     width: 100%;
 }
-form *
+.form_venditore *, .login *
 {
-    margin: auto;/*posizionamento di ogni blocco del form al centro*/
+    margin: auto;/*posizionamento di ogni blocco del .form_venditore, .login al centro*/
 }
 label
 {
@@ -179,12 +179,12 @@ input:focus, .stile_input:focus
 {
     outline-color: #042d86;
 }
-form select
+.form_venditore select
 {  
     width: 100%;
     display: block;
 }
-form input, form p label, #input_caratteristiche_id
+.form_venditore input, .login input, .form_venditore p label, .login p label, #input_caratteristiche_id
 {
     display: block;
     width: 98%;
@@ -218,7 +218,7 @@ form input, form p label, #input_caratteristiche_id
     margin-bottom: 20px;
     min-width: 240px;
 }
-form textarea
+.form_venditore textarea
 {
     width: 98%;/* percentuale ripetto alla dimensione del div caratteristiche*/
     margin-top: 5px;
@@ -273,7 +273,7 @@ input[type=submit]:hover, input[type=reset]:hover
     border: none;
     color: white;
 }
-.login input[type=submit]:hover
+.login input[type=submit]:hover, input.pulsanti
 {
     background-color: #042d86;
     border-color: #042756;
@@ -293,6 +293,18 @@ input[type=submit]:hover, input[type=reset]:hover
 {
     padding: 10px;
     margin-top: 15px;
+}
+input.pulsanti
+{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 5px;
+    background-color: #042756;
+    border: none;
+    color: white;
+    
 }
 .messaggi_errore
 {

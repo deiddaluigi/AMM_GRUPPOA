@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class StampantiInVenditaFactory {
     
     // Lista Stampanti in Vendita
-    private ArrayList<StampanteInVendita> listaStampantiInVendita = new ArrayList<>();
+    private static ArrayList<StampanteInVendita> listaStampantiInVendita = new ArrayList<>();
     private ArrayList<String> altreCaratteristiche = new ArrayList<>();
     public StampantiInVenditaFactory(){
         StampanteInVendita stampante = new StampanteInVendita("Canon","iP8750");
@@ -59,7 +59,7 @@ public class StampantiInVenditaFactory {
     public ArrayList<StampanteInVendita> getStampantiInVenditaList(){
         return listaStampantiInVendita;
     }
-    public StampanteInVendita getStampanteInVendita(int id){
+    public static StampanteInVendita getStampanteInVendita(int id){
         for(StampanteInVendita s : listaStampantiInVendita){
             if(s.getId() == id)
                 return s;

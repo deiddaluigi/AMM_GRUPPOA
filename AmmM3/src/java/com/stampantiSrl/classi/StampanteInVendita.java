@@ -11,8 +11,8 @@ import java.util.ArrayList;
  *
  * @author Luigi Deidda
  */
-public class StampanteInVendita {
-    private int id;
+public class StampanteInVendita implements Cloneable{
+    private final int id;
     private static int progressivo_id = 0;
     private String marca, modello;
     private String urlImmagine;
@@ -20,7 +20,7 @@ public class StampanteInVendita {
     private ArrayList<String> altreCaratteristiche;
     private String descrizione;
     private double prezzoUnitario; // espresso in Euro
-    private int quantita; //quantita' di pezzi disponibili
+    private int quantita; //quantita' di pezzi disponibili o da acquistare
     
     public StampanteInVendita (String marca, String modello){
         progressivo_id++;
@@ -174,7 +174,16 @@ public class StampanteInVendita {
     public int hashCode() {
         return modello.hashCode();
     }  
-
+    @Override
+    public Object clone() throws CloneNotSupportedException{
+        try{
+            Object clonedStampante = super.clone();
+            return clonedStampante;
+        } catch(CloneNotSupportedException e) {
+            return null;
+        }
+        
+    }
     
    
 }

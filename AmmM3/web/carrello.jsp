@@ -1,15 +1,9 @@
-<%--
-    Document   : cliente
-    Created on : 24-apr-2016, 18.44.42
-    Author     : Luigi
---%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>cliente</title>
+        <title>carrello</title>
         <meta charset="UTF-8">
         <meta name="description" content="elenco stampanti disponibili per l'acquisto">
         <meta name="author" content="Luigi Deidda">
@@ -23,18 +17,18 @@
                     <tr id="intestazione_tab">
                         <th>Immagine del prodotto</th>
                         <th>Marca e modello</th>
-                        <th>Quantit&agrave; di pezzi disponibili</th>
+                        <th>Quantit&agrave di pezzi da acquistare</th>
                         <th>Prezzo unitario</th>
-                        <th>Aggiungi al carrello</th>
+                        <th>Prezzo totale</th>
                     </tr> 
                     <tr id="abbreviazioni_tab">
                         <th>IMG</th>
                         <th>DESCR</th>
                         <th>QT</th>
-                        <th>PRZ</th>
-                        <th>AGG</th>
+                        <th>PR-U</th>
+                        <th>PR-TOT</th>
                     </tr> 
-                    <jsp:include page="tabStampantiInVendita.jsp"/>  
+                    <jsp:include page="tabStampantiCarrello.jsp"/>  
                 </table>
             </div>
             <div id="blank">
@@ -42,9 +36,9 @@
             <jsp:include page="footer-1.jsp"/>
             <nav class="barra_navigazione">
                 <a href="./">Home</a>
+                <a href="./cliente.html">cliente</a>
                 <a href="./logout.html">logout</a>
             </nav>
-            <jsp:include page="vaiAlCarrello.jsp"/>
         </div>
     </body>
 </html>

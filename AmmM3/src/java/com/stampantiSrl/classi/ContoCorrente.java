@@ -10,7 +10,7 @@ package com.stampantiSrl.classi;
  * @author Luigi Deidda
  */
 public class ContoCorrente {
-    private int numeroConto;
+    private final int numeroConto;
     private int codiceAccessoConto;
     private static int progressivo_nConto = 1000;
     private double saldo; // importi espressi in Euro
