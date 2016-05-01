@@ -303,8 +303,22 @@ input.pulsanti
     margin-left: 5px;
     background-color: #042756;
     border: none;
-    color: white;
-    
+    color: white;  
+}
+.link_carrello
+{
+    border-color: #042d86;
+    border-width: 1px;
+    border-style: solid;
+    color: #042756;
+    display: block;
+    padding: 5px;
+    text-align: center;
+    margin: 10px;
+}
+.link_carrello:visited
+{
+    color: #042d86;
 }
 .messaggi_errore
 {
@@ -348,6 +362,12 @@ input.errori_input
 {
     color: black;
     display: inline;
+}
+.messaggio_acquisto
+{
+    display: block;
+    margin: 50px;
+    color: #042756;
 }
 /*Layout tabelle dei prodotti*/
 table
@@ -398,6 +418,10 @@ table td:nth-of-type(4)
 table td:nth-of-type(5)
 {
     width: 30px;
+}
+table td:nth-of-type(6)
+{
+    width: 70px;
 }
 /*sezione Layout responsive*/
 @media only screen  and (min-width: 1024px)
