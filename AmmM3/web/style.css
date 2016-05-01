@@ -300,12 +300,9 @@ input[type=submit]:hover, input[type=reset]:hover
     text-align: center;
     margin-bottom: 20px;
 }
-.messaggi_errore a
+input.errori_input
 {
-    color: red;
-}
-.errori_input
-{
+    border-color: red;
     outline-color: red;
 }
 #link_registrazione

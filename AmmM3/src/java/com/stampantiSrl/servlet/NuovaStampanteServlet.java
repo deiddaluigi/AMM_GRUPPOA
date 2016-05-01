@@ -18,10 +18,11 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Luigi
+ * @author Luigi Deidda
  */
 @WebServlet(name = "NuovaStampanteServlet", urlPatterns = {"/nuovaStampante.html"})
 public class NuovaStampanteServlet extends HttpServlet {
+    StampanteInVendita stampante;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -39,7 +40,7 @@ public class NuovaStampanteServlet extends HttpServlet {
             if (sessione.getAttribute("venditoreLoggedIn") != null &&
             (boolean) sessione.getAttribute("venditoreLoggedIn")) {
                if(request.getParameter("submit_name_stampante")!= null){ 
-                StampanteInVendita stampante = new StampanteInVendita(
+                stampante = new StampanteInVendita(
                     request.getParameter("marca_name"),
                     request.getParameter("modello_name"));
                     stampante.setUrlImmagine(request.getParameter("url_name"));
@@ -62,15 +63,21 @@ public class NuovaStampanteServlet extends HttpServlet {
                     stampante.setDescrizione(request.getParameter("descrizione_name"));
                     try {
                         stampante.setPrezzoUnitario(Double.parseDouble(request.getParameter("prezzo_name")));
+                        request.setAttribute("stile_input_prezzo","stile_input");
                     } catch (NumberFormatException e) {
                         request.setAttribute("erroreInput_prezzo", true);
+                        request.setAttribute("stile_input_prezzo","errori_input");
                         request.getRequestDispatcher("/venditore.html").forward(request, response);
+                        //request.setAttribute("stampante", stampante);
                     }
                     try {
                         stampante.setQuantita(Integer.parseInt(request.getParameter("quantita_name")));
+                        request.setAttribute("stile_input_quantita","stile_input");
                     } catch (NumberFormatException e) {
                         request.setAttribute("erroreInput_quantita", true);
+                        request.setAttribute("stile_input_quantita","errori_input");
                         request.getRequestDispatcher("/venditore.html").forward(request, response);
+                        //request.setAttribute("stampante", stampante);
                     }
                     request.setAttribute("stampante", stampante);
                     request.getRequestDispatcher("finestraRiepilogoDatiStampante.jsp").forward(request, response);

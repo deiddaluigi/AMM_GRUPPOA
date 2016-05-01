@@ -71,10 +71,9 @@
                     </div>
                     <div id="pr_q">
                         <label for="prezzo_id">prezzo unitario €</label>
-                        <input type="text" name="prezzo_name" id="prezzo_id" >
+                        <input class="${stile_input_prezzo}" type="text" name="prezzo_name" id="prezzo_id" >
                         <label for="quantita_id">quantit&agrave; di pezzi disponibili</label>
-                        <input  <c:if test = "${erroreInput}"> class="errori_input"</c:if>
-                            type="number" name="quantita_name" id="quantita_id"  min="0">
+                        <input class="${stile_input_quantita}" type="number" name="quantita_name" id="quantita_id"  min="0">
                     </div>
                     <div class="input_dati">
                         <input type="submit" value="salva" name="submit_name_stampante">
