@@ -11,7 +11,7 @@
                         <td>€ ${stampanteCarrello.getPrezzoUnitario()}</td>
                         <td>€ ${stampanteCarrello.getQuantita()*stampanteCarrello.getPrezzoUnitario()}</td> 
                         <td>
-                            <a class="link_carrello" href="./carrello.html?stampante_selezionata=${stampanteCarrello.getId()}"/>elimina</a>
+                            <a class="link_carrello" href="./carrello.html?stampante_selezionata=${stampanteCarrello.getId()}">elimina</a>
                         </td>
                     </tr>
                     </c:forEach>

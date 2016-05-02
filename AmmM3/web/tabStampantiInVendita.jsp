@@ -12,7 +12,7 @@
                         <td>€ ${stampante.getPrezzoUnitario()}</td>
                         <td> 
                             <c:if test = "${stampante.getQuantita()>0}">
-                             <a href="./sceltaStampante.html?stampante_selezionata=${stampante.getId()}"/>
+                             <a href="./sceltaStampante.html?stampante_selezionata=${stampante.getId()}">
                                 <img title="Aggiungi al carrello" src="./icone/icona_carrello_agg.png" alt="icona carrello" height="25">
                             </a>
                             </c:if> 

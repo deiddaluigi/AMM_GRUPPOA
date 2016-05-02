@@ -8,10 +8,11 @@
     <h2>
         Dati di riepilogo della Stampante 
     </h2>
-    <p>
+    <c:if test="${not empty stampante.getUrlImmagine()}">
         <img    title="${stampante.getMarca()} ${stampante.getModello()}" 
                 height="150" alt="immagine stampante"
                 src=${stampante.getUrlImmagine()}>
+    </c:if>
         <ul>
             <li><h4>Marca:</h4> ${stampante.getMarca()}</li>
             <li><h4>Modello:</h4>${stampante.getModello()}</li>
@@ -25,7 +26,6 @@
             </li>
             <li><h4>Descrizione:</h4> ${stampante.getDescrizione()}</li>
             <li><h4>Quantità di pezzi disponibili:</h4> ${stampante.getQuantita()}</li>
-            <li><h4>Prezzo unitario:</h4> &#8364 ${stampante.getPrezzoUnitario()}</li>
+            <li><h4>Prezzo unitario:</h4> &#8364; ${stampante.getPrezzoUnitario()}</li>
         </ul>
-    </p>
 </div>

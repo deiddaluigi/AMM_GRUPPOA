@@ -17,7 +17,7 @@
                     <tr id="intestazione_tab">
                         <th>Immagine del prodotto</th>
                         <th>Marca e modello</th>
-                        <th>Quantit&agrave di pezzi da acquistare</th>
+                        <th>Quantit&agrave; di pezzi da acquistare</th>
                         <th>Prezzo unitario</th>
                         <th>Prezzo totale</th>
                         <th>Elimina dal Carrello</th>
@@ -32,9 +32,9 @@
                     </tr> 
                     <jsp:include page="tabStampantiCarrello.jsp"/>  
                 </table>
-                <h3>Totale &#8364 ${prezzoTotale}</h3>
                 <c:if test="${!(acquistato)}">
-                <form class='datiRiepilogo' method="POST" action="carrello.html?acquistaOk=ok">
+                <h4 class='datiRiepilogo_acquisto'>Totale &#8364; ${prezzoTotale}</h4>
+                <form class='datiRiepilogo_acquisto' method="POST" action="carrello.html?acquistaOk=ok">
                     Per procedere con l'acquisto, selezionare
                     <input class="pulsanti" type="submit" value="Acquista" name="acquista_name">
                 </form>   

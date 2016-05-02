@@ -305,7 +305,7 @@ input.pulsanti
     border: none;
     color: white;  
 }
-.link_carrello
+a.link_carrello
 {
     border-color: #042d86;
     border-width: 1px;
@@ -316,7 +316,7 @@ input.pulsanti
     text-align: center;
     margin: 10px;
 }
-.link_carrello:visited
+a.link_carrello:visited
 {
     color: #042d86;
 }
@@ -355,6 +355,15 @@ input.errori_input
     border-style: solid;
     border-width: 1px;
     margin: auto;  
+    margin-bottom: 20px;
+    padding: 10px;
+}
+.datiRiepilogo_acquisto
+{
+    color: #042756;
+    position: relative;
+    top: 20px;
+    left: 20px;
     margin-bottom: 20px;
     padding: 10px;
 }

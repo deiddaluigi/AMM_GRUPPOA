@@ -29,7 +29,7 @@
             </c:if>
             <c:if test = "${stampante_aggiunta}">
             <p class="datiRiepilogo">
-                La stampante &egrave stata aggiunta al carrello.
+                La stampante &egrave; stata aggiunta al carrello.
             </p>
             </c:if>
             <div id="blank"></div>
