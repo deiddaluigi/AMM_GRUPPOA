@@ -14,7 +14,6 @@ package com.stampantiSrl.classi;
 public class Cliente extends Account {
     private String nome, cognome;
     private final String codiceFiscale;
-    private final TipoAccount account;
     
     /**
      *
@@ -22,7 +21,6 @@ public class Cliente extends Account {
      */
     public Cliente(String cf){
         super();
-        account = TipoAccount.CLIENTE;
         codiceFiscale = cf;
     }
     public void setNomeCognome(String nome, String cognome){

@@ -13,11 +13,9 @@ package com.stampantiSrl.classi;
 public class Venditore extends Account{
     private String ragioneSociale;
     private String p_iva;
-    private TipoAccount account;
     
     public Venditore(String ragioneSociale){
         super();
-        account = TipoAccount.VENDITORE;
         this.ragioneSociale = ragioneSociale;
     }
     public void setP_iva(String p_iva){

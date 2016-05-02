@@ -22,25 +22,21 @@ public class UtentiFactory {
         cliente1.setNomeCognome("Mario", "Bianchi");
         cliente1.setUsername("MarioBianchi");
         cliente1.setPassword("aaabbb");
-        ContoCliente contoCliente1 = new ContoCliente(111, 1000);
         listaAccount.add(cliente1);
         Cliente cliente2 = new Cliente("MLNFRN82A02A200B");
         cliente2.setNomeCognome("Franco", "Milani");
         cliente2.setUsername("FrancoMilani");
         cliente2.setPassword("cccddd");
-        ContoCliente contoCliente2 = new ContoCliente(222, 1200);
         listaAccount.add(cliente2);
         Cliente cliente3 = new Cliente("MRNVRN83A03A300C");
         cliente3.setNomeCognome("Veronica", "Marini");
         cliente3.setUsername("VeronicaMarini");
         cliente3.setPassword("eeefff");
-        ContoCliente contoCliente3 = new ContoCliente(333, 1400);
         listaAccount.add(cliente3);
         Venditore venditore = new Venditore("StampantiSrl");
         venditore.setP_iva("01234567890");
         venditore.setUsername("stampantisrl");
         venditore.setPassword("ggghhh");
-        ContoVenditore contoVenditore = new ContoVenditore(555, 1000); 
         listaAccount.add(venditore);
     }
     public static UtentiFactory getInstance() {

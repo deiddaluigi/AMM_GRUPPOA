@@ -14,7 +14,6 @@ public abstract class Account {
     private static int progressive_id = 0;
     private String username;
     private String password;
-    protected enum TipoAccount {VENDITORE, CLIENTE};
     public Account(){
         progressive_id++;
         id = progressive_id;
