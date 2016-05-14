@@ -98,7 +98,7 @@ tipo_stampa, gamma_colori, descrizione, prezzo_unitario, quantita, venditore_id)
 VALUES
     (default, 'Canon', 'iP8750', 'http://www.canon.it/Images/iP8750_Angle4_tcm80-1115696.jpg',
     'inkjet', 'a colori', 
-    'Risoluzione di stampa: Fino a 9600¹ x 2400 dpi;
+    'Risoluzione di stampa: Fino a 9600 x 2400 dpi;
     Tecnologia di stampa:6 inchiostri separati (PGBK, BK, C, M, Y, GY) 
     Sistema con testina di stampa FINE con gocce d''inchiostro da 1 pl (min.)
     Inchiostri ChromaLife100+', 

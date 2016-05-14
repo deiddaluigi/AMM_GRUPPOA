@@ -15,6 +15,15 @@ public class UtentiFactory {
     private static UtentiFactory singleton;
     // Lista Account
     private ArrayList<Account> listaAccount = new ArrayList<>();
+    private String connectionString;
+    
+    public void setConnectionString(String s){
+    this.connectionString = s;
+    }
+    
+    public String getConnectionString(){
+    return this.connectionString;
+    }
     
     /**Costruisce alcune istanze di Clienti e una istanza Venditore in listaAccount, ed i rispettivi Conti Corrente*/
     private UtentiFactory(){
