@@ -93,6 +93,27 @@ VALUES
     (default, 1002, 2222, 1200, 2),
     (default, 1003, 3333, 1300, 3);
 
+INSERT INTO stampanti_in_vendita (id, marca, modello, url_immagine, 
+tipo_stampa, gamma_colori, descrizione, prezzo_unitario, quantita, venditore_id)
+VALUES
+    (default, 'Canon', 'iP8750', 'http://www.canon.it/Images/iP8750_Angle4_tcm80-1115696.jpg',
+    'inkjet', 'a colori', 
+    'Risoluzione di stampa: Fino a 9600¹ x 2400 dpi;
+    Tecnologia di stampa:6 inchiostri separati (PGBK, BK, C, M, Y, GY) 
+    Sistema con testina di stampa FINE con gocce d''inchiostro da 1 pl (min.)
+    Inchiostri ChromaLife100+', 
+    360, 20, 1),
+    (default, 'Canon', 'i-SENSYS MF8550Cdn', 'http://www.canon.it/Images/i-Sensys-MF8550Cdn_Default_tcm80-1035436.jpg',
+    'laser', 'a colori', 'nessuna', 420, 4, 1),
+    (default, 'Epson', 'Ecotank ET-4550', 'https://www.epson.it/files/assets/converted/510m-310m/e/t/z/4/etz4550_med.png.png',
+    'inkjet', 'inkjet', 'nessuna', 500, 15, 1),
+    (default, 'Epson', 'workforce AL-MX200DNF', 'https://www.epson.it/files/assets/converted/510m-310m/a/l/g/m/algmx200dwf_noshadow.png.png',
+    'laser', 'monocromatica', 'nessuna', 382, 20, 1),
+    (default, 'Hp', 'Envy 7640', 'http://www.www8-hp.com/h22175/ItalyStore/Html/Merch/Images/c04385577_500x367.jpg',
+    'inkjet', 'a colori', 'nessuna', 150, 45, 1),
+    (default, 'Brother', 'HL-L6400DWT', 'http://www.brother.it/~/media/Product-Images/Devices/Printers/HL/HLL6400DWT/HLL6400DWT_main.ashx',
+    'laser', 'monocromatica', 'nessuna', 1480, 2, 1);
+
 INSERT INTO altre_caratteristiche_stampante (id, caratteristica)
 VALUES 
     (default, 'multifunzione'),
@@ -100,3 +121,11 @@ VALUES
     (default, 'A3'),
     (default, 'fronte-retro automatico');
 
+INSERT INTO stampanti_altreCaratteristiche (stampanti_in_vendita_id, altre_caratteristiche_stampante_id)
+VALUES 
+    (1,2), (1,3),
+    (2,1), (2,4),
+    (3,1), (3,2), (3,4),
+    (4,1), (4,2), (4,4),
+    (5,1), (5,2), (5,4),
+    (6,1), (6,2), (6,4);
