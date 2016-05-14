@@ -46,7 +46,7 @@ ACCOUNT-VENDITORE
     
 STAMPANTE_IN_VENDITA-ALTRE_CARATTERISTICHE_STAMPANTE
     (per ogni) stampante_in_vendita --> N altre_caratteristiche_stampante
-    (per ogni) altre_caratteristiche_stampante --> N stampante_in_vendita
+    (per ogni) altra_caratteristica_stampante --> N stampanti_in_vendita
     RELAZIONE: molti a molti
 
 CONTO_CORRENTE-CLIENTE
@@ -61,19 +61,11 @@ CONTO_CORRENTE-VENDITORE
 
 STAMPANTE_IN_VENDITA-VENDITORE
     (per ogni) stampante_in_vendita --> 1 venditore
-    (per ogni) venditore --> N stampante_in_vendita
+    (per ogni) venditore --> N stampanti_in_vendita
     RELAZIONE: uno a molti
 (con questa relazione si associa a ciascuna stampante in vendita, identificata 
 in modo univoco dalla chiave primaria in tabella, un unico venditore. A 
-ciascuna chiave primaria delle stampanti sono associati n esemplari di stampanti 
+ciascuna chiave primaria delle stampanti corrispondono n esemplari di stampanti 
 il cui totale disponibile per la vendita è riportato nel campo quantità. In caso 
 di più venditori, anche in caso di stampanti della stessa marca e modello, a
 ciascun venditore verrà associata una stampante con chiave primaria diversa.)
-
-STAMPANTE_IN_VENDITA-CLIENTE
-    (per ogni) stampante_in_vendita --> N cliente
-    (per ogni) cliente --> N stampante_in_vendita
-    RELAZIONE: molti a molti
-(in questa relazione, a ciascun esemplare si associa in modo implicito un 
-unico cliente, ma poiché a ciascuna stampante in vendita corrispondono n
-esemplari, a ciascuna stampante in vendita corrispondono uno o più clienti.)
