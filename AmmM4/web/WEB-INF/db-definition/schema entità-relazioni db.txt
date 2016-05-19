@@ -9,6 +9,11 @@ CLIENTE
     cognome (VARCHAR)
     codice_fiscale (VARCHAR)
 
+CONTO_CORRENTE
+    numero  (INTEGER)
+    codice_accesso (INTEGER)
+    saldo (DOUBLE PRECISION)
+
 VENDITORE
     ragione_sociale (VARCHAR)
     partita_iva (VARCHAR)
@@ -25,12 +30,6 @@ STAMPANTE_IN_VENDITA
 
 ALTRE_CARATTERISTICHE_STAMPANTE
     caratteristica
-
-CONTO_CORRENTE
-    numero  (INTEGER)
-    codice_accesso (INTEGER)
-    saldo (DOUBLE PRECISION)
-
 
 -ELENCO RELAZIONI-
 
