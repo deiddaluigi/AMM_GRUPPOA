@@ -12,8 +12,7 @@ import java.util.ArrayList;
  * @author Luigi Deidda
  */
 public class StampanteInVendita implements Cloneable{
-    private final int id;
-    private static int progressivo_id = 0;
+    private int id;
     private String marca, modello;
     private String urlImmagine;
     private String tipoStampa, gammaColori;
@@ -23,126 +22,124 @@ public class StampanteInVendita implements Cloneable{
     private int quantita; //quantita' di pezzi disponibili o da acquistare
     
     public StampanteInVendita (String marca, String modello){
-        progressivo_id++;
-        id = progressivo_id;
         this.marca = marca;
         this.modello = modello; 
     }
     
     /**
-     * @return the id
+     * @return id
      */
     public int getId() {
         return id;
     }
 
     /**
-     * @return the marca
+     * @return marca
      */
     public String getMarca() {
         return marca;
     }
 
     /**
-     * @param marca the marca to set
+     * @param marca  marca da impostare
      */
     public void setMarca(String marca) {
         this.marca = marca;
     }
 
     /**
-     * @return the modello
+     * @return modello
      */
     public String getModello() {
         return modello;
     }
 
     /**
-     * @param modello the modello to set
+     * @param modello modello da impostare
      */
     public void setModello(String modello) {
         this.modello = modello;
     }
 
     /**
-     * @return the urlImmagine
+     * @return urlImmagine
      */
     public String getUrlImmagine() {
         return urlImmagine;
     }
 
     /**
-     * @param urlImmagine the urlImmagine to set
+     * @param urlImmagine urlImmagine da impostare
      */
     public void setUrlImmagine(String urlImmagine) {
         this.urlImmagine = urlImmagine;
     }
 
     /**
-     * @return the tipoStampa
+     * @return tipoStampa
      */
     public String getTipoStampa() {
         return tipoStampa;
     }
 
     /**
-     * @param tipoStampa the tipoStampa to set
+     * @param tipoStampa tipoStampa da impostare
      */
     public void setTipoStampa(String tipoStampa) {
         this.tipoStampa = tipoStampa;
     }
 
     /**
-     * @return the gammaColori
+     * @return gammaColori
      */
     public String getGammaColori() {
         return gammaColori;
     }
 
     /**
-     * @param gammaColori the gammaColori to set
+     * @param gammaColori gammaColori da impostare
      */
     public void setGammaColori(String gammaColori) {
         this.gammaColori = gammaColori;
     }
 
    /**
-     * @return the altreCaratteristiche
+     * @return altreCaratteristiche
      */
     public ArrayList<String> getAltreCaratteristiche() {
         return altreCaratteristiche;
     }
 
     /**
-     * @param altreCaratteristiche the altreCaratteristiche to set
+     * @param altreCaratteristiche altreCaratteristiche da impostare
      */
     public void setAltreCaratteristiche(ArrayList<String> altreCaratteristiche) {
         this.altreCaratteristiche = altreCaratteristiche;
     }
  
     /**
-     * @return the descrizione
+     * @return descrizione
      */
     public String getDescrizione() {
         return descrizione;
     }
 
     /**
-     * @param descrizione the descrizione to set
+     * @param descrizione descrizione da impostare
      */
     public void setDescrizione(String descrizione) {
         this.descrizione = descrizione;
     }
 
     /**
-     * @return the prezzoUnitario
+     * @return prezzoUnitario
      */
     public double getPrezzoUnitario() {
         return prezzoUnitario;
     }
 
     /**
-     * @param prezzoUnitario the prezzoUnitario to set
+     * @param prezzoUnitario  prezzoUnitario da impostare
      */
     public void setPrezzoUnitario(double prezzoUnitario) {
         this.prezzoUnitario = prezzoUnitario;
@@ -156,7 +153,7 @@ public class StampanteInVendita implements Cloneable{
     }
 
     /**
-     * @param quantita the quantita to set
+     * @param quantita quantita da impostare
      */
     public void setQuantita(int quantita) {
         this.quantita = quantita;
@@ -183,7 +180,5 @@ public class StampanteInVendita implements Cloneable{
             return null;
         }
         
-    }
-    
-   
+    }  
 }

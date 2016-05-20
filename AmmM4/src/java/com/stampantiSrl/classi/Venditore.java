@@ -21,6 +21,9 @@ public class Venditore extends Account{
     public void setP_iva(String p_iva){
         this.p_iva = p_iva;
     }
+     public void setRagioneSociale(String ragioneSociale) {
+        this.ragioneSociale = ragioneSociale;
+    }
     public String getRagioneSociale(){
         return ragioneSociale;
     }
@@ -45,5 +48,4 @@ public class Venditore extends Account{
     public int hashCode() {
         return ragioneSociale.hashCode();
     }  
-    
 }

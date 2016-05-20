@@ -5,7 +5,12 @@
  */
 package com.stampantiSrl.classi;
 
-import java.util.ArrayList;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  *
@@ -13,40 +18,10 @@ import java.util.ArrayList;
  */
 public class UtentiFactory {
     private static UtentiFactory singleton;
-    // Lista Account
-    private ArrayList<Account> listaAccount = new ArrayList<>();
     private String connectionString;
     
-    public void setConnectionString(String s){
-    this.connectionString = s;
-    }
-    
-    public String getConnectionString(){
-    return this.connectionString;
-    }
-    
-    /**Costruisce alcune istanze di Clienti e una istanza Venditore in listaAccount, ed i rispettivi Conti Corrente*/
+    /***/
     private UtentiFactory(){
-        Cliente cliente = new Cliente("BNCMRA81A01A100A");
-        cliente.setNomeCognome("Mario", "Bianchi");
-        cliente.setUsername("MarioBianchi");
-        cliente.setPassword("aaabbb");
-        listaAccount.add(cliente);
-        cliente = new Cliente("MLNFRN82A02A200B");
-        cliente.setNomeCognome("Franco", "Milani");
-        cliente.setUsername("FrancoMilani");
-        cliente.setPassword("cccddd");
-        listaAccount.add(cliente);
-        cliente = new Cliente("MRNVRN83A03A300C");
-        cliente.setNomeCognome("Veronica", "Marini");
-        cliente.setUsername("VeronicaMarini");
-        cliente.setPassword("eeefff");
-        listaAccount.add(cliente);
-        Venditore venditore = new Venditore("StampantiSrl");
-        venditore.setP_iva("01234567890");
-        venditore.setUsername("stampantisrl");
-        venditore.setPassword("ggghhh");
-        listaAccount.add(venditore);
     }
     public static UtentiFactory getInstance() {
         if (singleton == null) {
@@ -54,15 +29,72 @@ public class UtentiFactory {
         }
         return singleton;
     }
-
-    public ArrayList<Account> getAccountList(){
-        return listaAccount;
-    }
-    public Account getAccount(int id){
-        for(Account a : listaAccount){
-            if(a.getId() == id)
-                return a;
+     public Account getAccount(String username, String password) {
+        try 
+        {
+            Connection connessione = DriverManager.getConnection(connectionString, "stampantisrl", "aaabbb");
+            // sql command
+            String queryAccount = "select * from accounts where "
+                    + "username = ? and password = ?";
+            PreparedStatement stmtAccount = connessione.prepareStatement(queryAccount);
+            // dati
+            stmtAccount.setString(1, username);
+            stmtAccount.setString(2, password);
+            ResultSet resAccount = stmtAccount.executeQuery();   
+            if(resAccount.next()) {
+                if ((resAccount.getString("tipo_utente")).equals("venditore")){
+                    Venditore venditore = null;
+                    try (Statement stmtVenditore = connessione.createStatement()) {
+                        String queryVenditore = "select * from "
+                                + "venditori where account_id = " + resAccount.getInt("id");
+                        ResultSet resVenditore = stmtVenditore.executeQuery(queryVenditore);
+                        if (resVenditore.next()){
+                            venditore = new Venditore(resVenditore.getString("ragione_sociale"));
+                            venditore.setP_iva(resVenditore.getString("partita_iva"));
+                            venditore.setUsername(resAccount.getString("username"));
+                            venditore.setPassword(resAccount.getString("password"));
+                        }
+                        
+                    }
+                    stmtAccount.close();
+                    connessione.close();
+                    return venditore;
+                    
+                } else {
+                    Cliente cliente = null;
+                    try (Statement stmtCliente = connessione.createStatement()) {
+                        String queryCliente = "select * from "
+                                + "clienti where account_id = " + resAccount.getInt("id");
+                        ResultSet resCliente = stmtCliente.executeQuery(queryCliente);
+                        if (resCliente.next()){
+                            cliente = new Cliente(resCliente.getString("codice_fiscale"));
+                            cliente.setNomeCognome(
+                                resCliente.getString("nome"),
+                                resCliente.getString("cognome"));
+                            cliente.setUsername(resAccount.getString("username"));
+                            cliente.setPassword(resAccount.getString("password"));
+                        }
+                        
+                    }
+                    stmtAccount.close();
+                    connessione.close();
+                    return cliente;
+                }
+            } else {
+                return null;
+            }  
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
         }
         return null;
+    }
+    public void setConnectionString(String s){
+    this.connectionString = s;
+    }
+    
+    public String getConnectionString(){
+    return this.connectionString;
     }
 }

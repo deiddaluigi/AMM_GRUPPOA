@@ -3,20 +3,21 @@
 ACCOUNT 
     username (VARCHAR)
     password (VARCHAR)
+    tipo_utente (VARCHAR)
     
 CLIENTE
     nome (VARCHAR)
     cognome (VARCHAR)
     codice_fiscale (VARCHAR)
 
-CONTO_CORRENTE
-    numero  (INTEGER)
-    codice_accesso (INTEGER)
-    saldo (DOUBLE PRECISION)
-
 VENDITORE
     ragione_sociale (VARCHAR)
     partita_iva (VARCHAR)
+
+CONTO_CORRENTE
+    numero (INTEGER)
+    codice_accesso (INTEGER)
+    saldo (DOUBLE PRECISION)
 
 STAMPANTE_IN_VENDITA
     marca (VARCHAR)

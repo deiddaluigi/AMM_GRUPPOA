@@ -10,23 +10,26 @@ package com.stampantiSrl.classi;
  * @author Luigi Deidda
  */
 public class ContoCorrente {
-    private final int numeroConto;
+    private int numeroConto;
     private int codiceAccessoConto;
-    private static int progressivo_nConto = 1000;
     private double saldo; // importi espressi in Euro
     
-    /**Crea un nuovo conto e assegna un numero di conto associato al codice di Accesso 
-     * inserito come parametro.
+    /**Crea un nuovo conto con relativo codice di Accesso e saldo iniziale
+     * inseriti come parametri.
      * @param codiceAccesso
      * @param saldoIniziale*/
     public ContoCorrente(int codiceAccesso, double saldoIniziale) {
         codiceAccessoConto = codiceAccesso;
-        saldo = saldoIniziale;
-        progressivo_nConto++;
-        numeroConto = progressivo_nConto;        
+        saldo = saldoIniziale;       
+    }
+    public void setNumeroConto(int numeroConto) {
+        this.numeroConto = numeroConto;
     }
     public int getNumeroConto() {
         return numeroConto;
+    }
+    public void setCodiceAccessoConto(int codiceAccessoConto) {
+        this.codiceAccessoConto = codiceAccessoConto;
     }
     public void versamento(double importoVersamento){
         if (importoVersamento >= 0) {

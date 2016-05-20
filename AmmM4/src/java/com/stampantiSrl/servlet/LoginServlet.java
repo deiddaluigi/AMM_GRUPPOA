@@ -52,6 +52,7 @@ public class LoginServlet extends HttpServlet {
             null, ex);
         }
         UtentiFactory.getInstance().setConnectionString(dbConnection);
+        //StampantiInVenditaFactory.getInstance().setConnectionString(dbConnection);
     }
     
     
@@ -73,12 +74,8 @@ public class LoginServlet extends HttpServlet {
                 if(request.getParameter("submit_name")!= null){ 
                     String username = request.getParameter("username_name");
                     String password = request.getParameter("pswd_name");
-                    ArrayList<Account> listaAccount = 
-                            UtentiFactory.getInstance().getAccountList();
-                   request.setAttribute("listaAccount", listaAccount);
-                    for(Account a : listaAccount) {
-                        if((a.getUsername().equals(username) &&
-                           a.getPassword().equals(password))){
+                    Account a = UtentiFactory.getInstance().getAccount(username, password);
+                        if(a != null){
                             sessione.setAttribute("loggedIn", true);
                             if ((a instanceof Cliente)){
                                 sessione.setAttribute("clienteLoggedIn", true);
@@ -93,7 +90,6 @@ public class LoginServlet extends HttpServlet {
                                 request.getRequestDispatcher("venditore.html").forward(request,response);
                             }
                         }               
-                    }
                     /*flag utilizzato per la visualizzazione del messaggio di errore nel
                      caso di username e/o password errati
                     */

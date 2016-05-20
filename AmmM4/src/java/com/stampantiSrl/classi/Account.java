@@ -10,48 +10,59 @@ package com.stampantiSrl.classi;
  * @author Luigi Deidda
  */
 public abstract class Account {
-    private final int id;
-    private static int progressive_id = 0;
+    private int id;
     private String username;
     private String password;
+    private String tipoUtente;
     public Account(){
-        progressive_id++;
-        id = progressive_id;
     }
 
     /**
-     * @return the id
+     * @return id
      */
     public int getId() {
         return id;
     }
 
     /**
-     * @return the username
+     * @return username
      */
     public String getUsername() {
         return username;
     }
 
     /**
-     * @param username the username to set
+     * @param username username da impostare
      */
     public void setUsername(String username) {
         this.username = username;
     }
 
     /**
-     * @return the password
+     * @return password
      */
     public String getPassword() {
         return password;
     }
 
     /**
-     * @param password the password to set
+     * @param password  password da impostare
      */
     public void setPassword(String password) {
         this.password = password;
+    }
+    
+    /**
+     * @return tipo utente
+     */
+    public String getTipoUtente() {
+        return tipoUtente;
+    }
+    /**
+     * @param tipoUtente  tipo utente da impostare
+     */
+    public void setTipoUtente(String tipoUtente) {
+        this.tipoUtente = tipoUtente;
     }
     
     @Override

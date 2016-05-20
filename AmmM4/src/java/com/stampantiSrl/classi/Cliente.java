@@ -13,7 +13,7 @@ package com.stampantiSrl.classi;
  */
 public class Cliente extends Account {
     private String nome, cognome;
-    private final String codiceFiscale;
+    private String codiceFiscale;
     
     /**
      *
@@ -23,9 +23,13 @@ public class Cliente extends Account {
         super();
         codiceFiscale = cf;
     }
+    
     public void setNomeCognome(String nome, String cognome){
         this.nome = nome;
         this.cognome = cognome;
+    }
+    public void setCodiceFiscale(String codiceFiscale) {
+        this.codiceFiscale = codiceFiscale;
     }
     public String getCF(){
         return codiceFiscale;
@@ -55,4 +59,6 @@ public class Cliente extends Account {
     public int hashCode() {
         return codiceFiscale.hashCode();
     }  
+
+   
 }
