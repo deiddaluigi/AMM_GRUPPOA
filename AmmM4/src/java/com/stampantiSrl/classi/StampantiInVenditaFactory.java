@@ -18,6 +18,8 @@ public class StampantiInVenditaFactory {
     private ArrayList<String> altreCaratteristiche = new ArrayList<>();
     private String connectionString;
     
+    //!da sostituire con il caricamento da database!
+    
     public StampantiInVenditaFactory(){
         StampanteInVendita stampante = new StampanteInVendita("Canon","iP8750");
         stampante.setUrlImmagine("http://www.canon.it/Images/iP8750_Angle4_tcm80-1115696.jpg");
@@ -50,6 +52,14 @@ public class StampantiInVenditaFactory {
         stampante.setQuantita(4);
         listaStampantiInVendita.add(stampante);
     }
+    
+    //!creare metodo per nuova stampante!
+    
+    //!creare metodo per modificare stampante!
+    
+    //!creare metodo per eliminare stampante!
+    
+    
     private static StampantiInVenditaFactory singleton;
     public static StampantiInVenditaFactory getInstance() {
         if (singleton == null) {

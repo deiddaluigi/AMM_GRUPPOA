@@ -5,7 +5,9 @@
  */
 package com.stampantiSrl.servlet;
 
+import com.stampantiSrl.classi.Cliente;
 import com.stampantiSrl.classi.ContoCliente;
+import com.stampantiSrl.classi.ContiCorrentiFactory;
 import com.stampantiSrl.classi.ContoVenditore;
 import com.stampantiSrl.classi.StampanteInVendita;
 import com.stampantiSrl.classi.StampantiInVenditaFactory;
@@ -25,10 +27,8 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(name = "CarrelloServlet", urlPatterns = {"/carrello.html"})
 public class CarrelloServlet extends HttpServlet {
-
-//Creazione conti corrente
-ContoCliente contoCliente = new ContoCliente(001,1000);//codice 001, saldo iniziale 1000 €
-ContoVenditore contoVenditore = new ContoVenditore(002,1000);//codice 002, saldo iniziale 1000 €
+    ContoCliente contoCliente;
+    ContoVenditore contoVenditore = new ContoVenditore(002,1000);//!da sostituire con un'istanza associata alla stampante!
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -66,17 +66,41 @@ ContoVenditore contoVenditore = new ContoVenditore(002,1000);//codice 002, saldo
                 for(int i=0; i < carrello.size() ; i++){
                     prezzoTotale += carrello.get(i).getQuantita() * carrello.get(i).getPrezzoUnitario();
                 } 
+                
+                //!creare routine di transazione!
+                
                 if (request.getParameter("acquistaOk") != null && prezzoTotale > 0){
-                    if ( contoCliente.getSaldo() >= prezzoTotale){
-                       contoCliente.prelevaDaConto(001, prezzoTotale);
-                       contoVenditore.versamento(prezzoTotale);
-                       request.setAttribute("messaggio_acquisto", "L'acquisto e' andato a buon fine e "
-                               + "l'importo dell'acquisto e' stato addebitato sul conto corrente.");
-                       carrello.clear();
-                       request.setAttribute("acquistato", true);
+                    if (sessione.getAttribute("cliente") instanceof Cliente){
+                        
+                        //carica l'istanza del cliente relativo alla sessione corrente
+                        Cliente cliente = (Cliente) sessione.getAttribute("cliente");
+                        
+                        //crea un'istanza del conto corrente relativo al cliente corrente
+                        contoCliente = (ContoCliente) ContiCorrentiFactory.getInstance().getContoCorrente(cliente);
+                        
+                        if ( contoCliente.getSaldo() >= prezzoTotale){
+                            
+                           //!creare una richiesta al cliente del codice di accesso al conto!
+                           contoCliente.prelevaDaConto(1111, prezzoTotale);
+                           
+                           /*
+                           !creare un'istanza del conto corrente relativo al venditore della stampante
+                           selezionata tramite l'id venditore della stampante!
+                           */ 
+                           contoVenditore.versamento(prezzoTotale);
+                           
+                           
+                           request.setAttribute("messaggio_acquisto", "L'acquisto e' andato a buon fine e "
+                                   + "l'importo dell'acquisto e' stato addebitato sul conto corrente.");
+                           carrello.clear();
+                           request.setAttribute("acquistato", true);
+                        } else {
+                        request.setAttribute("messaggio_acquisto", "Non è stato possibile effettuare "
+                                + "l'acquisto poiché l'importo supera la disponibilità del conto corrente.");
+                        }
                     } else {
-                    request.setAttribute("messaggio_acquisto", "Non è stato possibile effettuare "
-                            + "l'acquisto poiché l'importo supera la disponibilità del conto corrente.");
+                        request.setAttribute("messaggio_acquisto", "Non è stato possibile effettuare "
+                                + "l'acquisto poiché la sessione attiva non è relativa a nessun cliente registrato.");
                     }
                 } 
                 request.setAttribute("prezzoTotale", prezzoTotale);

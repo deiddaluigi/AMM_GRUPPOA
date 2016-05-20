@@ -20,6 +20,7 @@ public class StampanteInVendita implements Cloneable{
     private String descrizione;
     private double prezzoUnitario; // espresso in Euro
     private int quantita; //quantita' di pezzi disponibili o da acquistare
+    private int venditoreId;
     
     public StampanteInVendita (String marca, String modello){
         this.marca = marca;
@@ -146,7 +147,7 @@ public class StampanteInVendita implements Cloneable{
     }
 
     /**
-     * @return the quantita
+     * @return quantita
      */
     public int getQuantita() {
         return quantita;
@@ -158,7 +159,21 @@ public class StampanteInVendita implements Cloneable{
     public void setQuantita(int quantita) {
         this.quantita = quantita;
     }
-
+    
+    /**
+     * @return id venditore
+     */
+    
+    public int getVenditoreId() {
+        return venditoreId;
+    }
+     /**
+     * @param venditoreId id venditore da impostare
+     */
+    public void setVenditoreId(int venditoreId) {
+        this.venditoreId = venditoreId;
+    }
+    
     @Override
     public boolean equals(Object o){
         StampanteInVendita stampante = (StampanteInVendita) o;
@@ -178,7 +193,6 @@ public class StampanteInVendita implements Cloneable{
             return clonedStampante;
         } catch(CloneNotSupportedException e) {
             return null;
-        }
-        
+        }  
     }  
 }

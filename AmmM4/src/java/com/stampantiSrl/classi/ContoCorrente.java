@@ -10,6 +10,7 @@ package com.stampantiSrl.classi;
  * @author Luigi Deidda
  */
 public class ContoCorrente {
+    private int id;
     private int numeroConto;
     private int codiceAccessoConto;
     private double saldo; // importi espressi in Euro
@@ -22,6 +23,15 @@ public class ContoCorrente {
         codiceAccessoConto = codiceAccesso;
         saldo = saldoIniziale;       
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     public void setNumeroConto(int numeroConto) {
         this.numeroConto = numeroConto;
     }

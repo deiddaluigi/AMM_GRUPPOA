@@ -50,16 +50,15 @@ public class UtentiFactory {
                         ResultSet resVenditore = stmtVenditore.executeQuery(queryVenditore);
                         if (resVenditore.next()){
                             venditore = new Venditore(resVenditore.getString("ragione_sociale"));
+                            venditore.setId(resVenditore.getInt("account_id"));
                             venditore.setP_iva(resVenditore.getString("partita_iva"));
                             venditore.setUsername(resAccount.getString("username"));
                             venditore.setPassword(resAccount.getString("password"));
-                        }
-                        
+                        }      
                     }
                     stmtAccount.close();
                     connessione.close();
-                    return venditore;
-                    
+                    return venditore;    
                 } else {
                     Cliente cliente = null;
                     try (Statement stmtCliente = connessione.createStatement()) {
@@ -68,13 +67,13 @@ public class UtentiFactory {
                         ResultSet resCliente = stmtCliente.executeQuery(queryCliente);
                         if (resCliente.next()){
                             cliente = new Cliente(resCliente.getString("codice_fiscale"));
+                            cliente.setId(resCliente.getInt("account_id"));
                             cliente.setNomeCognome(
                                 resCliente.getString("nome"),
                                 resCliente.getString("cognome"));
                             cliente.setUsername(resAccount.getString("username"));
                             cliente.setPassword(resAccount.getString("password"));
-                        }
-                        
+                        }                   
                     }
                     stmtAccount.close();
                     connessione.close();
@@ -84,8 +83,7 @@ public class UtentiFactory {
                 return null;
             }  
         } 
-        catch (SQLException e) 
-        {
+        catch (SQLException e) {
             e.printStackTrace();
         }
         return null;

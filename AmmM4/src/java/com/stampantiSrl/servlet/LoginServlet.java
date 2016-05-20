@@ -7,7 +7,9 @@ package com.stampantiSrl.servlet;
 
 import com.stampantiSrl.classi.Account;
 import com.stampantiSrl.classi.Cliente;
+import com.stampantiSrl.classi.ContiCorrentiFactory;
 import com.stampantiSrl.classi.StampanteInVendita;
+import com.stampantiSrl.classi.StampantiInVenditaFactory;
 import com.stampantiSrl.classi.UtentiFactory;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -52,7 +54,8 @@ public class LoginServlet extends HttpServlet {
             null, ex);
         }
         UtentiFactory.getInstance().setConnectionString(dbConnection);
-        //StampantiInVenditaFactory.getInstance().setConnectionString(dbConnection);
+        ContiCorrentiFactory.getInstance().setConnectionString(dbConnection);
+        StampantiInVenditaFactory.getInstance().setConnectionString(dbConnection);
     }
     
     
@@ -79,7 +82,7 @@ public class LoginServlet extends HttpServlet {
                             sessione.setAttribute("loggedIn", true);
                             if ((a instanceof Cliente)){
                                 sessione.setAttribute("clienteLoggedIn", true);
-                                request.setAttribute("cliente", a);
+                                sessione.setAttribute("cliente", a);
                                 ArrayList<StampanteInVendita> carrello = new ArrayList<>();
                                 sessione.setAttribute("carrello", carrello);
                                 request.getRequestDispatcher("cliente.html").forward(request,response);
