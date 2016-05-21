@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.stampantiSrl.servlet;
 
 import com.stampantiSrl.classi.Cliente;
@@ -76,31 +71,21 @@ public class CarrelloServlet extends HttpServlet {
                         Cliente cliente = (Cliente) sessione.getAttribute("cliente");
                         
                         //crea un'istanza del conto corrente relativo al cliente corrente
-                        contoCliente = (ContoCliente) ContiCorrentiFactory.getInstance().getContoCorrente(cliente);
-                        
-                        if ( contoCliente.getSaldo() >= prezzoTotale){
-                            
-                           //!creare una richiesta al cliente del codice di accesso al conto!
-                           contoCliente.prelevaDaConto(1111, prezzoTotale);
-                           
-                           /*
-                           !creare un'istanza del conto corrente relativo al venditore della stampante
-                           selezionata tramite l'id venditore della stampante!
-                           */ 
-                           contoVenditore.versamento(prezzoTotale);
-                           
-                           
-                           request.setAttribute("messaggio_acquisto", "L'acquisto e' andato a buon fine e "
-                                   + "l'importo dell'acquisto e' stato addebitato sul conto corrente.");
-                           carrello.clear();
-                           request.setAttribute("acquistato", true);
-                        } else {
-                        request.setAttribute("messaggio_acquisto", "Non è stato possibile effettuare "
-                                + "l'acquisto poiché l'importo supera la disponibilità del conto corrente.");
+                        contoCliente = (ContoCliente) ContiCorrentiFactory.getInstance().getContoCorrente(cliente);            
+                        try {
+                            contoCliente.prelevaDaConto(1111, prezzoTotale);
+                            /*
+                            !creare un'istanza del conto corrente relativo al venditore della stampante
+                            selezionata tramite l'id venditore della stampante!
+                            */ 
+                            contoVenditore.versamento(prezzoTotale);
+                            request.setAttribute("messaggio_acquisto", "L'acquisto e' andato a buon fine e "
+                                + "l'importo dell'acquisto e' stato addebitato sul conto corrente.");
+                            request.setAttribute("acquistato", true);
+                            carrello.clear();
+                        } catch (RuntimeException e){
+                            request.setAttribute("messaggio_acquisto",e.getMessage());
                         }
-                    } else {
-                        request.setAttribute("messaggio_acquisto", "Non è stato possibile effettuare "
-                                + "l'acquisto poiché la sessione attiva non è relativa a nessun cliente registrato.");
                     }
                 } 
                 request.setAttribute("prezzoTotale", prezzoTotale);
@@ -108,8 +93,8 @@ public class CarrelloServlet extends HttpServlet {
                 request.getRequestDispatcher("carrello.jsp").forward(request,response);
             } else {
                 response.sendError(401);
-            }
-        }
+            }      
+        }       
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

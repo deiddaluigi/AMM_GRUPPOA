@@ -43,8 +43,8 @@ public class Cliente extends Account {
     @Override
     public String toString(){
         return getClass().getName() + 
-                "[nome=" + nome + 
-                "cognome=" + cognome +
+                "[nome=" + nome + "; " +
+                "cognome=" + cognome + "; " +
                 "codice fiscale=" + codiceFiscale + "]";
     }
     @Override

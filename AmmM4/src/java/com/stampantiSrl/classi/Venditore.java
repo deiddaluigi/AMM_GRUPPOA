@@ -33,7 +33,7 @@ public class Venditore extends Account{
     @Override
     public String toString(){
         return getClass().getName() + 
-                "[ragione sociale=" + ragioneSociale + 
+                "[ragione sociale=" + ragioneSociale + "; " +
                 "partita iva=" + p_iva + "]";
     }
     @Override

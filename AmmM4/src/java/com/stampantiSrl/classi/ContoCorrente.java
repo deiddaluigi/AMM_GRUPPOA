@@ -50,7 +50,7 @@ public class ContoCorrente {
         if (this.codiceAccessoConto == codiceAccesso) {
             if (importoPrelevamento <= saldo)
                 saldo -= importoPrelevamento;
-            else throw new RuntimeException("Errore. L'importo da prelevare supera il saldo del conto.");
+            else throw new RuntimeException("Errore. L'importo del pagamento supera il saldo del conto.");
         } else throw new RuntimeException("Errore. Codice di accesso al conto errato.");
     }
     public double getSaldo(){

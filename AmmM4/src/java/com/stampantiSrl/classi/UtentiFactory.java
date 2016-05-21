@@ -30,8 +30,7 @@ public class UtentiFactory {
         return singleton;
     }
      public Account getAccount(String username, String password) {
-        try 
-        {
+        try {
             Connection connessione = DriverManager.getConnection(connectionString, "stampantisrl", "aaabbb");
             // sql command
             String queryAccount = "select * from accounts where "

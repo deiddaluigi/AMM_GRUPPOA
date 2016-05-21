@@ -39,9 +39,12 @@ public class ClienteServlet extends HttpServlet {
             HttpSession sessione = request.getSession(false);
             if (sessione.getAttribute("clienteLoggedIn") != null &&
             (boolean) sessione.getAttribute("clienteLoggedIn")) {
-                ArrayList<StampanteInVendita> listaStampantiInVendita = 
-                StampantiInVenditaFactory.getInstance().getStampantiInVenditaList();
-                request.setAttribute("listaStampantiInVendita", listaStampantiInVendita);
+                if (!((boolean) sessione.getAttribute("listaAggiornata"))){
+                    ArrayList<StampanteInVendita> listaStampantiInVendita = 
+                    StampantiInVenditaFactory.getInstance().getStampantiInVenditaList();
+                    sessione.setAttribute("listaStampantiInVendita", listaStampantiInVendita);
+                    sessione.setAttribute("listaAggiornata", true);
+                }
                 request.getRequestDispatcher("cliente.jsp").forward(request,response);          
             } else {
                 /*

@@ -13,6 +13,10 @@
         <div id="page">
             <jsp:include page="header.jsp"/>
             <div>
+                <h2>
+                    CLIENTE: 
+                     <c:out value="${cliente.getNome()} ${cliente.getCognome()}"></c:out>
+                </h2>
                 <table class="row_color">
                     <tr id="intestazione_tab">
                         <th>Immagine del prodotto</th>

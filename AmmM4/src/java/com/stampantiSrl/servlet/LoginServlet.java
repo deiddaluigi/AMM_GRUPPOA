@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.stampantiSrl.servlet;
 
 import com.stampantiSrl.classi.Account;
@@ -85,6 +80,7 @@ public class LoginServlet extends HttpServlet {
                                 sessione.setAttribute("cliente", a);
                                 ArrayList<StampanteInVendita> carrello = new ArrayList<>();
                                 sessione.setAttribute("carrello", carrello);
+                                sessione.setAttribute("listaAggiornata", false);
                                 request.getRequestDispatcher("cliente.html").forward(request,response);
                             }
                             else{

@@ -52,7 +52,8 @@ public class ContiCorrentiFactory {
         } catch (SQLException e) {
             e.printStackTrace();
             return null;          
-        }      
+        }
+        
     }
     public void setConnectionString(String s){
     this.connectionString = s;

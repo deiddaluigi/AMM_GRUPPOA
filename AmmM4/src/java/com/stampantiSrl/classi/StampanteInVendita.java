@@ -33,7 +33,15 @@ public class StampanteInVendita implements Cloneable{
     public int getId() {
         return id;
     }
-
+    
+    /**
+     * @param id  id da impostare
+     */
+    
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     /**
      * @return marca
      */
