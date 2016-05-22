@@ -53,8 +53,31 @@ public class ContiCorrentiFactory {
             e.printStackTrace();
             return null;          
         }
-        
     }
+    public ContoVenditore getContoVenditore(int id) {
+        try {
+            Connection connessione = DriverManager.getConnection(connectionString, "stampantisrl", "aaabbb");
+            try (Statement stmtConto = connessione.createStatement()) {
+                String queryConto = "SELECT * FROM conti_correnti "
+                    + "WHERE account_id = " + id ;
+                try (ResultSet resConto = stmtConto.executeQuery(queryConto)) {
+                    if (resConto.next()) {
+                        ContoVenditore contoVenditore = new ContoVenditore(
+                                resConto.getInt("codice_accesso"), resConto.getDouble("saldo"));
+                        contoVenditore.setId(resConto.getInt("account_id"));
+                        contoVenditore.setNumeroConto(resConto.getInt("numero"));
+                        return contoVenditore;
+                    } else {
+                        return null;
+                    }
+                }    
+            }       
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;          
+        }
+    }
+    
     public void setConnectionString(String s){
     this.connectionString = s;
     }
