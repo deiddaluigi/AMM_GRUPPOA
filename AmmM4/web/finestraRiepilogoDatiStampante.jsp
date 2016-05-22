@@ -19,7 +19,7 @@
             <a href="./logout.html">logout</a>
         </nav>
         <div id="page">
-            <p>LA STAMPANTE E' STATA INSERITA</p>
+            <p>LA STAMPANTE E' STATA SALVATA CORRETTAMENTE</p>
             <jsp:include page="riepilogoStampante.jsp"/>
             <div id="blank"></div>
             <jsp:include page="footer-1.jsp"/>

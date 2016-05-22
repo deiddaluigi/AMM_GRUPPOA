@@ -20,7 +20,6 @@ public class UtentiFactory {
     private static UtentiFactory singleton;
     private String connectionString;
     
-    /***/
     private UtentiFactory(){
     }
     public static UtentiFactory getInstance() {
@@ -83,7 +82,7 @@ public class UtentiFactory {
             }  
         } 
         catch (SQLException e) {
-            e.printStackTrace();
+           // e.printStackTrace();
         }
         return null;
     }

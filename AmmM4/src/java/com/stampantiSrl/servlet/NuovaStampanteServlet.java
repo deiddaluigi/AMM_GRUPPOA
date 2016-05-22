@@ -6,6 +6,8 @@
 package com.stampantiSrl.servlet;
 
 import com.stampantiSrl.classi.StampanteInVendita;
+import com.stampantiSrl.classi.StampantiInVenditaFactory;
+import com.stampantiSrl.classi.Venditore;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -39,7 +41,8 @@ public class NuovaStampanteServlet extends HttpServlet {
             HttpSession sessione = request.getSession(false);
             if (sessione.getAttribute("venditoreLoggedIn") != null &&
             (boolean) sessione.getAttribute("venditoreLoggedIn")) {
-               if(request.getParameter("submit_name_stampante")!= null){ 
+               if(request.getParameter("submit_name_stampante")!= null ||
+                    request.getParameter("salva_modifiche_name")!= null){ 
                 stampante = new StampanteInVendita(
                     request.getParameter("marca_name"),
                     request.getParameter("modello_name"));
@@ -58,7 +61,7 @@ public class NuovaStampanteServlet extends HttpServlet {
                         for (String s: checkedbox){
                             altreCaratteristiche.add(s);
                         }
-                    } else altreCaratteristiche.add("nessuna");
+                    } 
                     stampante.setAltreCaratteristiche(altreCaratteristiche);
                     stampante.setDescrizione(request.getParameter("descrizione_name"));
                     try {
@@ -79,9 +82,26 @@ public class NuovaStampanteServlet extends HttpServlet {
                         request.getRequestDispatcher("/venditore.html").forward(request, response);
                         //request.setAttribute("stampante", stampante);
                     }
-                    request.setAttribute("stampante", stampante);
-                    request.getRequestDispatcher("finestraRiepilogoDatiStampante.jsp").forward(request, response);
-            }          
+                    stampante.setVenditoreId(((Venditore) sessione.getAttribute("venditore")).getId());
+                    if(request.getParameter("submit_name_stampante")!= null){
+                        request.setAttribute("stampante", stampante);
+                        if (StampantiInVenditaFactory.getInstance().addStampanteInVendita(stampante)){
+                        request.getRequestDispatcher("finestraRiepilogoDatiStampante.jsp").forward(request, response);
+                        } else {
+                            response.sendError(501);
+                        }
+                    } else if (request.getParameter("salva_modifiche_name")!= null){
+                        stampante.setId(Integer.parseInt(request.getParameter("id_name")));
+                        request.setAttribute("stampante", stampante);
+                        if (StampantiInVenditaFactory.getInstance().modifyStampanteInVendita(stampante)){
+                        request.getRequestDispatcher("finestraRiepilogoDatiStampante.jsp").forward(request, response);
+                        } else {
+                            response.sendError(501);
+                        }
+                    } else {
+                        response.sendError(501);
+                    }
+               }
             }else {
                 response.sendError(401);
             }

@@ -85,7 +85,7 @@ public class LoginServlet extends HttpServlet {
                             }
                             else{
                                 sessione.setAttribute("venditoreLoggedIn", true);
-                                request.setAttribute("venditore", a);
+                                sessione.setAttribute("venditore", a);
                                 request.getRequestDispatcher("venditore.html").forward(request,response);
                             }
                         }               

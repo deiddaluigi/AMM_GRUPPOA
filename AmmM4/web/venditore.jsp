@@ -1,7 +1,7 @@
 <%-- 
     Document   : venditore
     Created on : 24-apr-2016, 18.44.54
-    Author     : Luigi
+    Author     : Luigi Deidda
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -48,7 +48,7 @@
                         </p>
                         <p>
                             <label for="colori_id">a colori</label>
-                            <input type="radio" name="gamma_colori_name" id="colori_id" value="colori" >
+                            <input type="radio" name="gamma_colori_name" id="colori_id" value="a colori" >
                             <label for="monocromatica_id">monocromatica</label>
                             <input type="radio" name="gamma_colori_name" id="monocromatica_id" value="monocromatica">
                         </p>
@@ -61,9 +61,9 @@
                             </p>
                             <p>
                                 <label for="a3_id">formato A3</label>
-                                <input type="checkbox" name="altre_caratteristiche_name" id="a3_id" value="a3">
+                                <input type="checkbox" name="altre_caratteristiche_name" id="a3_id" value="A3">
                                 <label for="fronteRetro_id">fronte-retro automatico</label>
-                                <input type="checkbox" name="altre_caratteristiche_name" id="fronteRetro_id" value="fronte retro automatico">
+                                <input type="checkbox" name="altre_caratteristiche_name" id="fronteRetro_id" value="fronte-retro automatico">
                             </p>
                         </div>
                         <label for="descrizione_id">descrizione</label>
@@ -86,6 +86,7 @@
             <jsp:include page="footer-1.jsp"/>
             <nav class="barra_navigazione">
                 <a href="./">Home</a>
+                <a href="./venditore.html">elenco stampanti</a>
                 <a href="./logout.html">logout</a>
             </nav>
         </div>

@@ -103,7 +103,7 @@ VALUES
     (default, 'Canon', 'i-SENSYS MF8550Cdn', 'http://www.canon.it/Images/i-Sensys-MF8550Cdn_Default_tcm80-1035436.jpg',
     'laser', 'a colori', 'nessuna', 420, 4, 4),
     (default, 'Epson', 'Ecotank ET-4550', 'https://www.epson.it/files/assets/converted/510m-310m/e/t/z/4/etz4550_med.png.png',
-    'inkjet', 'inkjet', 'nessuna', 500, 15, 4),
+    'inkjet', 'a colori', 'nessuna', 500, 15, 4),
     (default, 'Epson', 'workforce AL-MX200DNF', 'https://www.epson.it/files/assets/converted/510m-310m/a/l/g/m/algmx200dwf_noshadow.png.png',
     'laser', 'monocromatica', 'nessuna', 382, 20, 4),
     (default, 'Hp', 'Envy 7640', 'http://www.www8-hp.com/h22175/ItalyStore/Html/Merch/Images/c04385577_500x367.jpg',

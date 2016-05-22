@@ -1,7 +1,7 @@
 <%-- 
     Document   : riepilogoStampante
     Created on : 30-apr-2016, 11.36.37
-    Author     : Luigi
+    Author     : Luigi Deidda
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="datiRiepilogo">

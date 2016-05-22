@@ -5,6 +5,9 @@
  */
 package com.stampantiSrl.servlet;
 
+import com.stampantiSrl.classi.StampanteInVendita;
+import com.stampantiSrl.classi.StampantiInVenditaFactory;
+import com.stampantiSrl.classi.Venditore;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -37,7 +40,30 @@ public class VenditoreServlet extends HttpServlet {
             HttpSession sessione = request.getSession(false);
             if (sessione.getAttribute("venditoreLoggedIn") != null &&
             (boolean) sessione.getAttribute("venditoreLoggedIn")) {
-               request.getRequestDispatcher("venditore.jsp").forward(request,response);          
+                if(request.getParameter("inserisci_name")== null){ 
+                    if (request.getParameter("modifica") != null){
+                        if(request.getParameter("modifica").equals("true")){
+                            StampanteInVendita stampante = StampantiInVenditaFactory.getStampanteInVendita(
+                            Integer.parseInt(request.getParameter("stampante_selezionata")));
+                            request.setAttribute("modificaStampante", stampante);
+                            request.getRequestDispatcher("./stampanteDaModificare.jsp").forward(request,response);
+                        } 
+                    }
+                    if (request.getParameter("elimina") != null){
+                        if(request.getParameter("elimina").equals("true")){
+                            StampantiInVenditaFactory.getInstance().deleteStampanteInVendita(
+                                Integer.parseInt(request.getParameter("stampante_selezionata")), 
+                                ((Venditore) sessione.getAttribute("venditore")).getId());
+                        } 
+                        request.setAttribute("msg", "la stampante selezionate e' stata eliminata dal database.");
+                    }
+                    request.setAttribute("listaStampantiVenditore", 
+                        StampantiInVenditaFactory.getInstance().getStampantiVenditoreList(
+                        ((Venditore) sessione.getAttribute("venditore")).getId()));
+                    request.getRequestDispatcher("elencoStampantiVenditore.jsp").forward(request,response);
+                } else {
+                    request.getRequestDispatcher("./venditore.jsp").forward(request,response);
+                }
             }else {
                 /*
                 L'errore 401 verra' visualizzato nel caso si tentasse l'accesso 
