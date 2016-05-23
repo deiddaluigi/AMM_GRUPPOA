@@ -3,7 +3,6 @@ package com.stampantiSrl.servlet;
 import com.stampantiSrl.classi.Cliente;
 import com.stampantiSrl.classi.ContoCliente;
 import com.stampantiSrl.classi.ContiCorrentiFactory;
-import com.stampantiSrl.classi.ContoCorrente;
 import com.stampantiSrl.classi.ContoVenditore;
 import com.stampantiSrl.classi.StampanteInVendita;
 import com.stampantiSrl.classi.StampantiInVenditaFactory;
@@ -76,26 +75,26 @@ public class CarrelloServlet extends HttpServlet {
 
                        //carica l'istanza del cliente relativo alla sessione corrente
                        Cliente cliente = (Cliente) sessione.getAttribute("cliente");
-
+                       
                        //crea un'istanza del conto corrente relativo al cliente corrente
                        contoCliente = (ContoCliente) ContiCorrentiFactory.getInstance().getContoCorrente(cliente);
                        
                        //crea un'istanza del conto del venditore relativo alla prima stampante nel carrello
-                       // se appartengono tutte ad uno stesso venditore
-
+                       // ipotizzando che appartengano tutte ad uno stesso venditore
                        contoVenditore = ContiCorrentiFactory.getInstance().getContoVenditore(carrello.get(0).getVenditoreId());
+                       
                        try {
-                           contoCliente.prelevaDaConto(1111, prezzoTotale);                       
+                           contoCliente.prelevaDaConto(1111, prezzoTotale);
                            contoVenditore.versamento(prezzoTotale);
-                           try {
-                               this.registraPagamento(contoVenditore, contoCliente, carrello);
+                           if (this.registraPagamento(contoCliente.getId(), contoVenditore.getId(), prezzoTotale, carrello)) {
                                request.setAttribute("messaggio_acquisto", "L'acquisto e' andato a buon fine e "
-                                   + "l'importo dell'acquisto e' stato addebitato sul conto corrente.");
-                           request.setAttribute("acquistato", true);
-                           carrello.clear();
-                           } catch (SQLException ex) {
-                               Logger.getLogger(CarrelloServlet.class.getName()).log(Level.SEVERE, null, ex);
+                                       + "l'importo dell'acquisto e' stato addebitato sul conto corrente.");
+                               request.setAttribute("acquistato", true);
+                               carrello.clear();
+                           } else {
+                               request.setAttribute("messaggio_acquisto", "Errore di sistema. Il pagamento è stato annullato.");
                            }
+
                        } catch (RuntimeException e) {
                            request.setAttribute("messaggio_acquisto", e.getMessage());
                        }
@@ -148,8 +147,8 @@ public class CarrelloServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-    public void registraPagamento(
-            ContoCorrente contoVenditore, ContoCorrente contoCliente, ArrayList<StampanteInVendita> stampantiNelCarrello ) throws SQLException{
+    public boolean registraPagamento(
+            int idCliente, int idVenditore,double importoPagamento, ArrayList<StampanteInVendita> stampantiNelCarrello ) {
         try (Connection connessione = DriverManager.getConnection(
                 UtentiFactory.getInstance().getConnectionString(), "stampantisrl", "aaabbb")) {
             PreparedStatement stmtStampante = null;
@@ -157,44 +156,53 @@ public class CarrelloServlet extends HttpServlet {
             PreparedStatement stmtContoVenditore = null;
             
             String queryStampante 
-                    = "UPDATE stampanti_in_vendita SET quantita = quantita - ? WHERE id = ?";
+                    = "UPDATE stampanti_in_vendita SET quantita = quantita - ? WHERE id = ? AND quantita >= ?";
             
-            String queryContiCorrenti // query uguale per contoVenditore e contoCliente
-                    = "UPDATE conti_correnti SET saldo = ? WHERE account_id = ?";
+            String queryContoCliente 
+                    = "UPDATE conti_correnti SET saldo = saldo - ? WHERE account_id = ? AND saldo >= ? ";
+            String queryContoVenditore 
+                    = "UPDATE conti_correnti SET saldo = saldo + ? WHERE account_id = ?";
             try {
                 connessione.setAutoCommit(false);
                 
-                stmtContoCliente = connessione.prepareStatement(queryContiCorrenti);
-                stmtContoVenditore = connessione.prepareStatement(queryContiCorrenti);
+                stmtContoCliente = connessione.prepareStatement(queryContoCliente);
+                stmtContoVenditore = connessione.prepareStatement(queryContoVenditore);
                 
-                stmtContoCliente.setDouble(1, contoCliente.getSaldo());
-                stmtContoCliente.setInt(2, contoCliente.getId());
+                stmtContoCliente.setDouble(1, importoPagamento);
+                stmtContoCliente.setInt(2, idCliente);
+                stmtContoCliente.setDouble(3, importoPagamento);
                 
-                stmtContoVenditore.setDouble(1, contoVenditore.getSaldo());
-                stmtContoVenditore.setInt(2, contoVenditore.getId());
-                
+                stmtContoVenditore.setDouble(1, importoPagamento);
+                stmtContoVenditore.setInt(2, idVenditore);
+                int n = 0;
                 int n1 = stmtContoCliente.executeUpdate();
                 int n2 = stmtContoVenditore.executeUpdate();
-                int n = 0;
                 int n3 = 0;
                 for (StampanteInVendita s: stampantiNelCarrello){
                     stmtStampante = connessione.prepareStatement(queryStampante);
                     stmtStampante.setInt(1, s.getQuantita());
                     stmtStampante.setInt(2, s.getId());
+                    stmtStampante.setInt(3, s.getQuantita());
                     n3 += stmtStampante.executeUpdate();
                     n++;
                 }
     
-                if (n1 != 1 || n2 != 1 || n3 != n) connessione.rollback();
-                else connessione.commit();
+                if (n1 != 1 || n2 != 1 || n3 != n) {
+                    connessione.rollback();
+                   throw new RuntimeException("Errore nella registrazione pagamento. Il pagamento è stato annullato.");
+                }
+                else {
+                    connessione.commit();
+                }
                 
             } catch (SQLException e) {
-                    e.getErrorCode();
+                    e.getMessage();
                try {
                    connessione.rollback();
                } catch (SQLException errorRollback){
-                   errorRollback.getErrorCode();
+                   errorRollback.getMessage();
                }
+               return false;
             } finally {
                 if (stmtStampante != null) stmtStampante.close();
                 if (stmtContoCliente != null) stmtContoCliente.close();
@@ -202,6 +210,10 @@ public class CarrelloServlet extends HttpServlet {
                 connessione.setAutoCommit(true);
                 connessione.close();
             }
+        } catch (SQLException ex) {
+            Logger.getLogger(CarrelloServlet.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
         } 
+        return true;
     }
 }
