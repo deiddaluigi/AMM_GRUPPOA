@@ -25,7 +25,7 @@ public class ContiCorrentiFactory {
     
     public ContoCorrente getContoCorrente(Account utente) {
         try {
-            Connection connessione = DriverManager.getConnection(connectionString, "stampantisrl", "aaabbb");
+            Connection connessione = DriverManager.getConnection(connectionString, "stampantisrldb", "aaabbb");
             try (Statement stmtConto = connessione.createStatement()) {
                 String queryConto = "select * from conti_correnti "
                     + "where account_id = " + utente.getId();
@@ -56,7 +56,7 @@ public class ContiCorrentiFactory {
     }
     public ContoVenditore getContoVenditore(int id) {
         try {
-            Connection connessione = DriverManager.getConnection(connectionString, "stampantisrl", "aaabbb");
+            Connection connessione = DriverManager.getConnection(connectionString, "stampantisrldb", "aaabbb");
             try (Statement stmtConto = connessione.createStatement()) {
                 String queryConto = "SELECT * FROM conti_correnti "
                     + "WHERE account_id = " + id ;

@@ -33,7 +33,7 @@ public class StampantiInVenditaFactory {
     public ArrayList<StampanteInVendita> getStampantiInVenditaList(){
        try {
            listaStampantiInVendita.clear();
-            try (Connection connessione = DriverManager.getConnection(connectionString, "stampantisrl", "aaabbb");
+            try (Connection connessione = DriverManager.getConnection(connectionString, "stampantisrldb", "aaabbb");
                 Statement stmtStampanti = connessione.createStatement()) {
                 String queryStampanti = "select * from stampanti_in_vendita";
                 try (ResultSet resStampanti = stmtStampanti.executeQuery(queryStampanti)) {
@@ -92,7 +92,7 @@ public class StampantiInVenditaFactory {
     }
     
     public boolean addStampanteInVendita(StampanteInVendita nuova){
-            try (Connection connessione = DriverManager.getConnection(connectionString, "stampantisrl", "aaabbb")) {
+            try (Connection connessione = DriverManager.getConnection(connectionString, "stampantisrldb", "aaabbb")) {
                 int id = -1;
                 String queryAddStampante = 
                     "INSERT INTO stampanti_in_vendita(id, marca, modello, url_immagine, " +
@@ -144,7 +144,7 @@ public class StampantiInVenditaFactory {
     }
 
     public boolean modifyStampanteInVendita(StampanteInVendita stampante){
-            try (Connection connessione = DriverManager.getConnection(connectionString, "stampantisrl", "aaabbb")) {
+            try (Connection connessione = DriverManager.getConnection(connectionString, "stampantisrldb", "aaabbb")) {
                 String queryDeleteCaratteristiche = 
                     "DELETE FROM stampanti_altreCaratteristiche WHERE stampanti_in_vendita_id = ? ";
                 try (PreparedStatement stmtDeleteCaratteristiche = connessione.prepareStatement(queryDeleteCaratteristiche)) {
@@ -199,7 +199,7 @@ public class StampantiInVenditaFactory {
     }
     
     public boolean deleteStampanteInVendita(int idStampante, int idVenditore){
-        try (Connection connessione = DriverManager.getConnection(connectionString, "stampantisrl", "aaabbb")) {
+        try (Connection connessione = DriverManager.getConnection(connectionString, "stampantisrldb", "aaabbb")) {
             String queryDeleteCaratteristiche = 
                     "DELETE FROM stampanti_altreCaratteristiche WHERE stampanti_in_vendita_id = ? ";
             try (PreparedStatement stmtDeleteCaratteristiche = connessione.prepareStatement(queryDeleteCaratteristiche)) {

@@ -29,13 +29,12 @@ public class UtentiFactory {
         return singleton;
     }
      public Account getAccount(String username, String password) {
-        try {
-            Connection connessione = DriverManager.getConnection(connectionString, "stampantisrl", "aaabbb");
-            // sql command
+        try (Connection connessione = DriverManager.getConnection(connectionString, "stampantisrldb", "aaabbb")){
+
             String queryAccount = "select * from accounts where "
                     + "username = ? and password = ?";
             PreparedStatement stmtAccount = connessione.prepareStatement(queryAccount);
-            // dati
+
             stmtAccount.setString(1, username);
             stmtAccount.setString(2, password);
             ResultSet resAccount = stmtAccount.executeQuery();   
@@ -82,7 +81,7 @@ public class UtentiFactory {
             }  
         } 
         catch (SQLException e) {
-           // e.printStackTrace();
+           String msg = e.getMessage();
         }
         return null;
     }

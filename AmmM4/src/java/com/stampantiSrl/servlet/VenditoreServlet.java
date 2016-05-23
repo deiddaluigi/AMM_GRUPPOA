@@ -40,7 +40,7 @@ public class VenditoreServlet extends HttpServlet {
             HttpSession sessione = request.getSession(false);
             if (sessione.getAttribute("venditoreLoggedIn") != null &&
             (boolean) sessione.getAttribute("venditoreLoggedIn")) {
-                if(request.getParameter("inserisci_name")== null){ 
+                if(request.getParameter("inserisci_name") == null){ 
                     if (request.getParameter("modifica") != null){
                         if(request.getParameter("modifica").equals("true")){
                             StampanteInVendita stampante = StampantiInVenditaFactory.getStampanteInVendita(

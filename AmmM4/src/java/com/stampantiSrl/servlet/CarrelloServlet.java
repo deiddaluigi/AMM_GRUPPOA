@@ -150,7 +150,7 @@ public class CarrelloServlet extends HttpServlet {
     public boolean registraPagamento(
             int idCliente, int idVenditore,double importoPagamento, ArrayList<StampanteInVendita> stampantiNelCarrello ) {
         try (Connection connessione = DriverManager.getConnection(
-                UtentiFactory.getInstance().getConnectionString(), "stampantisrl", "aaabbb")) {
+                UtentiFactory.getInstance().getConnectionString(), "stampantisrldb", "aaabbb")) {
             PreparedStatement stmtStampante = null;
             PreparedStatement stmtContoCliente = null;
             PreparedStatement stmtContoVenditore = null;
