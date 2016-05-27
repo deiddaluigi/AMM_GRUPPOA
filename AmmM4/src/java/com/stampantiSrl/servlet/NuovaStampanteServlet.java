@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.stampantiSrl.servlet;
 
 import com.stampantiSrl.classi.StampanteInVendita;
@@ -23,6 +18,10 @@ import javax.servlet.http.HttpSession;
  * @author Luigi Deidda
  */
 @WebServlet(name = "NuovaStampanteServlet", urlPatterns = {"/nuovaStampante.html"})
+
+/**
+ * Gestisce i dati di una stampante inviati tramite form di inserimento o modifica
+ */
 public class NuovaStampanteServlet extends HttpServlet {
     StampanteInVendita stampante;
     /**
@@ -64,26 +63,26 @@ public class NuovaStampanteServlet extends HttpServlet {
                     } 
                     stampante.setAltreCaratteristiche(altreCaratteristiche);
                     stampante.setDescrizione(request.getParameter("descrizione_name"));
-                    try {
-                        stampante.setPrezzoUnitario(Double.parseDouble(request.getParameter("prezzo_name")));
-                        request.setAttribute("stile_input_prezzo","stile_input");
-                    } catch (NumberFormatException e) {
-                        request.setAttribute("erroreInput_prezzo", true);
-                        request.setAttribute("stile_input_prezzo","errori_input");
-                        request.getRequestDispatcher("/venditore.html").forward(request, response);
-                        //request.setAttribute("stampante", stampante);
-                    }
-                    try {
-                        stampante.setQuantita(Integer.parseInt(request.getParameter("quantita_name")));
-                        request.setAttribute("stile_input_quantita","stile_input");
-                    } catch (NumberFormatException e) {
-                        request.setAttribute("erroreInput_quantita", true);
-                        request.setAttribute("stile_input_quantita","errori_input");
-                        request.getRequestDispatcher("/venditore.html").forward(request, response);
-                        //request.setAttribute("stampante", stampante);
-                    }
                     stampante.setVenditoreId(((Venditore) sessione.getAttribute("venditore")).getId());
                     if(request.getParameter("submit_name_stampante")!= null){
+                        try {
+                            stampante.setPrezzoUnitario(Double.parseDouble(request.getParameter("prezzo_name")));
+                            request.setAttribute("stile_input_prezzo", "stile_input");
+                        } catch (NumberFormatException e) {
+                            request.setAttribute("erroreInput_prezzo", true);
+                            request.setAttribute("stile_input_prezzo", "errori_input");
+                            request.setAttribute("modificaStampante", stampante);
+                            request.getRequestDispatcher("./venditore.jsp").forward(request, response);
+                        }
+                        try {
+                            stampante.setQuantita(Integer.parseInt(request.getParameter("quantita_name")));
+                            request.setAttribute("stile_input_quantita", "stile_input");
+                        } catch (NumberFormatException e) {
+                            request.setAttribute("erroreInput_quantita", true);
+                            request.setAttribute("stile_input_quantita", "errori_input");
+                            request.setAttribute("modificaStampante", stampante);
+                            request.getRequestDispatcher("./venditore.jsp").forward(request, response);
+                        }
                         request.setAttribute("stampante", stampante);
                         if (StampantiInVenditaFactory.getInstance().addStampanteInVendita(stampante)){
                         request.getRequestDispatcher("finestraRiepilogoDatiStampante.jsp").forward(request, response);
@@ -92,9 +91,27 @@ public class NuovaStampanteServlet extends HttpServlet {
                         }
                     } else if (request.getParameter("salva_modifiche_name")!= null){
                         stampante.setId(Integer.parseInt(request.getParameter("id_name")));
+                        try {
+                            stampante.setPrezzoUnitario(Double.parseDouble(request.getParameter("prezzo_name")));
+                            request.setAttribute("stile_input_prezzo", "stile_input");
+                        } catch (NumberFormatException e) {
+                            request.setAttribute("erroreInput_prezzo", true);
+                            request.setAttribute("stile_input_prezzo", "errori_input");
+                            request.setAttribute("modificaStampante", stampante);
+                            request.getRequestDispatcher("./stampanteDaModificare.jsp").forward(request, response);
+                        }
+                        try {
+                            stampante.setQuantita(Integer.parseInt(request.getParameter("quantita_name")));
+                            request.setAttribute("stile_input_quantita", "stile_input");
+                        } catch (NumberFormatException e) {
+                            request.setAttribute("erroreInput_quantita", true);
+                            request.setAttribute("stile_input_quantita", "errori_input");
+                            request.setAttribute("modificaStampante", stampante);
+                            request.getRequestDispatcher("./stampanteDaModificare.jsp").forward(request, response);
+                        }
                         request.setAttribute("stampante", stampante);
-                        if (StampantiInVenditaFactory.getInstance().modifyStampanteInVendita(stampante)){
-                        request.getRequestDispatcher("finestraRiepilogoDatiStampante.jsp").forward(request, response);
+                        if (StampantiInVenditaFactory.getInstance().modifyStampanteInVendita(stampante)) {
+                            request.getRequestDispatcher("finestraRiepilogoDatiStampante.jsp").forward(request, response);
                         } else {
                             response.sendError(501);
                         }

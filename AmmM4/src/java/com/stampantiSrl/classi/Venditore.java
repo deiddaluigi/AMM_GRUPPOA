@@ -1,6 +1,4 @@
 package com.stampantiSrl.classi;
-
-
 /**
  *
  * @author Luigi Deidda
