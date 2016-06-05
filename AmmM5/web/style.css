@@ -566,10 +566,6 @@ table td:nth-of-type(6)
         display: block;
         width: 85%;
     }
-    .icone_nav 
-    {
-        display: none;
-    }
     #content
     {
         width: 93%;
