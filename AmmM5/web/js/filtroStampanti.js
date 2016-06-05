@@ -83,8 +83,6 @@ function eseguiFiltro(q)
                 imgLink.setAttribute("height", 25);
                 link.appendChild(imgLink);
             }
-            
-            
             $("table").append(nuovoTag_tr);
         }
     }
