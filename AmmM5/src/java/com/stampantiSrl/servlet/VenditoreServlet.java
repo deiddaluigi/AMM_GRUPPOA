@@ -38,7 +38,7 @@ public class VenditoreServlet extends HttpServlet {
                 if(request.getParameter("inserisci_name") == null){ 
                     if (request.getParameter("modifica") != null){
                         if(request.getParameter("modifica").equals("true")){
-                            StampanteInVendita stampante = StampantiInVenditaFactory.getStampanteInVendita(
+                            StampanteInVendita stampante = StampantiInVenditaFactory.getInstance().getStampanteInVendita(
                             Integer.parseInt(request.getParameter("stampante_selezionata")));
                             request.setAttribute("modificaStampante", stampante);
                             request.getRequestDispatcher("./stampanteDaModificare.jsp").forward(request,response);

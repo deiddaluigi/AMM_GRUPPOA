@@ -26,7 +26,6 @@ function eseguiFiltro(q)
                         tagP.setAttribute("id", "msg_non_trovato");
                         var msg = document.createTextNode("Nessun elemento trovato");
                         tagP.appendChild(msg);
- 
                     } else {
                         aggiornaElencoStampantiInVendita(resLista);
                     }

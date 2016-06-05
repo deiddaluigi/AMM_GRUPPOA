@@ -55,7 +55,7 @@ public class CarrelloServlet extends HttpServlet {
                if (request.getParameter("elimina_dal_carrello") != null) {
                    try {
                        int stampanteSelezionata = Integer.parseInt(request.getParameter("elimina_dal_carrello"));
-                       StampanteInVendita stampante = StampantiInVenditaFactory.getStampanteInVendita(stampanteSelezionata);
+                       StampanteInVendita stampante = StampantiInVenditaFactory.getInstance().getStampanteInVendita(stampanteSelezionata);
                        for (int i = 0; i < carrello.size(); i++) {
                            if (carrello.get(i).getId() == stampanteSelezionata) {
                                stampante.setQuantita(stampante.getQuantita() + carrello.get(i).getQuantita());
@@ -86,9 +86,9 @@ public class CarrelloServlet extends HttpServlet {
                        try {
                            try {
                                codiceAccesso = Integer.parseInt(request.getParameter("codice_accesso"));
-
                            } catch (NumberFormatException e) {
-                               response.sendError(400);
+                               request.setAttribute("messaggio_acquisto", 
+                                       "Errore. E' stato inserito un codice accesso con formato non valido.");
                            }
                            contoCliente.prelevaDaConto(codiceAccesso, prezzoTotale);
                            contoVenditore.versamento(prezzoTotale);

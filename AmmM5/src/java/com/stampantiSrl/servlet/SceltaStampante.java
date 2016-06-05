@@ -40,9 +40,9 @@ public class SceltaStampante extends HttpServlet {
             (boolean) sessione.getAttribute("clienteLoggedIn")) {
                 try {
                     int stampanteSelezionata = Integer.parseInt(request.getParameter("stampante_selezionata"));
-                    StampanteInVendita stampante = StampantiInVenditaFactory.getStampanteInVendita(stampanteSelezionata);
+                    StampanteInVendita stampante = StampantiInVenditaFactory.getInstance().getStampanteInVendita(stampanteSelezionata);
                     if(request.getParameter("conferma_name") != null){ 
-                        if (stampante.getQuantita()>0){
+                        if (stampante.getQuantita() > 0){
                             StampanteInVendita stampanteNelCarrello = (StampanteInVendita) stampante.clone();
                         ArrayList<StampanteInVendita> carrello;
                         carrello = (ArrayList<StampanteInVendita>) sessione.getAttribute("carrello");
@@ -69,8 +69,7 @@ public class SceltaStampante extends HttpServlet {
                     request.setAttribute("stampante", stampante);
                 } catch (NumberFormatException e){
                     response.sendError(400);
-                }
-               
+                }           
                 request.getRequestDispatcher("sceltaStampante.jsp").forward(request,response);
             } else {
                 response.sendError(401);

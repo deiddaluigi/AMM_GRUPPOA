@@ -106,13 +106,19 @@ public class StampantiInVenditaFactory {
         }
         return listaStampantiVenditore;
     }
-    
-    public static StampanteInVendita getStampanteInVendita(int id){
-        for(StampanteInVendita s : listaStampantiInVendita){
-            if(s.getId() == id)
-                return s;
+  
+    public StampanteInVendita getStampanteInVendita(int id) {
+        try (Connection connessione = DriverManager.getConnection(connectionString, "stampantisrldb", "aaabbb")) {
+            String queryStampanti = "SELECT * FROM stampanti_in_vendita WHERE id = ?";
+            PreparedStatement stmtStampanti = connessione.prepareStatement(queryStampanti);
+            stmtStampanti.setInt(1, id);
+            try (ResultSet resStampanti = stmtStampanti.executeQuery()) {
+                return getLista(connessione, resStampanti).get(0);
+            }
+        } catch (SQLException e) {
+            e.getCause();
+            return null;
         }
-        return null;
     }
     
     public boolean addStampanteInVendita(StampanteInVendita nuova){
