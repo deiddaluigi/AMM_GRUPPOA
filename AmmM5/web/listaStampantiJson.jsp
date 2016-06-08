@@ -14,6 +14,7 @@
             <json:property name="marca" value="${stampante.getMarca()}"/>
             <json:property name="modello" value="${stampante.getModello()}"/>
             <json:property name="url" value="${stampante.getUrlImmagine()}"/>
+            <json:property name="tipo_stampa" value="${stampante.getTipoStampa()}"/>
             <json:property name="prezzo" value="${stampante.getPrezzoUnitario()}"/>
             <json:property name="quantita" value="${stampante.getQuantita()}"/>
         </json:object>

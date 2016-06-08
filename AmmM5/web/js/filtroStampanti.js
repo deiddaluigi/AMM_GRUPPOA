@@ -5,7 +5,7 @@ $(document).ready(function ()
         var q = $("#filtra_id").val();
         eseguiFiltro(q);
     });
-    $(document).load(eseguiFiltro(""));
+    $("body").load(eseguiFiltro(""));
 });
 function eseguiFiltro(q)
 {
@@ -21,6 +21,8 @@ function eseguiFiltro(q)
                     $("#msg_non_trovato").remove();
                     if (jQuery.isEmptyObject(resLista)) {
                         $(".riga_tab").remove();
+                        var tagP = document.createElement("p");
+                        $(".input_filter").append(tagP);
                         var tagP = document.createElement("p");
                         $(".input_filter").append(tagP);
                         tagP.setAttribute("id", "msg_non_trovato");
@@ -45,7 +47,8 @@ function eseguiFiltro(q)
             
             var marca = listaStampanti[i].marca;
             var modello = listaStampanti[i].modello;
-            var marcaModello = marca + " " + modello;
+            var tipo_stampa = listaStampanti[i].tipo_stampa;
+            var marcaModello = marca + " " + modello + " - " + tipo_stampa;
             
             var tdImmagine = document.createElement("td");
             nuovoTag_tr.appendChild(tdImmagine);

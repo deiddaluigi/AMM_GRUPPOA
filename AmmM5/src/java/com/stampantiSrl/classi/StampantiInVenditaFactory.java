@@ -20,8 +20,6 @@ public class StampantiInVenditaFactory {
     private static ArrayList<StampanteInVendita> listaStampantiInVendita = new ArrayList<>();
     private String connectionString;
     
-    //!da sostituire con il caricamento da database!
-    
     private StampantiInVenditaFactory(){   
     }
     
@@ -46,12 +44,17 @@ public class StampantiInVenditaFactory {
     }
    public ArrayList<StampanteInVendita> getStampantiInVenditaList(String testo){
          try (Connection connessione = DriverManager.getConnection(connectionString, "stampantisrldb", "aaabbb")) {
+            /*la clausola UPPER e' stata utilizzata sia della stringa inserita dall'utente 
+             che delle stringhe dei campi da confrontare per ottenere una query equivalente 
+             ad un confronto fra stringhe case not sensitive.*/
             String queryStampanti = "SELECT * FROM stampanti_in_vendita"
-                    + " WHERE marca LIKE ? OR modello LIKE ?";
+                    + " WHERE UPPER(marca) LIKE UPPER(?) OR UPPER(modello) LIKE UPPER(?) "
+                    + "OR UPPER(tipo_stampa) LIKE UPPER(?)";
             PreparedStatement stmtStampanti = connessione.prepareStatement(queryStampanti);
             testo = "%" + testo + "%";
             stmtStampanti.setString(1, testo);
             stmtStampanti.setString(2, testo);
+            stmtStampanti.setString(3, testo);
             try (ResultSet resStampanti = stmtStampanti.executeQuery()) {
                 return getLista(connessione, resStampanti);
             }
