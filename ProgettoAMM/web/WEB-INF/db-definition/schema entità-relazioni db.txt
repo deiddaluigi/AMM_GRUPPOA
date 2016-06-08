@@ -1,0 +1,66 @@
+-ELENCO ENTITA'-
+
+ACCOUNT 
+    username (VARCHAR)
+    password (VARCHAR)
+    tipo_utente (VARCHAR)
+    
+CLIENTE
+    nome (VARCHAR)
+    cognome (VARCHAR)
+    codice_fiscale (VARCHAR)
+
+VENDITORE
+    ragione_sociale (VARCHAR)
+    partita_iva (VARCHAR)
+
+CONTO_CORRENTE
+    numero (INTEGER)
+    codice_accesso (INTEGER)
+    saldo (DOUBLE PRECISION)
+
+STAMPANTE_IN_VENDITA
+    marca (VARCHAR)
+    modello (VARCHAR)
+    url_immagine (VARCHAR)
+    tipo_stampa (VARCHAR)
+    gamma_colori (VARCHAR)
+    descrizione (VARCHAR)
+    prezzo_unitario (DOUBLE PRECISION)
+    quantita (INTEGER)
+
+ALTRE_CARATTERISTICHE_STAMPANTE
+    caratteristica
+
+-ELENCO RELAZIONI-
+
+ACCOUNT-CLIENTE
+    (per ogni) account --> 1 cliente
+    (per ogni) cliente --> 1 account
+    RELAZIONE: uno a uno
+
+ACCOUNT-VENDITORE
+    (per ogni) account --> 1 venditore
+    (per ogni) venditore --> 1 account
+    RELAZIONE: uno a uno
+  
+ACCOUNT-CONTO_CORRENTE
+    (per ogni) account --> 1 conto_corrente
+    (per ogni) conto_corrente --> 1 account
+    RELAZIONE: uno a uno
+  
+STAMPANTE_IN_VENDITA-ALTRE_CARATTERISTICHE_STAMPANTE
+    (per ogni) stampante_in_vendita --> N altre_caratteristiche_stampante
+    (per ogni) altre_caratteristica_stampante --> N stampante_in_vendita
+    RELAZIONE: molti a molti
+
+STAMPANTE_IN_VENDITA-VENDITORE
+    (per ogni) stampante_in_vendita --> 1 venditore
+    (per ogni) venditore --> N stampanti_in_vendita
+    RELAZIONE: uno a molti
+(questa relazione associa a ciascuna stampante in vendita, identificata 
+in modo univoco dalla chiave primaria in tabella, un unico venditore. A 
+ciascuna chiave primaria delle stampanti corrispondono n esemplari di stampanti 
+il cui totale disponibile per la vendita è riportato nel campo quantità. In caso 
+di più venditori, anche in caso di stampanti della stessa marca e modello, a
+ciascun venditore verrà associata una stampante con chiave primaria diversa.)
