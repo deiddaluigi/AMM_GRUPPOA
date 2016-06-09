@@ -2,6 +2,7 @@ package com.stampantiSrl.classi;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -76,6 +77,21 @@ public class ContiCorrentiFactory {
         } catch (SQLException e) {
             e.printStackTrace();
             return null;          
+        }
+    }
+    public void versaSulConto(int idAccount, double importo) {
+        try {
+            Connection connessione = DriverManager.getConnection(connectionString, "stampantisrldb", "aaabbb");
+            String queryAggiornaSaldo = 
+                    "UPDATE conti_correnti SET saldo = saldo + ? WHERE account_id = ?";
+                try (PreparedStatement stmtAggiornaSaldo = connessione.prepareStatement(queryAggiornaSaldo)) {
+                    stmtAggiornaSaldo.setDouble(1, importo);
+                    stmtAggiornaSaldo.setInt(2, idAccount);
+                    int numRighe = stmtAggiornaSaldo.executeUpdate();
+                   //if (numRighe != 1) ...;
+                }  
+        } catch (SQLException e) {
+            e.printStackTrace();       
         }
     }
     public void closeFactoryInstance(){

@@ -383,6 +383,13 @@ input.errori_input
     margin: 50px;
     color: #042756;
 }
+.messaggio_ricarica
+{
+    display: block;
+    margin: auto;
+    color: #042756;
+    text-align: center;
+}
 /*stile finestra messaggi di avviso*/
 .finestra_messaggio
 {
@@ -435,6 +442,15 @@ input.errori_input
 #filtra_label
 {
     margin-right: 10px;
+}
+#form_ricarica_conto
+{
+    margin-top: 80px;
+}
+#titolo_ricarica_conto_id
+{
+    margin: auto;
+    text-align: center;
 }
 .table_pag > h2
 {
