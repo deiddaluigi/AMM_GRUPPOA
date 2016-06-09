@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.stampantiSrl.servlet;
 
 import com.stampantiSrl.classi.Cliente;
@@ -53,11 +48,14 @@ public class RicaricaContoCorrente extends HttpServlet {
                     
                     /*per simulare un criterio di verifica validità dei numeri di carta di credito,
                     valutiamo come carta valida un numero di carta multiplo di 3*/
-                    if (numCartaCredito % 3 == 0){
-                        if ( importoRicarica > 0){
+                    if (numCartaCredito % 3 == 0) {
+                        if (importoRicarica > 0) {
                             Cliente cliente = (Cliente) sessione.getAttribute("cliente");
-                        ContiCorrentiFactory.getInstance().versaSulConto(cliente.getId(), importoRicarica);
-                        request.setAttribute("msg", "L'importo e' stato accreditato correttamente sul conto.");
+                            if (ContiCorrentiFactory.getInstance().versaSulConto(cliente.getId(), importoRicarica)) {
+                                request.setAttribute("msg", "L'importo e' stato accreditato correttamente sul conto.");
+                            } else {
+                                request.setAttribute("msg", "Errore di sistema. L'importo non e' stato accreditato.");
+                            }
                         } else {
                             request.setAttribute("msg", "Errore: l'importo deve essere maggiore di zero.");
                         }

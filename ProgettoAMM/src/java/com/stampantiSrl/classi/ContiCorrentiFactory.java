@@ -79,20 +79,23 @@ public class ContiCorrentiFactory {
             return null;          
         }
     }
-    public void versaSulConto(int idAccount, double importo) {
+    public boolean versaSulConto(int idAccount, double importo) {
         try {
             Connection connessione = DriverManager.getConnection(connectionString, "stampantisrldb", "aaabbb");
             String queryAggiornaSaldo = 
-                    "UPDATE conti_correnti SET saldo = saldo + ? WHERE account_id = ?";
+                    "UPDATE conti_correnti SET saldo = saldo + ? WHERE account_id = ? AND ? > 0";
                 try (PreparedStatement stmtAggiornaSaldo = connessione.prepareStatement(queryAggiornaSaldo)) {
                     stmtAggiornaSaldo.setDouble(1, importo);
                     stmtAggiornaSaldo.setInt(2, idAccount);
+                    stmtAggiornaSaldo.setDouble(3, importo);
                     int numRighe = stmtAggiornaSaldo.executeUpdate();
-                   //if (numRighe != 1) ...;
+                   if (numRighe != 1) return false;
                 }  
         } catch (SQLException e) {
-            e.printStackTrace();       
+            e.printStackTrace(); 
+            return false;
         }
+        return true;
     }
     public void closeFactoryInstance(){
         try {
