@@ -312,6 +312,27 @@ input.pulsanti
     border: none;
     color: white;  
 }
+#link_carrello_button
+{
+    background-color: transparent;
+    color: #042756;
+    border-color: #042d86;
+    border-style: solid;
+    border-width: 1px;
+    margin-top: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+}
+#link_carrello_button:hover
+{
+    background-color: #042d86;
+    color: white;
+}
 a.link_carrello
 {
     border-color: #042d86;
@@ -407,13 +428,14 @@ input.errori_input
 }
 .finestra_messaggio button
 {
-    margin: auto;
-    display: block;
+    margin: 3%;
+    display: inline-block;
     padding-top: 7px;
     padding-bottom: 7px;
     padding-left: 25px;
     padding-right: 25px;
 }
+
 /*stile finestra account utente*/
 .finestra_account
 {
@@ -579,7 +601,7 @@ table td:nth-of-type(6)
     .finestra_messaggio
     {
         width: 40%;
-        top: 40%;
+        top: 30%;
         left: 30%;
     }
 }
@@ -625,7 +647,7 @@ table td:nth-of-type(6)
     .finestra_messaggio
     {
         width: 80%;
-        top: 40%;
+        top: 30%;
         left: 7%;
     }
 }

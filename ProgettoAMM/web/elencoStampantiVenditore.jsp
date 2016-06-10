@@ -3,11 +3,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>carrello</title>
+        <title>Elenco Stampanti</title>
         <meta charset="UTF-8">
         <meta name="description" content="elenco stampanti venditore">
         <meta name="author" content="Luigi Deidda">
         <link rel="stylesheet" type="text/css" href="./style.css" media="screen">
+        <script type="text/javascript" src="./js/eliminaStampante.js"></script>
     </head>
     <body>
         <div id="page">
@@ -43,10 +44,10 @@
                 <a class="link_testo_nav" href="./logout.html">logout</a>
                 <jsp:include page="infoAccount.jsp"/>
             </nav>
-            <c:if test = "${elimina}" >
-                <div class="finestra_messaggio" >
+            <c:if test = "${stampante_eliminata}" >
+                <div id="div_finestra_messaggio" class="finestra_messaggio" >
                     <p>${msg}</p>
-                    <button onclick="location.href='./venditore.html'" >OK</button>
+                    <button  onclick="annulla()">OK</button>
                 </div>
             </c:if>
         </div>

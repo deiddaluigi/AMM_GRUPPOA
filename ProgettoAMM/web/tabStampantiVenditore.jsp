@@ -10,7 +10,7 @@
         <td>${stampanteVenditore.getQuantita()}</td>
         <td>€ ${stampanteVenditore.getPrezzoUnitario()}</td>
         <td>
-            <a class="link_carrello" href="./venditore.html?stampante_selezionata=${stampanteVenditore.getId()}&elimina=true">elimina</a>
+            <input id="link_carrello_button" class="link_carrello" value="elimina" type="button" onclick="eliminaStampante(${stampanteVenditore.getId()})" ></a>
             <a class="link_carrello" href="./venditore.html?stampante_selezionata=${stampanteVenditore.getId()}&modifica=true">modifica</a>
         </td>
     </tr>

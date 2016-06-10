@@ -49,7 +49,7 @@ public class VenditoreServlet extends HttpServlet {
                             StampantiInVenditaFactory.getInstance().deleteStampanteInVendita(
                                 Integer.parseInt(request.getParameter("stampante_selezionata")), 
                                 ((Venditore) sessione.getAttribute("venditore")).getId());
-                            request.setAttribute("elimina", true);
+                            request.setAttribute("stampante_eliminata", true);
                             request.setAttribute("msg", "la stampante selezionata e' stata eliminata dal database.");
                         } 
                     }

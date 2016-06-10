@@ -42,7 +42,7 @@ function finestraAccount()
     {
         var tagDiv = document.createElement("div");
         tagDiv.setAttribute("class", "finestra_account");
-        tagDiv.setAttribute("id","finestra_account_id");
+        tagDiv.setAttribute("id", "finestra_account_id");
         $("#infoAccount_id").after(tagDiv);
         var posizione_icona = $("#infoAccount_id").position();
         $("#finestra_account_id").css("width", larghezzaFinestra() + "px" );

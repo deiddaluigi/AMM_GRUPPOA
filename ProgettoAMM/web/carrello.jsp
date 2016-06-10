@@ -35,20 +35,23 @@
                     </tr> 
                     <jsp:include page="tabStampantiCarrello.jsp"/>  
                 </table>
-                <c:if test="${ !acquistato and !sessionScope.carrello.isEmpty()}">
-                <h4 class='datiRiepilogo_acquisto'>Totale &#8364; ${prezzoTotale}</h4>
-                <form class='datiRiepilogo_acquisto' method="POST" action="carrello.html?acquistaOk=ok">
-                    <p>
-                        Per procedere con il pagamento inserire il codice di accesso al conto 
-                        <label for="codice_id"></label>
-                        <input class="${stile_input_quantita}" type="number" name="codice_accesso" id="codice_id"  min="0" >
-                    </p>
-                    <p>
-                        Per confermare l'acquisto, selezionare
-                        <input class="pulsanti" type="submit" value="Acquista" name="acquista_name">
-                    </p>
-                </form>   
-                </c:if>
+                    <c:if test="${sessionScope.carrello.isEmpty()}">
+                        <p>Il carrello è vuoto.</p> 
+                    </c:if>
+                    <c:if test="${ !acquistato and !sessionScope.carrello.isEmpty()}">
+                        <h4 class='datiRiepilogo_acquisto'>Totale &#8364; ${prezzoTotale}</h4>
+                        <form class='datiRiepilogo_acquisto' method="POST" action="carrello.html?acquistaOk=ok">
+                            <p>
+                                Per procedere con il pagamento inserire il codice di accesso al conto 
+                                <label for="codice_id"></label>
+                                <input class="${stile_input_quantita}" type="number" name="codice_accesso" id="codice_id"  min="0" >
+                            </p>
+                            <p>
+                                Per confermare l'acquisto, selezionare
+                                <input class="pulsanti" type="submit" value="Acquista" name="acquista_name">
+                            </p>
+                        </form>   
+                    </c:if>
                 <p class="messaggio_acquisto">${messaggio_acquisto}</p>
             </div>
             <div id="blank">
