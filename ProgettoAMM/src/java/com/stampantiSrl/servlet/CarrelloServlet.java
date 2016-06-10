@@ -50,7 +50,6 @@ public class CarrelloServlet extends HttpServlet {
                double prezzoTotale = 0;
                ArrayList<StampanteInVendita> carrello;
                carrello = (ArrayList<StampanteInVendita>) sessione.getAttribute("carrello");
-               
                //elimina la stampante selezionata dal carrello e aggiorna le quantita'
                if (request.getParameter("elimina_dal_carrello") != null) {
                    try {

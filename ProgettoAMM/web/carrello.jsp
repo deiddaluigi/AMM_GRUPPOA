@@ -35,7 +35,7 @@
                     </tr> 
                     <jsp:include page="tabStampantiCarrello.jsp"/>  
                 </table>
-                <c:if test="${!(acquistato)}">
+                <c:if test="${ !acquistato and !sessionScope.carrello.isEmpty()}">
                 <h4 class='datiRiepilogo_acquisto'>Totale &#8364; ${prezzoTotale}</h4>
                 <form class='datiRiepilogo_acquisto' method="POST" action="carrello.html?acquistaOk=ok">
                     <p>
