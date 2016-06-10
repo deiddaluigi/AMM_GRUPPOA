@@ -138,7 +138,6 @@ function caricaDatiAccount(tag)
             tagLi4.appendChild(saldoConto);
         }
         $("#elencoDatiAccount_id > li").css("margin-bottom", "10px" );
-
     }
 }
 

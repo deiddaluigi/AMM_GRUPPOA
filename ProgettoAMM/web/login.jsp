@@ -20,9 +20,11 @@
             <div id="sidebar1">
                 <nav>
                     <ul id="sidebar_login">
-                    <li><a href="./login.html">Verifica account</a></li>
-                    <li><a href="./login.html">Accedi tramite codice</a></li>
-                    <li><a href="./login.html">Recupera password</a></li>
+                    <li><a href="http://www.canon.it/" target="_blank">CANON</a></li>
+                    <li><a href="https://www.epson.it/" target="_blank">EPSON</a></li>
+                    <li><a href="http://www8.hp.com/it/it/home.html" target="_blank">HP</a></li>
+                    <li><a href="http://www.brother.it/" target="_blank">BROTHER</a></li>
+                    
                 </ul>
                 </nav>          
             </div>
@@ -37,10 +39,6 @@
                     <c:if test = "${flagAccessoNegato}">
                         <p class="messaggi_errore">username e/o password errati</p>
                     </c:if>
-                    <div id="link_registrazione">
-                        <p >Non sei ancora registrato?</p>
-                        <a href="./login.html">Registrati</a>
-                    </div>
                 </form> 
                 
             </div>
