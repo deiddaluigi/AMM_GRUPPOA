@@ -1,7 +1,5 @@
-<%-- 
-    Document   : login
-    Created on : 24-apr-2016, 18.46.58
-    Author     : Luigi Deidda
+<%--
+    Author: Luigi Deidda
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -23,8 +21,7 @@
                     <li><a href="http://www.canon.it/" target="_blank">CANON</a></li>
                     <li><a href="https://www.epson.it/" target="_blank">EPSON</a></li>
                     <li><a href="http://www8.hp.com/it/it/home.html" target="_blank">HP</a></li>
-                    <li><a href="http://www.brother.it/" target="_blank">BROTHER</a></li>
-                    
+                    <li><a href="http://www.brother.it/" target="_blank">BROTHER</a></li>                  
                 </ul>
                 </nav>          
             </div>

@@ -1,9 +1,6 @@
-<%-- 
-    Document   : listaStampantiJson
-    Created on : 4-giu-2016, 19.04.07
-    Author     : Luigi Deidda
+<%--
+    Author: Luigi Deidda
 --%>
-
 <%@page contentType="application/json" pageEncoding="UTF-8"%>
 <%@ taglib prefix="json" uri="http://www.atg.com/taglibs/json" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>

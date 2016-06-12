@@ -36,19 +36,21 @@ public class RicaricaContoCorrente extends HttpServlet {
             (boolean) sessione.getAttribute("clienteLoggedIn")) {
                 if(request.getParameter("ricarica_conto_name") != null){
                     request.setAttribute("risposta", "true");
-                    int numCartaCredito = -1;
+                    long numCartaCredito = -1;
                     double importoRicarica = -1;
                     try {
-                        numCartaCredito = Integer.parseInt(request.getParameter("num_carta_di_credito"));
+                        numCartaCredito = Long.parseLong(request.getParameter("num_carta_di_credito"));
                         importoRicarica = Double.parseDouble(request.getParameter("importo_ricarica"));
                     } catch (NumberFormatException e){
                         request.setAttribute("msg", "Errore formato carta di credito o importo: " + e.getMessage());
                         request.getRequestDispatcher("ricaricaContoCorrente.jsp").forward(request,response);
                     }
-                    
                     /*per simulare un criterio di verifica validità dei numeri di carta di credito,
-                    valutiamo come carta valida un numero di carta multiplo di 3*/
-                    if (numCartaCredito % 3 == 0) {
+                    valutiamo come carta valida un numero di carta con le seguenti caratteristiche:*/
+                    if (numCartaCredito > 0
+                            && numCartaCredito % 3 == 0 //multiplo di 3
+                            &&  ((long) Math.log10(numCartaCredito)) == (16 - 1) //numero di cifre pari a 16
+                            ) {
                         if (importoRicarica > 0) {
                             Cliente cliente = (Cliente) sessione.getAttribute("cliente");
                             if (ContiCorrentiFactory.getInstance().versaSulConto(cliente.getId(), importoRicarica)) {

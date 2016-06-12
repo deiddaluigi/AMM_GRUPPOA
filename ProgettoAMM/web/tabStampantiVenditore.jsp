@@ -1,3 +1,6 @@
+<%--
+    Author: Luigi Deidda
+--%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <c:forEach var="stampanteVenditore" items="${listaStampantiVenditore}">
@@ -10,7 +13,8 @@
         <td>${stampanteVenditore.getQuantita()}</td>
         <td>€ ${stampanteVenditore.getPrezzoUnitario()}</td>
         <td>
-            <input id="link_carrello_button" class="link_carrello" value="elimina" type="button" onclick="eliminaStampante(${stampanteVenditore.getId()})" ></a>
+            <input id="link_carrello_button" class="link_carrello" value="elimina" type="button" 
+                   onclick="eliminaStampante(${stampanteVenditore.getId()})" ></a>
             <a class="link_carrello" href="./venditore.html?stampante_selezionata=${stampanteVenditore.getId()}&modifica=true">modifica</a>
         </td>
     </tr>

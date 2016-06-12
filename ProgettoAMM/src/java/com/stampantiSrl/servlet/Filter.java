@@ -3,7 +3,6 @@ package com.stampantiSrl.servlet;
 import com.stampantiSrl.classi.StampanteInVendita;
 import com.stampantiSrl.classi.StampantiInVenditaFactory;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -47,7 +46,7 @@ public class Filter extends HttpServlet {
                 carrello = (ArrayList<StampanteInVendita>) sessione.getAttribute("carrello");
                 for (int i = 0; i < carrello.size(); i++) {
                     for (int j = 0; j < listaStampanti.size(); j++){
-                        if (listaStampanti.get(j).getId() == carrello.get(i).getId()){
+                        if (listaStampanti.get(j).equals(carrello.get(i))){
                             int qt = listaStampanti.get(j).getQuantita()
                                     - carrello.get(i).getQuantita();
                             listaStampanti.get(j).setQuantita(qt);

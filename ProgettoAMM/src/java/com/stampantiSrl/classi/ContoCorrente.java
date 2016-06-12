@@ -44,8 +44,12 @@ public class ContoCorrente {
     }
     public void prelevaDaConto(int codiceAccesso, double importoPrelevamento){
         if (this.codiceAccessoConto == codiceAccesso) {
-            if (importoPrelevamento <= saldo)
+            if (importoPrelevamento <= saldo){
                 saldo -= importoPrelevamento;
+                if (importoPrelevamento < 0) {
+                    throw new RuntimeException("Errore. L'importo del pagamento deve avere un valore positivo.");
+                }
+            }
             else throw new RuntimeException("Errore. L'importo del pagamento supera il saldo del conto.");
         } else throw new RuntimeException("Errore. Codice di accesso al conto errato.");
     }

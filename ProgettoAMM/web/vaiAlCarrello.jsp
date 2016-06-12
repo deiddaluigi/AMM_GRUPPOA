@@ -1,9 +1,6 @@
-<%-- 
-    Document   : vaiAlCarrello
-    Created on : 24-apr-2016, 19.12.26
-    Author     : Luigi
+<%--
+    Author: Luigi Deidda
 --%>
-
 <a href="./carrello.html" class="icone_nav">
     <img title="Vai al carrello" 
          alt="icona carrello"

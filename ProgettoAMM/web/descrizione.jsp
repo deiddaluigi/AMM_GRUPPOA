@@ -1,7 +1,5 @@
-<%-- 
-    Document   : descrizione
-    Created on : 24-apr-2016, 18.41.46
-    Author     : Luigi
+<%--
+    Author: Luigi Deidda
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

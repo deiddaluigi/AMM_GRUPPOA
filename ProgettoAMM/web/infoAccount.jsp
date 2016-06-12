@@ -1,7 +1,5 @@
-<%-- 
-    Document   : infoAccount
-    Created on : 8-giu-2016, 18.13.58
-    Author     : Luigi Deidda
+<%--
+    Author: Luigi Deidda
 --%>
 <script type="text/javascript" src="./js/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="./js/infoAccount.js"></script>

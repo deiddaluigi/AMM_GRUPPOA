@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.stampantiSrl.servlet;
 
 import com.stampantiSrl.classi.Cliente;
@@ -11,7 +6,6 @@ import com.stampantiSrl.classi.ContoCliente;
 import com.stampantiSrl.classi.ContoVenditore;
 import com.stampantiSrl.classi.Venditore;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,7 +15,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Luigi
+ * @author Luigi Deidda
  */
 @WebServlet(name = "InfoAccountServletAjax", urlPatterns = {"/infoAccount.json"})
 public class InfoAccountServletAjax extends HttpServlet {

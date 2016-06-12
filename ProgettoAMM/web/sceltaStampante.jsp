@@ -1,8 +1,9 @@
+<%--
+    Author: Luigi Deidda
+--%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--
--->
 <html>
     <head>
         <title>Riepilogo dati stampante</title>
@@ -34,9 +35,7 @@
             </p>
             </c:if>
             <div id="blank"></div>
-            <jsp:include page="footer-1.jsp"/>
-            
-            
+            <jsp:include page="footer-1.jsp"/>       
         </div>
     </body>
 </html>

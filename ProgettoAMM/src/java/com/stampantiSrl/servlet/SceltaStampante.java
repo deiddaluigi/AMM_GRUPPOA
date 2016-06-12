@@ -48,7 +48,7 @@ public class SceltaStampante extends HttpServlet {
                         carrello = (ArrayList<StampanteInVendita>) sessione.getAttribute("carrello");
                         int qt = 0;
                         for(StampanteInVendita s: carrello){
-                            if (s.getId() == stampanteSelezionata ){
+                            if (s.equals(stampante)){
                                 qt = 1;
                                 s.setQuantita(s.getQuantita()+1);
                                 break;

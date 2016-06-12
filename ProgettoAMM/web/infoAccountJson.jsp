@@ -1,9 +1,6 @@
-<%-- 
-    Document   : infoAccountJson
-    Created on : 9-giu-2016, 8.17.43
-    Author     : Luigi Deidda
+<%--
+    Author: Luigi Deidda
 --%>
-
 <%@page contentType="application/json" pageEncoding="UTF-8"%>
 <%@ taglib prefix="json" uri="http://www.atg.com/taglibs/json" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>

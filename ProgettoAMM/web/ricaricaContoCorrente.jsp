@@ -1,18 +1,14 @@
-<%-- 
-    Document   : ricaricaContoCorrente
-    Created on : 9-giu-2016, 11.34.46
-    Author     : Luigi Deidda
+<%--
+    Author: Luigi Deidda
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--
--->
 <html>
     <head>
         <title>Ricarica Conto Corrente</title>
         <meta charset="UTF-8">
-        <meta name="description" content="Riepilogo dati stampante">
+        <meta name="description" content="ricarica conto corrente">
         <meta name="author" content="Luigi Deidda">
         <link rel="stylesheet" type="text/css" href="./style.css" media="screen">
     </head>

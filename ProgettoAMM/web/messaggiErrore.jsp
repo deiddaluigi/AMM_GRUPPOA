@@ -1,7 +1,5 @@
-<%-- 
-    Document   : messaggiErrore
-    Created on : 30-apr-2016, 18.27.32
-    Author     : Luigi Deidda
+<%--
+    Author: Luigi Deidda
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

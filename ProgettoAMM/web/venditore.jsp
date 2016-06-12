@@ -1,7 +1,5 @@
-<%-- 
-    Document   : venditore
-    Created on : 24-apr-2016, 18.44.54
-    Author     : Luigi Deidda
+<%--
+    Author: Luigi Deidda
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

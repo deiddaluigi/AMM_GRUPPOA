@@ -1,3 +1,6 @@
+<%--
+    Author: Luigi Deidda
+--%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -5,7 +8,7 @@
     <head>
         <title>carrello</title>
         <meta charset="UTF-8">
-        <meta name="description" content="elenco stampanti in vendita">
+        <meta name="description" content="carrello">
         <meta name="author" content="Luigi Deidda">
         <link rel="stylesheet" type="text/css" href="./style.css" media="screen">
     </head>
@@ -23,7 +26,7 @@
                         <th>Quantit&agrave; di pezzi da acquistare</th>
                         <th>Prezzo unitario</th>
                         <th>Prezzo totale</th>
-                        <th>Elimina dal Carrello</th>
+                        <th>Elimina dal carrello</th>
                     </tr> 
                     <tr id="abbreviazioni_tab">
                         <th>IMG</th>
