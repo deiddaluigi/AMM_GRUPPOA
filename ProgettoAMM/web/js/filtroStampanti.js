@@ -19,10 +19,9 @@ function eseguiFiltro(q)
                 dataType: 'json',
                 success: function (resLista) {
                     $("#msg_non_trovato").remove();
+                    $("p.input_filter").remove();
                     if (jQuery.isEmptyObject(resLista)) {
                         $(".riga_tab").remove();
-                        var tagP = document.createElement("p");
-                        $(".input_filter").append(tagP);
                         var tagP = document.createElement("p");
                         $(".input_filter").append(tagP);
                         tagP.setAttribute("id", "msg_non_trovato");
@@ -31,7 +30,6 @@ function eseguiFiltro(q)
                     } else {
                         aggiornaElencoStampantiInVendita(resLista);
                     }
-                    
                 },
                 error: function () {
                     alert("Si è verificato un errore in fase di aggiornamento pagina");
@@ -39,7 +37,7 @@ function eseguiFiltro(q)
             });
     function aggiornaElencoStampantiInVendita(listaStampanti)
     {
-        $(".riga_tab").remove();
+        
         for (var i in listaStampanti)
         {
             var nuovoTag_tr = document.createElement("tr");

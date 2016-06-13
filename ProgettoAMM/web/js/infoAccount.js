@@ -38,7 +38,10 @@ function larghezzaFinestra()
 }
 function finestraAccount()
 {
-    if ($("#finestra_account_id").is(':hidden') || $("#finestra_account_id").length === 0)
+    if ($("#finestra_account_id").is(':hidden')){
+        $("#finestra_account_id").show();
+    }
+    else if ($("#finestra_account_id").length === 0)
     {
         var tagDiv = document.createElement("div");
         tagDiv.setAttribute("class", "finestra_account");

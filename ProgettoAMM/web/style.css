@@ -311,7 +311,7 @@ input.pulsanti
     border: none;
     color: white;  
 }
-#link_carrello_button
+input.link_carrello
 {
     background-color: transparent;
     color: #042756;
@@ -327,7 +327,7 @@ input.pulsanti
     text-decoration: none;
     font-size: 16px;
 }
-#link_carrello_button:hover
+input.link_carrello:hover
 {
     background-color: #042d86;
     color: white;

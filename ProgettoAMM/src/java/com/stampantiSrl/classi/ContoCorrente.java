@@ -47,7 +47,7 @@ public class ContoCorrente {
             if (importoPrelevamento <= saldo){
                 saldo -= importoPrelevamento;
                 if (importoPrelevamento < 0) {
-                    throw new RuntimeException("Errore. L'importo del pagamento deve avere un valore positivo.");
+                    throw new RuntimeException("Errore. L'importo del prelevamento deve avere un valore positivo.");
                 }
             }
             else throw new RuntimeException("Errore. L'importo del pagamento supera il saldo del conto.");
