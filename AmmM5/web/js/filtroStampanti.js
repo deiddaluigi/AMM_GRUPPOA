@@ -20,8 +20,8 @@ function eseguiFiltro(q)
                 success: function (resLista) {
                     $("#msg_non_trovato").remove();
                     $("p.input_filter").remove();
+                    $(".riga_tab").remove();
                     if (jQuery.isEmptyObject(resLista)) {
-                        $(".riga_tab").remove();
                         var tagP = document.createElement("p");
                         $(".input_filter").append(tagP);
                         tagP.setAttribute("id", "msg_non_trovato");
