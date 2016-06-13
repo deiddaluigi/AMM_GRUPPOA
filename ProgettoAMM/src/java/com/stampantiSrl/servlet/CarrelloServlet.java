@@ -69,10 +69,10 @@ public class CarrelloServlet extends HttpServlet {
                        //carica l'istanza del cliente relativo alla sessione corrente
                        Cliente cliente = (Cliente) sessione.getAttribute("cliente");
                        
-                       //crea un'istanza del conto corrente relativo al cliente corrente
+                       //carica l'istanza del conto corrente relativo al cliente corrente
                        contoCliente = (ContoCliente) ContiCorrentiFactory.getInstance().getContoCorrente(cliente);
                        
-                       //crea un'istanza del conto del venditore relativo alla prima stampante nel carrello
+                       //carica l'istanza del conto del venditore relativo alla prima stampante nel carrello
                        // ipotizzando che appartengano tutte ad uno stesso venditore
                        contoVenditore = ContiCorrentiFactory.getInstance().getContoVenditore(carrello.get(0).getVenditoreId());
                        int codiceAccesso=0;

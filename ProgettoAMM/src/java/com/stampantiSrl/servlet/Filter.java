@@ -43,6 +43,8 @@ public class Filter extends HttpServlet {
                         StampantiInVenditaFactory.getInstance().getStampantiInVenditaList(testo);
                 HttpSession sessione = request.getSession(false);
                 ArrayList<StampanteInVendita> carrello;
+                /*aggiorna le quantità disponibili della lista stampanti appena caricata
+                decurtando le eventuali stampanti già presenti nel carrello di sessione*/
                 carrello = (ArrayList<StampanteInVendita>) sessione.getAttribute("carrello");
                 for (int i = 0; i < carrello.size(); i++) {
                     for (int j = 0; j < listaStampanti.size(); j++){
