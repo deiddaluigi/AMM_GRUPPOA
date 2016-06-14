@@ -18,7 +18,7 @@
             <div>
                 <form class="form_venditore" method="POST" action="nuovaStampante.html">
                     <div>
-                    <h1>Modifica stampante ID ${modificaStampante.getId()}</h1>
+                    <h1>Modifica stampante CODICE: ${modificaStampante.getId()}</h1>
                     <input type="hidden" name="id_name" value="${modificaStampante.getId()}" />
                     <jsp:include page="messaggiErrore.jsp"/>
                     <jsp:include page="sezioneFormInserimentoDati_1.jsp"/>

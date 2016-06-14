@@ -6,9 +6,9 @@ function eliminaStampante(idStampante)
     $("#page").append(tagDiv);
     var tagP = document.createElement("p");
     tagDiv.appendChild(tagP);
-    var msg = document.createTextNode(
-        "Premere Conferma per eliminare dal database la stampante selezionata (id = " + idStampante + "),\n\
-         atrimenti premere Annulla");
+   var msg = document.createTextNode(
+        "Premere Conferma per eliminare dal database la stampante selezionata (CODICE: " + idStampante + "),\n\
+         atrimenti premere Annulla.");
     tagP.appendChild(msg);
     var tagButton1 = document.createElement("button");
     var elimina = "confermaElimina(" + idStampante + ")";
