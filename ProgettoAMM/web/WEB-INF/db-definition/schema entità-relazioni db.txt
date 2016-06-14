@@ -58,9 +58,3 @@ STAMPANTE_IN_VENDITA-VENDITORE
     (per ogni) stampante_in_vendita --> 1 venditore
     (per ogni) venditore --> N stampanti_in_vendita
     RELAZIONE: uno a molti
-(questa relazione associa a ciascuna stampante in vendita, identificata 
-in modo univoco dalla chiave primaria in tabella, un unico venditore. A 
-ciascuna chiave primaria delle stampanti corrispondono n esemplari di stampanti 
-il cui totale disponibile per la vendita è riportato nel campo quantità. In caso 
-di più venditori, anche in caso di stampanti della stessa marca e modello, a
-ciascun venditore verrà associata una stampante con chiave primaria diversa.)

@@ -10,6 +10,6 @@
 </c:if>
 <c:if test = "${erroreInput_prezzo}">
 <p class="messaggi_errore">
-    Errore input: il campo prezzo unitario deve contenere valori espressi in cifre. 
+    Errore input: il campo prezzo unitario deve contenere valori espressi in cifre e maggiori di zero. 
 </p>
 </c:if>

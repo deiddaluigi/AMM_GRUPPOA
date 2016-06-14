@@ -66,8 +66,11 @@ public class NuovaStampanteServlet extends HttpServlet {
                     stampante.setVenditoreId(((Venditore) sessione.getAttribute("venditore")).getId());
                     if(request.getParameter("submit_name_stampante")!= null){
                         try {
-                            stampante.setPrezzoUnitario(Double.parseDouble(request.getParameter("prezzo_name")));
-                            request.setAttribute("stile_input_prezzo", "stile_input");
+                            Double prezzo = Double.parseDouble(request.getParameter("prezzo_name"));
+                            if (prezzo >= 0) {
+                                stampante.setPrezzoUnitario(prezzo);
+                                request.setAttribute("stile_input_prezzo", "stile_input");
+                            } else throw new NumberFormatException();
                         } catch (NumberFormatException e) {
                             request.setAttribute("erroreInput_prezzo", true);
                             request.setAttribute("stile_input_prezzo", "errori_input");
@@ -92,8 +95,12 @@ public class NuovaStampanteServlet extends HttpServlet {
                     } else if (request.getParameter("salva_modifiche_name")!= null){
                         stampante.setId(Integer.parseInt(request.getParameter("id_name")));
                         try {
-                            stampante.setPrezzoUnitario(Double.parseDouble(request.getParameter("prezzo_name")));
-                            request.setAttribute("stile_input_prezzo", "stile_input");
+                            Double prezzo = Double.parseDouble(request.getParameter("prezzo_name"));
+                            if (prezzo >= 0) {
+                                stampante.setPrezzoUnitario(prezzo);
+                                request.setAttribute("stile_input_prezzo", "stile_input");
+                            } else throw new NumberFormatException();
+                            
                         } catch (NumberFormatException e) {
                             request.setAttribute("erroreInput_prezzo", true);
                             request.setAttribute("stile_input_prezzo", "errori_input");
