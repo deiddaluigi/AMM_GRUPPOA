@@ -1,5 +1,13 @@
 function eliminaStampante(idStampante)
 {
+    /*
+     *Se la finestra_messaggio fosse già stata attivata da un precedente comando,
+     *verrà annullata e sostituita dalla nuova finestra.
+     */
+    if ($("#div_finestra_messaggio").is(':visible'))
+    {
+        annulla();
+    }
     var tagDiv = document.createElement("div");
     tagDiv.setAttribute("class", "finestra_messaggio");
     tagDiv.setAttribute("id", "div_finestra_messaggio");

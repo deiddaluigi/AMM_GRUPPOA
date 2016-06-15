@@ -9,7 +9,9 @@
                     alt="immagine stampante ${stampanteVenditore.getMarca()} ${stampanteVenditore.getModello()}"
                     src=${stampanteVenditore.getUrlImmagine()}>
         </td>
-        <td>(CODICE: ${stampanteVenditore.getId()}) <br/> ${stampanteVenditore.getMarca()} ${stampanteVenditore.getModello()}</td>
+        <td>(CODICE: ${stampanteVenditore.getId()})
+            <div>${stampanteVenditore.getMarca()} ${stampanteVenditore.getModello()}</div>
+        </td>
         <td>${stampanteVenditore.getQuantita()}</td>
         <td>€ ${stampanteVenditore.getPrezzoUnitario()}</td>
         <td>
